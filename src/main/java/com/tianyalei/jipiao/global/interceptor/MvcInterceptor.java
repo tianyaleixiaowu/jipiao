@@ -20,13 +20,15 @@ public class MvcInterceptor extends HandlerInterceptorAdapter {
         if (request.getRequestURI().contains("login") || request.getRequestURI().contains("error")) {
             return true;
         }
+
+        Long userId = ApplicationContextProvider.getBean(UserCache.class).findUserByToken(token);
         //没token，或token在缓存中找不到
-        if (token == null || ApplicationContextProvider.getBean(UserCache.class).findUserByToken(token) ==
-                null) {
+        if (token == null || userId == null) {
             gotoLogin(response);
             return false;
         }
 
+        request.setAttribute("userId", userId);
         return true;
     }
 

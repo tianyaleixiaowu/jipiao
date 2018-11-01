@@ -28,7 +28,8 @@ public enum ResultCode {
     ACCOUNT_ERROR(20001),
     //登录失败
     LOGIN_FAIL_ERROR(20002),
-
+    //密码错误
+    PASSWORD_ERROR(20003),
     //超出推送最大限制
     PUSH_COUNT_TO_LARGE(30001),
 

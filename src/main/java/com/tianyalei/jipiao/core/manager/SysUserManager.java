@@ -9,6 +9,7 @@ import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.cache.UserCache;
 import com.tianyalei.jipiao.global.util.CommonUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 
@@ -40,6 +41,22 @@ public class SysUserManager {
             return ResultGenerator.genSuccessResult(userCache.saveToken(temp.getId()));
         }
 
+    }
+
+    public BaseData modifyPassword(Long userId, String oldPassword, String newPassword) {
+        if (StringUtils.isEmpty(oldPassword) || StringUtils.isEmpty(newPassword)) {
+            return ResultGenerator.genFailResult(ResultCode.PASSWORD_ERROR, "旧密码错误");
+        }
+
+        SysUser sysUser = sysUserRepository.getOne(userId);
+
+        if(!sysUser.getPassword().equals(CommonUtil.md5(oldPassword))) {
+            return ResultGenerator.genFailResult(ResultCode.PASSWORD_ERROR, "旧密码错误");
+        }
+        sysUser.setPassword(CommonUtil.md5(newPassword));
+        sysUserRepository.save(sysUser);
+
+        return ResultGenerator.genSuccessResult("修改成功");
     }
 
 

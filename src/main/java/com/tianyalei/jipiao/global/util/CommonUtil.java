@@ -47,6 +47,10 @@ public class CommonUtil {
 
     }
 
+    public static void main(String[] args) {
+        System.out.println(md5("123456"));
+    }
+
     public static String randomUrl() {
         List<String> stringList = new ArrayList<>();
         String randomStr = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
