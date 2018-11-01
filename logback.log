@@ -1,0 +1,68 @@
+2018-11-01 10:00:18.253  INFO 39285 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 39285 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-01 10:00:18.260  INFO 39285 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-01 10:00:19.643  INFO 39285 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-01 10:00:19.675  INFO 39285 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2018-11-01 10:00:20.183  INFO 39285 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3e28096f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-01 10:00:21.278  INFO 39285 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-01 10:00:21.303  INFO 39285 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-01 10:00:21.304  INFO 39285 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-01 10:00:21.312  INFO 39285 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-01 10:00:21.421  INFO 39285 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-01 10:00:21.421  INFO 39285 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3065 ms
+2018-11-01 10:00:21.505  INFO 39285 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-01 10:00:21.515  INFO 39285 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-01 10:00:21.518  INFO 39285 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-01 10:00:21.520  INFO 39285 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-01 10:00:21.521  INFO 39285 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-01 10:00:21.521  INFO 39285 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-01 10:00:21.562  WARN 39285 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: 'entityManagerFactory' depends on missing bean 'cacheManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'cacheManager' available
+2018-11-01 10:00:21.564  INFO 39285 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-11-01 10:00:21.590  INFO 39285 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-11-01 10:00:21.674 ERROR 39285 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean named 'cacheManager' that could not be found.
+
+
+Action:
+
+Consider defining a bean named 'cacheManager' in your configuration.
+
+2018-11-01 10:02:06.546  INFO 39318 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 39318 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-01 10:02:06.550  INFO 39318 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-01 10:02:07.701  INFO 39318 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-01 10:02:07.738  INFO 39318 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26ms. Found 0 repository interfaces.
+2018-11-01 10:02:08.234  INFO 39318 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bc7f3cf4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-01 10:02:08.889  INFO 39318 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-01 10:02:08.912  INFO 39318 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-01 10:02:08.912  INFO 39318 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-01 10:02:08.922  INFO 39318 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-01 10:02:09.035  INFO 39318 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-01 10:02:09.035  INFO 39318 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2381 ms
+2018-11-01 10:02:09.081  INFO 39318 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-01 10:02:09.086  INFO 39318 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-01 10:02:09.087  INFO 39318 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-01 10:02:09.087  INFO 39318 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-01 10:02:09.087  INFO 39318 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-01 10:02:09.087  INFO 39318 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-01 10:02:09.614  INFO 39318 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-01 10:02:09.958  INFO 39318 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-01 10:02:09.961  INFO 39318 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-01 10:02:10.267  INFO 39318 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-01 10:02:10.429  INFO 39318 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-01 10:02:10.835  INFO 39318 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-01 10:02:10.850  INFO 39318 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-01 10:02:11.191  INFO 39318 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-01 10:02:12.109  INFO 39318 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-01 10:02:12.267  WARN 39318 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-01 10:02:12.901  INFO 39318 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-01 10:02:12.906  INFO 39318 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 7.185 seconds (JVM running for 8.114)
