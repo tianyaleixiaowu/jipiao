@@ -13,7 +13,7 @@ public class SysUser {
     private Long id;
     private String account;
     /**
-     * 2层md5
+     * 1层md5
      */
     private String password;
 
