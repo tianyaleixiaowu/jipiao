@@ -1,6 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "M_CompanyTravelSetting", catalog = "")
-public class MCompanyTravelSettingEntity extends BaseEntity  {
+public class MCompanyTravelSettingEntity extends BaseIdEntity {
     private int travelLevelId;
     private String planeLevel;
     private String trainLevel;

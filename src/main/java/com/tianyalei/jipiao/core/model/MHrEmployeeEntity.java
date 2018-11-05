@@ -26,6 +26,7 @@ public class MHrEmployeeEntity extends BaseEntity {
     private String impFlag;
     private Byte travelLevel;
 
+    @Id
     @Column(name = "EmployeeID")
     public String getEmployeeId() {
         return employeeId;

@@ -1,6 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "M_Company", catalog = "")
-public class MCompanyEntity extends BaseEntity {
+public class MCompanyEntity extends BaseIdEntity {
     private String companyName;
     /**
      * 单位简称

@@ -1,6 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "M_MemberCall", catalog = "")
-public class MMemberCallEntity extends BaseEntity {
+public class MMemberCallEntity extends BaseIdEntity {
     private String cardNum;
     private String callPhone;
 

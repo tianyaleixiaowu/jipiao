@@ -1,6 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 //@Entity
 //@Table(name = "M_MemberCreditCard", catalog = "")
-public class MMemberCreditCardEntity extends BaseEntity {
+public class MMemberCreditCardEntity extends BaseIdEntity {
     /**
      * 会员卡号
      */

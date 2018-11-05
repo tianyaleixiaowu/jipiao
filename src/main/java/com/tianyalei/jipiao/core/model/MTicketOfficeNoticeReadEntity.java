@@ -1,6 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -10,7 +10,7 @@ import javax.persistence.Column;
  */
 //@Entity
 //@Table(name = "M_TicketOfficeNoticeRead", catalog = "")
-public class MTicketOfficeNoticeReadEntity extends BaseEntity {
+public class MTicketOfficeNoticeReadEntity extends BaseIdEntity {
     private int noticeId;
     private byte isRead;
 

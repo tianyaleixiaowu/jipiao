@@ -1,11 +1,9 @@
 package com.tianyalei.jipiao.core.model;
 
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.sql.Timestamp;
 
 /**
@@ -13,7 +11,7 @@ import java.sql.Timestamp;
  */
 //@Entity
 //@Table(name = "M_TicketOffice", catalog = "")
-public class MTicketOfficeEntity extends BaseEntity {
+public class MTicketOfficeEntity extends BaseIdEntity {
     private int agentId;
     private String ticketOfficeName;
     private String ticketDistrict;

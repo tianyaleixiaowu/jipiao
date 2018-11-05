@@ -1,6 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -11,7 +11,7 @@ import javax.persistence.Column;
  */
 //@Entity
 //@Table(name = "M_MemberCard", catalog = "")
-public class MMemberCardEntity extends BaseEntity {
+public class MMemberCardEntity extends BaseIdEntity {
     /**
      * 发卡单位ID
      */

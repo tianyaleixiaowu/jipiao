@@ -1,7 +1,7 @@
 package com.tianyalei.jipiao.global.aop;
 
 import com.tianyalei.jipiao.core.model.MOperationLogEntity;
-import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 import com.tianyalei.jipiao.global.cache.UserCache;
 import com.xiaoleilu.hutool.json.JSONUtil;
 import org.aspectj.lang.JoinPoint;
@@ -48,10 +48,10 @@ public class SavePointAspect {
 
         Object[] obj = joinPoint.getArgs();
         for (Object o : obj) {
-            if (!(o instanceof BaseEntity)) {
+            if (!(o instanceof BaseIdEntity)) {
                 continue;
             }
-            BaseEntity baseEntity = (BaseEntity) o;
+            BaseIdEntity baseIdEntity = (BaseIdEntity) o;
 
             //添加系统日志
             MOperationLogEntity operationLogEntity = new MOperationLogEntity();
@@ -60,7 +60,7 @@ public class SavePointAspect {
             }
 
             if (method.contains("add")) {
-                baseEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
+                baseIdEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
 
                 operationLogEntity.setOperationType("add");
             } else if (method.contains("update")) {
@@ -68,9 +68,9 @@ public class SavePointAspect {
             } else if (method.contains("delete")) {
                 operationLogEntity.setOperationType("delete");
             }
-            baseEntity.setCreateUserId(userId + "");
-            baseEntity.setCreateRealName("CreateRealName");
-            baseEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            baseIdEntity.setCreateUserId(userId + "");
+            baseIdEntity.setCreateRealName("CreateRealName");
+            baseIdEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
             String jsonContent = JSONUtil.toJsonStr(o);
             operationLogEntity.setContent(jsonContent);

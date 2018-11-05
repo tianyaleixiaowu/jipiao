@@ -105,6 +105,7 @@ public class MMemberEntity extends BaseEntity {
      */
     private int ticketOfficeId;
 
+    @Id
     @Column(name = "CardNum")
     public String getCardNum() {
         return cardNum;

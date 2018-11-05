@@ -21,7 +21,7 @@ public class MHrDepartmentEntity extends BaseEntity {
     private boolean isEnable;
     private String impFlag;
 
-    @Basic
+    @Id
     @Column(name = "DepID")
     public String getDepId() {
         return depId;

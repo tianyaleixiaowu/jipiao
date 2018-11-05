@@ -28,6 +28,7 @@ public class MHrOrganizationEntity extends BaseEntity {
     private String remark;
     private String impFlag;
 
+    @Id
     @Column(name = "OrgID")
     public String getOrgId() {
         return orgId;

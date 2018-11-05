@@ -11701,3 +11701,328 @@ Caused by: java.lang.IllegalStateException: Lifecycle method annotation requires
 2018-11-05 19:02:20.908  INFO 44054 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2018-11-05 19:02:20.911  INFO 44054 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2018-11-05 19:02:20.936  INFO 44054 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-05 19:09:18.366  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-05 19:09:18.371  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-05 19:09:18.372  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-05 19:09:18.372  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/member/list
+2018-11-05 19:09:18.372  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : GET
+2018-11-05 19:09:18.372  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-05 19:09:18.373  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-05 19:09:18.373  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.MemberController.list
+2018-11-05 19:09:18.373  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-05 19:09:18.455  WARN 43929 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1146, SQLState: 42S02
+2018-11-05 19:09:18.456 ERROR 43929 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Table 'jipiao.m_member' doesn't exist
+2018-11-05 19:09:18.497  INFO 43929 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法异常时执行.....
+2018-11-05 19:09:18.508 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : ************************异常开始*******************************
+2018-11-05 19:09:18.509 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : java.lang.NullPointerException
+2018-11-05 19:09:18.510 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.global.aop.SavePointAspect.throwExceptions(SavePointAspect.java:109)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : java.lang.reflect.Method.invoke(Method.java:497)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:626)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:66)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-05 19:09:18.511 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.manager.MemberManager$$EnhancerBySpringCGLIB$$992bbc9d.list(<generated>)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.controller.MemberController.list(MemberController.java:27)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.controller.MemberController$$FastClassBySpringCGLIB$$a7e2044c.invoke(<generated>)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+2018-11-05 19:09:18.512 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.controller.MemberController$$EnhancerBySpringCGLIB$$2ad067e6.list(<generated>)
+2018-11-05 19:09:18.513 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : java.lang.reflect.Method.invoke(Method.java:497)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+2018-11-05 19:09:18.514 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:890)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+2018-11-05 19:09:18.515 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+2018-11-05 19:09:18.516 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+2018-11-05 19:09:18.516 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+2018-11-05 19:09:18.516 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.global.filter.UrlFilter.doFilter(UrlFilter.java:24)
+2018-11-05 19:09:18.516 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-05 19:09:18.516 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-05 19:09:18.516 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+2018-11-05 19:09:18.516 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+2018-11-05 19:09:18.517 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-05 19:09:18.518 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-05 19:09:18.519 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-05 19:09:18.520 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+2018-11-05 19:09:18.520 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-05 19:09:18.520 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-05 19:09:18.521 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-05 19:09:18.521 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+2018-11-05 19:09:18.521 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+2018-11-05 19:09:18.521 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+2018-11-05 19:09:18.521 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+2018-11-05 19:09:18.521 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+2018-11-05 19:09:18.521 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+2018-11-05 19:09:18.522 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : java.lang.Thread.run(Thread.java:745)
+2018-11-05 19:09:18.523 ERROR 43929 --- [http-nio-8080-exec-3] c.t.j.g.e.GlobalExceptionHandler         : ************************异常结束*******************************
+2018-11-05 19:09:58.020  INFO 43929 --- [Thread-24] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:09:58.026  INFO 43929 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:09:58.037  INFO 43929 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-05 19:09:58.067  INFO 43929 --- [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-05 19:10:05.206  INFO 44229 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 44229 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-05 19:10:05.222  INFO 44229 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-05 19:10:06.996  INFO 44229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-05 19:10:07.170  INFO 44229 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 162ms. Found 5 repository interfaces.
+2018-11-05 19:10:07.840  INFO 44229 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cab58722] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-05 19:10:08.744  INFO 44229 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-05 19:10:08.765  INFO 44229 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-05 19:10:08.766  INFO 44229 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-05 19:10:08.774  INFO 44229 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-05 19:10:08.931  INFO 44229 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-05 19:10:08.931  INFO 44229 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3631 ms
+2018-11-05 19:10:09.085  INFO 44229 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-05 19:10:09.086  INFO 44229 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-05 19:10:09.087  INFO 44229 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-05 19:10:09.087  INFO 44229 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-05 19:10:09.087  INFO 44229 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-11-05 19:10:09.087  INFO 44229 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-05 19:10:09.088  INFO 44229 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-05 19:10:09.490  INFO 44229 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-05 19:10:09.559  INFO 44229 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-05 19:10:09.560  INFO 44229 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-05 19:10:09.675  INFO 44229 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-05 19:10:09.849  INFO 44229 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-05 19:10:10.352  INFO 44229 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-05 19:10:10.372  INFO 44229 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-05 19:10:11.939  INFO 44229 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:10:14.052  INFO 44229 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:10:14.142  WARN 44229 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-05 19:10:14.786  INFO 44229 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-05 19:10:14.790  INFO 44229 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 10.461 seconds (JVM running for 11.677)
+2018-11-05 19:10:38.379  INFO 44229 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-05 19:10:38.380  INFO 44229 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-05 19:10:38.409  INFO 44229 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 28 ms
+2018-11-05 19:10:38.462  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-05 19:10:38.462  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-05 19:10:38.463  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-05 19:10:38.464  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/member/list
+2018-11-05 19:10:38.465  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : GET
+2018-11-05 19:10:38.465  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-05 19:10:38.465  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-05 19:10:38.467  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.MemberController.list
+2018-11-05 19:10:38.467  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-05 19:10:38.526  INFO 44229 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-11-05 19:10:38.791  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=SimplePage{totalPage=667, totalCount=6670, list=[com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5, com.tianyalei.jipiao.core.model.MMemberEntity@9c1f4d5]}}
+2018-11-05 19:10:38.791  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：327毫秒
+2018-11-05 19:10:38.791  INFO 44229 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-05 19:12:14.459  INFO 44229 --- [Thread-20] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:12:14.463  INFO 44229 --- [Thread-20] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:12:14.467  INFO 44229 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-05 19:12:14.485  INFO 44229 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-05 19:12:22.089  INFO 44278 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 44278 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-05 19:12:22.108  INFO 44278 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-05 19:12:23.872  INFO 44278 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-05 19:12:24.137  INFO 44278 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 245ms. Found 5 repository interfaces.
+2018-11-05 19:12:24.785  INFO 44278 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4f73da3e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-05 19:12:25.850  INFO 44278 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-05 19:12:25.876  INFO 44278 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-05 19:12:25.876  INFO 44278 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-05 19:12:25.885  INFO 44278 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-05 19:12:26.037  INFO 44278 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-05 19:12:26.038  INFO 44278 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3775 ms
+2018-11-05 19:12:26.233  INFO 44278 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-05 19:12:26.234  INFO 44278 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-05 19:12:26.234  INFO 44278 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-05 19:12:26.234  INFO 44278 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-05 19:12:26.234  INFO 44278 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-11-05 19:12:26.234  INFO 44278 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-05 19:12:26.235  INFO 44278 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-05 19:12:26.808  INFO 44278 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-05 19:12:26.909  INFO 44278 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-05 19:12:26.912  INFO 44278 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-05 19:12:27.166  INFO 44278 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-05 19:12:27.468  INFO 44278 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-05 19:12:27.987  INFO 44278 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-05 19:12:28.029  INFO 44278 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-05 19:12:30.077  INFO 44278 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:12:33.538  INFO 44278 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:12:33.749  WARN 44278 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-05 19:12:34.866  INFO 44278 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-05 19:12:34.870  INFO 44278 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 14.541 seconds (JVM running for 17.01)
+2018-11-05 19:12:39.969  INFO 44278 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-05 19:12:39.969  INFO 44278 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-05 19:12:40.008  INFO 44278 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 39 ms
+2018-11-05 19:12:40.126  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-05 19:12:40.126  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-05 19:12:40.127  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-05 19:12:40.129  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/member/list
+2018-11-05 19:12:40.130  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : GET
+2018-11-05 19:12:40.130  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-05 19:12:40.130  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-05 19:12:40.133  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.MemberController.list
+2018-11-05 19:12:40.133  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-05 19:12:44.072  INFO 44278 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-11-05 19:17:51.736  WARN 44278 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m23s645ms).
+2018-11-05 19:17:51.754  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=SimplePage{totalPage=667, totalCount=6670, list=[com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a, com.tianyalei.jipiao.core.model.MMemberEntity@6fffe10a]}}
+2018-11-05 19:17:51.754  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：311626毫秒
+2018-11-05 19:17:51.754  INFO 44278 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-05 19:17:51.830  INFO 44278 --- [Thread-34] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:17:51.834  INFO 44278 --- [Thread-34] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:17:51.843  INFO 44278 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-05 19:17:51.876  INFO 44278 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-05 19:23:18.533  INFO 44452 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 44452 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-05 19:23:18.541  INFO 44452 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-05 19:23:20.509  INFO 44452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-05 19:23:20.658  INFO 44452 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136ms. Found 5 repository interfaces.
+2018-11-05 19:23:21.209  INFO 44452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4a011756] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-05 19:23:21.953  INFO 44452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-05 19:23:21.975  INFO 44452 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-05 19:23:21.976  INFO 44452 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-05 19:23:21.983  INFO 44452 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-05 19:23:22.107  INFO 44452 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-05 19:23:22.107  INFO 44452 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3387 ms
+2018-11-05 19:23:22.281  INFO 44452 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-05 19:23:22.281  INFO 44452 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-05 19:23:22.281  INFO 44452 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-05 19:23:22.281  INFO 44452 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-05 19:23:22.281  INFO 44452 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-11-05 19:23:22.282  INFO 44452 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-05 19:23:22.282  INFO 44452 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-05 19:23:22.824  INFO 44452 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-05 19:23:22.903  INFO 44452 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-05 19:23:22.907  INFO 44452 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-05 19:23:23.109  INFO 44452 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-05 19:23:23.292  INFO 44452 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-05 19:23:23.782  INFO 44452 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-05 19:23:23.793  INFO 44452 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-05 19:23:25.433  INFO 44452 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:23:27.570  INFO 44452 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:23:27.731  WARN 44452 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-05 19:23:28.352  INFO 44452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-05 19:23:28.359  INFO 44452 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 10.86 seconds (JVM running for 12.189)
+2018-11-05 19:23:36.593  INFO 44452 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-05 19:23:36.593  INFO 44452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-05 19:23:36.627  INFO 44452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 33 ms
+2018-11-05 19:23:36.691  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-05 19:23:36.692  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-05 19:23:36.693  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-05 19:23:36.695  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/member/list
+2018-11-05 19:23:36.695  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : GET
+2018-11-05 19:23:36.695  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-05 19:23:36.696  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-05 19:23:36.697  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.MemberController.list
+2018-11-05 19:23:36.698  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-05 19:23:36.750  INFO 44452 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-11-05 19:23:36.978  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=SimplePage{totalPage=667, totalCount=6670, list=[com.tianyalei.jipiao.core.model.MMemberIdEntity@12f73f1a, com.tianyalei.jipiao.core.model.MMemberIdEntity@531a96f6, com.tianyalei.jipiao.core.model.MMemberIdEntity@76d9ebe6, com.tianyalei.jipiao.core.model.MMemberIdEntity@75750e6d, com.tianyalei.jipiao.core.model.MMemberIdEntity@1a3c8458, com.tianyalei.jipiao.core.model.MMemberIdEntity@1d160ccf, com.tianyalei.jipiao.core.model.MMemberIdEntity@24294250, com.tianyalei.jipiao.core.model.MMemberIdEntity@797226de, com.tianyalei.jipiao.core.model.MMemberIdEntity@79273ec, com.tianyalei.jipiao.core.model.MMemberIdEntity@2acf67a5]}}
+2018-11-05 19:23:36.978  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：283毫秒
+2018-11-05 19:23:36.978  INFO 44452 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-05 19:23:55.304  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-05 19:23:55.305  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-05 19:23:55.306  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-05 19:23:55.306  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/member/list
+2018-11-05 19:23:55.306  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : GET
+2018-11-05 19:23:55.306  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-05 19:23:55.307  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-05 19:23:55.307  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.MemberController.list
+2018-11-05 19:23:55.307  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-05 19:23:55.369  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=SimplePage{totalPage=667, totalCount=6670, list=[com.tianyalei.jipiao.core.model.MMemberIdEntity@35fd1dbf, com.tianyalei.jipiao.core.model.MMemberIdEntity@66a1499e, com.tianyalei.jipiao.core.model.MMemberIdEntity@35829afa, com.tianyalei.jipiao.core.model.MMemberIdEntity@70bdd87f, com.tianyalei.jipiao.core.model.MMemberIdEntity@2d702332, com.tianyalei.jipiao.core.model.MMemberIdEntity@7ee5277a, com.tianyalei.jipiao.core.model.MMemberIdEntity@52a0e227, com.tianyalei.jipiao.core.model.MMemberIdEntity@180e2672, com.tianyalei.jipiao.core.model.MMemberIdEntity@53e9d40b, com.tianyalei.jipiao.core.model.MMemberIdEntity@4e0f7fb]}}
+2018-11-05 19:23:55.370  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：64毫秒
+2018-11-05 19:23:55.370  INFO 44452 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-05 19:24:00.692  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-05 19:24:00.693  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-05 19:24:00.693  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-05 19:24:00.693  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/member/list
+2018-11-05 19:24:00.693  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : GET
+2018-11-05 19:24:00.693  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-05 19:24:00.693  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-05 19:24:00.693  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.MemberController.list
+2018-11-05 19:24:00.694  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-05 19:24:00.717  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=SimplePage{totalPage=667, totalCount=6670, list=[com.tianyalei.jipiao.core.model.MMemberIdEntity@3ba644, com.tianyalei.jipiao.core.model.MMemberIdEntity@4560cb47, com.tianyalei.jipiao.core.model.MMemberIdEntity@3171e2c0, com.tianyalei.jipiao.core.model.MMemberIdEntity@3dc0d171, com.tianyalei.jipiao.core.model.MMemberIdEntity@6014590b, com.tianyalei.jipiao.core.model.MMemberIdEntity@23ed8cbd, com.tianyalei.jipiao.core.model.MMemberIdEntity@1db40de2, com.tianyalei.jipiao.core.model.MMemberIdEntity@26c41c7c, com.tianyalei.jipiao.core.model.MMemberIdEntity@645ac5ae, com.tianyalei.jipiao.core.model.MMemberIdEntity@2b9d25fc]}}
+2018-11-05 19:24:00.717  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：24毫秒
+2018-11-05 19:24:00.717  INFO 44452 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-05 19:24:01.853  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-05 19:24:01.853  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-05 19:24:01.853  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-05 19:24:01.854  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/member/list
+2018-11-05 19:24:01.854  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : GET
+2018-11-05 19:24:01.854  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-05 19:24:01.854  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-05 19:24:01.854  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.MemberController.list
+2018-11-05 19:24:01.854  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-05 19:24:01.874  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=SimplePage{totalPage=667, totalCount=6670, list=[com.tianyalei.jipiao.core.model.MMemberIdEntity@2abfc6ed, com.tianyalei.jipiao.core.model.MMemberIdEntity@664628fa, com.tianyalei.jipiao.core.model.MMemberIdEntity@1b5fac98, com.tianyalei.jipiao.core.model.MMemberIdEntity@1e4c1c28, com.tianyalei.jipiao.core.model.MMemberIdEntity@4a9039a2, com.tianyalei.jipiao.core.model.MMemberIdEntity@1d46c9f2, com.tianyalei.jipiao.core.model.MMemberIdEntity@7b9b8dae, com.tianyalei.jipiao.core.model.MMemberIdEntity@54873a9, com.tianyalei.jipiao.core.model.MMemberIdEntity@4ede078b, com.tianyalei.jipiao.core.model.MMemberIdEntity@657c4efb]}}
+2018-11-05 19:24:01.875  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：21毫秒
+2018-11-05 19:24:01.875  INFO 44452 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-05 19:25:20.193  INFO 44452 --- [Thread-25] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:25:20.197  INFO 44452 --- [Thread-25] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:25:20.202  INFO 44452 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-05 19:25:20.217  INFO 44452 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-05 19:30:47.109  INFO 44768 --- [main] c.t.jipiao.JipiaoApplicationTests        : Starting JipiaoApplicationTests on weifengdeMacBook-Pro.local with PID 44768 (started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-05 19:30:47.128  INFO 44768 --- [main] c.t.jipiao.JipiaoApplicationTests        : The following profiles are active: local
+2018-11-05 19:30:50.043  INFO 44768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-05 19:30:50.410  INFO 44768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 349ms. Found 5 repository interfaces.
+2018-11-05 19:30:51.488  INFO 44768 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a57bee3b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-05 19:30:53.011  INFO 44768 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-05 19:30:53.197  INFO 44768 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-05 19:30:53.202  INFO 44768 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-05 19:30:53.625  INFO 44768 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-05 19:30:53.975  INFO 44768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-05 19:30:55.114  INFO 44768 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-05 19:30:55.174  INFO 44768 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-05 19:30:58.275  INFO 44768 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:31:03.157  INFO 44768 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:31:03.354  WARN 44768 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-05 19:31:04.484  INFO 44768 --- [main] c.t.jipiao.JipiaoApplicationTests        : Started JipiaoApplicationTests in 18.576 seconds (JVM running for 20.714)
+2018-11-05 19:31:04.684  INFO 44768 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-05 19:31:04.687  INFO 44768 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-05 19:31:04.690  INFO 44768 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-05 19:31:04.705  INFO 44768 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
