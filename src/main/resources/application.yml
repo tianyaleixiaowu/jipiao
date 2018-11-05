@@ -4,7 +4,7 @@ spring:
   application:
     name: jipiao
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/jipiao?useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/SoltripNewMember?useUnicode=true&characterEncoding=UTF8
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASS:root}
   jpa:
@@ -13,7 +13,7 @@ spring:
     hibernate:
       ddl-auto: update
       naming:
-        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   cache:
     type: caffeine
     caffeine:

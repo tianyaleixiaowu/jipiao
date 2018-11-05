@@ -44,6 +44,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return ResultGenerator.genFailResult(ResultCode.NO_LOGIN, "您没有登录");
     }
 
+    //@ExceptionHandler(value = DataIntegrityViolationException.class)
+    //@ResponseBody
+    //public BaseData sqlErrorHandler(DataIntegrityViolationException e) {
+    //    log(e);
+    //    return ResultGenerator.genFailResult(ResultCode.SQL_ERROR, "数据库参数有误");
+    //}
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody

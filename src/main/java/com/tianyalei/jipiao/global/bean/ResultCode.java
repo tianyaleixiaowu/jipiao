@@ -12,12 +12,13 @@ public enum ResultCode {
     UNAUTHORIZED(401),
     //没有登录
     NO_LOGIN(402),
+
     //没有权限
     NO_PERMISSION(403),
     //接口不存在
     NOT_FOUND(404),
-    //EC系统出现异常
-    EC_ERROR(405),
+    //数据库参数错误
+    SQL_ERROR(405),
     //用户状态异常、公司状态异常、产品状态异常
     STATE_ERROR(406),
     //服务器内部错误

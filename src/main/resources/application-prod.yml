@@ -4,6 +4,6 @@ server:
 ###############################---DB---##############################
 spring:
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/jipiao?useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/SoltripNewMember?useUnicode=true&characterEncoding=UTF8
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASS:root}

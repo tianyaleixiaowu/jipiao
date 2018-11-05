@@ -1,10 +1,7 @@
 package com.tianyalei.jipiao.core.model.base;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import java.util.Date;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * @author wuweifeng wrote on 2017/10/25.
@@ -13,34 +10,62 @@ import java.util.Date;
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    private Date createTime = new Date();
+    /**
+     * 创建用户id
+     */
+    private String createUserId;
+    private String createRealName;
+    private Timestamp createTime;
+    private Timestamp updateTime;
 
-    private Date updateTime = new Date();
-
-
-    public Date getCreateTime() {
-        return createTime;
+    @Basic
+    @Column(name = "CreateUserID")
+    public String getCreateUserId() {
+        return createUserId;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
     }
 
-    public Date getUpdateTime() {
+    @Basic
+    @Column(name = "UpdateTime")
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 
-    public Long getId() {
+
+    @Basic
+    @Column(name = "CreateRealName")
+    public String getCreateRealName() {
+        return createRealName;
+    }
+
+    public void setCreateRealName(String createRealName) {
+        this.createRealName = createRealName;
+    }
+
+    @Basic
+    @Column(name = "CreateTime")
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

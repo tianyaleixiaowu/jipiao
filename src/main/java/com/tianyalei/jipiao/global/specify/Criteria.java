@@ -33,12 +33,11 @@ public class Criteria<T> implements Specification<T> {
 
     /**
      * 增加简单条件表达式
-     *
-     * @Methods Name add
-     * @Create In 2012-2-8 By lee
      */
     public void add(Criterion criterion) {
-        criterions.add(criterion);
+        if (criterion != null) {
+            criterions.add(criterion);
+        }
     }
 
     public List<Criterion> getCriterions() {
