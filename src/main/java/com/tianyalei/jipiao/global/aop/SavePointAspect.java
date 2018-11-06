@@ -1,6 +1,7 @@
 package com.tianyalei.jipiao.global.aop;
 
 import com.tianyalei.jipiao.core.model.MOperationLogEntity;
+import com.tianyalei.jipiao.core.model.base.BaseEntity;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 import com.tianyalei.jipiao.global.cache.UserCache;
 import com.xiaoleilu.hutool.json.JSONUtil;
@@ -51,7 +52,7 @@ public class SavePointAspect {
             if (!(o instanceof BaseIdEntity)) {
                 continue;
             }
-            BaseIdEntity baseIdEntity = (BaseIdEntity) o;
+            BaseEntity baseIdEntity = (BaseEntity) o;
 
             //添加系统日志
             MOperationLogEntity operationLogEntity = new MOperationLogEntity();

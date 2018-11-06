@@ -3,7 +3,7 @@ package com.tianyalei.jipiao.core.request;
 /**
  * @author wuweifeng wrote on 2018/11/5.
  */
-public class MemberQueryRequestModel extends BaseModel {
+public class MemberQueryRequestQueryModel extends BaseQueryModel {
      private String cardNum;
      /**
       * 会员类型（数据字典 GroupId=7）

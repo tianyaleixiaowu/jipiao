@@ -32,6 +32,20 @@ public class CommonUtil {
         }
     }
 
+    public static String aesEncode(String content) {
+        return EncryptUtil.encryptBase64(content, "vX6LicvxUgZoVPUB");
+    }
+
+    public static String aesDecode(String content) {
+        //return EncryptUtil.decryptBase64(content, "f3b18dffb528d2fbdc61be6aca3f838c");
+        return EncryptUtil.decryptBase64(content, "vX6LicvxUgZoVPUB");
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        System.out.println(aesEncode("8UW06P9XhBpfkwZL"));
+        System.out.println(aesDecode("mLGFyVlLJVDpjZ/BGlGT0c5BEQM+3XRfWYsPhOIXUlc="));
+    }
+
     public static String md5(String str) {
         //确定计算方法
         MessageDigest md5 = null;
@@ -47,9 +61,6 @@ public class CommonUtil {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(md5("123456"));
-    }
 
     public static String randomUrl() {
         List<String> stringList = new ArrayList<>();

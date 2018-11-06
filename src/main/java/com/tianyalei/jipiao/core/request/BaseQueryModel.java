@@ -3,7 +3,7 @@ package com.tianyalei.jipiao.core.request;
 /**
  * @author wuweifeng wrote on 2018/11/5.
  */
-public class BaseModel {
+public class BaseQueryModel {
     private Integer page = 0;
     private Integer size = 10;
 

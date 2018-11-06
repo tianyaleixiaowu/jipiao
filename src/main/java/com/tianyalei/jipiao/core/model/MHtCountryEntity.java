@@ -10,22 +10,10 @@ import java.util.Objects;
 @Table(name = "M_HTCountry", catalog = "")
 public class MHtCountryEntity {
 
-    private Integer id;
-
     private String cnName;
     private String enName;
     private String countryCode;
     private String continent;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Basic
     @Column(name = "CNName")
@@ -47,7 +35,7 @@ public class MHtCountryEntity {
         this.enName = enName;
     }
 
-    @Basic
+    @Id
     @Column(name = "CountryCode")
     public String getCountryCode() {
         return countryCode;

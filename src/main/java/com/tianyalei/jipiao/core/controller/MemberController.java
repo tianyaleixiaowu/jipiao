@@ -2,8 +2,8 @@ package com.tianyalei.jipiao.core.controller;
 
 import com.tianyalei.jipiao.core.manager.MemberCardNumManager;
 import com.tianyalei.jipiao.core.manager.MemberManager;
-import com.tianyalei.jipiao.core.model.MMemberEntity;
-import com.tianyalei.jipiao.core.request.MemberQueryRequestModel;
+import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
+import com.tianyalei.jipiao.core.request.MemberQueryRequestQueryModel;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +33,7 @@ public class MemberController {
     }
 
     @RequestMapping("/list")
-    public BaseData list(MemberQueryRequestModel memberQueryRequestModel) {
+    public BaseData list(MemberQueryRequestQueryModel memberQueryRequestModel) {
         return ResultGenerator.genSuccessResult(memberManager.list(memberQueryRequestModel));
     }
 
@@ -43,14 +43,13 @@ public class MemberController {
     }
 
     @RequestMapping("/update")
-    public BaseData update(MMemberEntity mMemberEntity) {
-        return ResultGenerator.genSuccessResult(memberManager.update(mMemberEntity));
+    public BaseData update(MemberAddRequestModel mMemberEntity) {
+        return ResultGenerator.genSuccessResult(memberManager.addOrUpdate(mMemberEntity, false));
     }
 
     @RequestMapping("/add")
-    public BaseData save(MMemberEntity mMemberEntity) {
-        mMemberEntity.setEnable(true);
-        return ResultGenerator.genSuccessResult(memberManager.add(mMemberEntity));
+    public BaseData save(MemberAddRequestModel mMemberEntity) {
+        return ResultGenerator.genSuccessResult(memberManager.addOrUpdate(mMemberEntity, true));
     }
 
     @RequestMapping("/delete/{id}")

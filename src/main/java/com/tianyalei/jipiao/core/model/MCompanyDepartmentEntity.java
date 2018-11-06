@@ -14,12 +14,23 @@ import javax.persistence.Table;
 @Table(name = "M_CompanyDepartment", catalog = "")
 public class MCompanyDepartmentEntity extends BaseIdEntity {
     private int companyId;
-    private String departmenName;
+    private String departmentName;
     private boolean isDeptApprove;
     private String approveType;
     private String hrDeptId;
     private boolean isEnable;
 
+    @Override
+    public String toString() {
+        return "MCompanyDepartmentEntity{" +
+                "companyId=" + companyId +
+                ", departmentName='" + departmentName + '\'' +
+                ", isDeptApprove=" + isDeptApprove +
+                ", approveType='" + approveType + '\'' +
+                ", hrDeptId='" + hrDeptId + '\'' +
+                ", isEnable=" + isEnable +
+                '}';
+    }
 
     @Basic
     @Column(name = "CompanyID")
@@ -32,13 +43,13 @@ public class MCompanyDepartmentEntity extends BaseIdEntity {
     }
 
     @Basic
-    @Column(name = "DepartmenName")
-    public String getDepartmenName() {
-        return departmenName;
+    @Column(name = "DepartmentName")
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setDepartmenName(String departmenName) {
-        this.departmenName = departmenName;
+    public void setDepartmenName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     @Basic

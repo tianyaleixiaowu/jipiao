@@ -19,6 +19,14 @@ public class CompanyManager {
     @Resource
     private CompanyRepository companyRepository;
 
+    public String findName(Integer companyId) {
+        MCompanyEntity companyEntity = find(companyId);
+        if (companyEntity == null) {
+            return "缺失";
+        }
+        return companyEntity.getCompanyName();
+    }
+
     public MCompanyEntity add(MCompanyEntity mCompanyEntity) {
         return companyRepository.save(mCompanyEntity);
     }

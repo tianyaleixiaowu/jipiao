@@ -3,7 +3,7 @@ package com.tianyalei.jipiao.core.model;
 import com.tianyalei.jipiao.core.model.base.BaseEntity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -27,7 +27,7 @@ public class MMemberEntity extends BaseEntity {
      */
     private String memberType;
     /**
-     * 会员等级（数据字典 GroupId=9）
+     * 会员等级（数据字典 GroupId=41）
      */
     private String memberClass;
     /**
@@ -48,16 +48,12 @@ public class MMemberEntity extends BaseEntity {
      */
     private String backupCellPhone;
     /**
-     * 办公电话
-     */
-    private String officePhone;
-    /**
      * 家庭电话
      */
-    private String homePhone;
-    private Timestamp birthday;
+    private String phoneNum;
+    private Date birthday;
     /**
-     * 职务
+     * 职务 GroupID=49
      */
     private String position;
     /**
@@ -69,11 +65,11 @@ public class MMemberEntity extends BaseEntity {
      */
     private String administrativeLevel;
     /**
-     * 职称
+     * 职称 GroupID=50
      */
     private String jobTitle;
     /**
-     * 本人是否为领导秘书
+     * 本人是否为领导秘书,0不是，1是
      */
     private String isSecretary;
     /**
@@ -85,13 +81,13 @@ public class MMemberEntity extends BaseEntity {
      */
     private Integer departmentId;
     /**
-     * 人员类型
+     * 人员类型 GroupID=54
      */
     private String personnelType;
     /**
      * 会员来源（GroupID=42）
      */
-    private String memberFrom;
+    private String memberFrom = "3";
     /**
      * HR人员编号
      */
@@ -99,7 +95,7 @@ public class MMemberEntity extends BaseEntity {
     /**
      * 是否可用
      */
-    private boolean isEnable;
+    private boolean isEnable = true;
     /**
      * 创建用户的票台ID
      */
@@ -226,32 +222,23 @@ public class MMemberEntity extends BaseEntity {
     }
 
     @Basic
-    @Column(name = "OfficePhone")
-    public String getOfficePhone() {
-        return officePhone;
+    @Column(name = "PhoneNum")
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public void setOfficePhone(String officePhone) {
-        this.officePhone = officePhone;
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 
-    @Basic
-    @Column(name = "HomePhone")
-    public String getHomePhone() {
-        return homePhone;
-    }
-
-    public void setHomePhone(String homePhone) {
-        this.homePhone = homePhone;
-    }
 
     @Basic
     @Column(name = "Birthday")
-    public Timestamp getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Timestamp birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
