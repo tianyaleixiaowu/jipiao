@@ -27,9 +27,13 @@ public class MemberManager {
     @Resource
     private MemberRepository memberRepository;
     @Resource
+    private MemberCardNumManager memberCardNumManager;
+    @Resource
     private DictCache dictCache;
 
     public MMemberEntity add(MMemberEntity mMemberEntity) {
+        //删除cardNum的数据
+        memberCardNumManager.deleteByCardNum(mMemberEntity.getCardNum());
         return null;
         //return memberRepository.save(mMemberEntity);
     }
@@ -85,8 +89,4 @@ public class MemberManager {
                 ecContactEntities.getContent());
     }
 
-    public SimplePage<MMemberEntity> list(String cardNum, Pageable pageable) {
-        Page<MMemberEntity> page = memberRepository.findByCardNum(cardNum, pageable);
-        return new SimplePage<>(page.getTotalPages(), page.getTotalElements(), page.getContent());
-    }
 }

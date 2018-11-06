@@ -46,6 +46,4 @@ public class MMemberCardNumEntity {
     public void setCardNumId(Integer cardNumId) {
         this.cardNumId = cardNumId;
     }
-
-
 }

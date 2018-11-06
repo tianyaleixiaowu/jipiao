@@ -5,6 +5,7 @@ import com.tianyalei.jipiao.core.model.MDictionaryEntity;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,9 @@ public class DictCache {
 
     private Map<Integer, Map<String, String>> dictMap = new HashMap<>();
 
-    public Map<Integer, Map<String, String>> dict() {
+    private List<MDictionaryEntity> list = new ArrayList<>();
+
+    private Map<Integer, Map<String, String>> dict() {
         List<MDictionaryEntity> list = dictionaryManager.findAll();
         for (MDictionaryEntity entity : list) {
             Integer groupId = entity.getGroupId();
