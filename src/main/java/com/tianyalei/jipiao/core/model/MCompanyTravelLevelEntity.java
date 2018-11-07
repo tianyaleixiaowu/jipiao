@@ -16,7 +16,7 @@ public class MCompanyTravelLevelEntity extends BaseIdEntity {
     private int companyId;
     private byte level;
     private String levelName;
-    private String levelType = "1";
+    private String levelType;
     private boolean isEnable = true;
 
     @Basic

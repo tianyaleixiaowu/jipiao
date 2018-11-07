@@ -20,14 +20,6 @@ public class CompanyTravelLevelManager {
         return companyTravelLevelRepository.save(mCompanyEntity);
     }
 
-    public MCompanyTravelLevelEntity update(MCompanyTravelLevelEntity mCompanyEntity) {
-        return companyTravelLevelRepository.save(mCompanyEntity);
-    }
-
-    public void delete(Integer id) {
-        companyTravelLevelRepository.deleteById(id);
-    }
-
     public MCompanyTravelLevelEntity find(Integer id) {
         return companyTravelLevelRepository.getOne(id);
     }
