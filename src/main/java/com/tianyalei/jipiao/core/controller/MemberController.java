@@ -33,12 +33,14 @@ public class MemberController {
 
     @RequestMapping("/update")
     public BaseData update(MemberAddRequestModel mMemberEntity) {
-        return ResultGenerator.genSuccessResult(memberManager.addOrUpdate(mMemberEntity, false));
+        memberManager.addOrUpdate(mMemberEntity, false);
+        return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/add")
     public BaseData save(MemberAddRequestModel mMemberEntity) {
-        return ResultGenerator.genSuccessResult(memberManager.addOrUpdate(mMemberEntity, true));
+        memberManager.addOrUpdate(mMemberEntity, true);
+        return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/delete/{cardNum}")

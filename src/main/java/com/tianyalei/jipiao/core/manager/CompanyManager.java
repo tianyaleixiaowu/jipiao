@@ -2,14 +2,22 @@ package com.tianyalei.jipiao.core.manager;
 
 import com.tianyalei.jipiao.core.model.MCompanyEntity;
 import com.tianyalei.jipiao.core.repository.CompanyRepository;
+import com.tianyalei.jipiao.core.request.CompanyQueryRequestModel;
+import com.tianyalei.jipiao.core.response.CompanyListResponseVO;
 import com.tianyalei.jipiao.global.bean.SimplePage;
+import com.tianyalei.jipiao.global.cache.DictCache;
 import com.tianyalei.jipiao.global.specify.Criteria;
 import com.tianyalei.jipiao.global.specify.Restrictions;
+import com.xiaoleilu.hutool.util.BeanUtil;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.stream.Collectors;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -18,6 +26,8 @@ import javax.annotation.Resource;
 public class CompanyManager {
     @Resource
     private CompanyRepository companyRepository;
+    @Resource
+    private DictCache dictCache;
 
     public String findName(Integer companyId) {
         MCompanyEntity companyEntity = find(companyId);
@@ -43,11 +53,32 @@ public class CompanyManager {
         return companyRepository.getOne(id);
     }
 
-    public SimplePage<MCompanyEntity> list(Pageable pageable) {
+
+    /**
+     * 查询公司
+     */
+    public SimplePage<CompanyListResponseVO> list(CompanyQueryRequestModel requestModel) {
         Criteria<MCompanyEntity> criteria = new Criteria<>();
-        criteria.add(Restrictions.eq("state", 1, true));
+        if (!StringUtils.isEmpty(requestModel.getCompanyName())) {
+            criteria.add(Restrictions.like("companyName", "%" + requestModel.getCompanyName() + "%", true));
+        }
+        criteria.add(Restrictions.eq("isEnable", requestModel.getEnable(), true));
+        criteria.add(Restrictions.eq("panelname", requestModel.getPanelname(), true));
+        Pageable pageable = PageRequest.of(requestModel.getPage(), requestModel.getSize(), Sort
+                .Direction.DESC, "id");
         Page<MCompanyEntity> ecContactEntities = companyRepository.findAll(criteria, pageable);
-        return new SimplePage<>(ecContactEntities.getTotalPages(), ecContactEntities.getTotalElements(), null);
+        return new SimplePage<>(ecContactEntities.getTotalPages(), ecContactEntities.getTotalElements(),
+                ecContactEntities.getContent().stream().map(this::parse).collect(Collectors.toList()));
+    }
+
+    private CompanyListResponseVO parse(MCompanyEntity entity) {
+        CompanyListResponseVO vo = new CompanyListResponseVO();
+        BeanUtil.copyProperties(entity, vo);
+        vo.setPanelnameValue(dictCache.findByGroupIdAndKey(53, vo.getPanelname()));
+        vo.setApproveTypeValue(dictCache.findByGroupIdAndKey(61, vo.getApproveType()));
+        vo.setTravelControlTypeValue(dictCache.findByGroupIdAndKey(55, vo.getTravelControlType()));
+        vo.setServerTypeValue(dictCache.findByGroupIdAndKey(58, vo.getServerType()));
+        return vo;
     }
 
 }

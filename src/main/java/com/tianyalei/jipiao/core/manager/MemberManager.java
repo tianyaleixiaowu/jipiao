@@ -155,9 +155,9 @@ public class MemberManager {
         }
         criteria.add(Restrictions.eq("administrativeLevel", memberQueryRequestModel.getAdministrativeLevel(), true));
         criteria.add(Restrictions.eq("position", memberQueryRequestModel.getPosition(), true));
-        criteria.add(Restrictions.eq("isEnable", memberQueryRequestModel.isEnable(), true));
-        if (memberQueryRequestModel.isVip() != null) {
-            if (memberQueryRequestModel.isVip()) {
+        criteria.add(Restrictions.eq("isEnable", memberQueryRequestModel.getIsEnable(), true));
+        if (memberQueryRequestModel.getIsVip() != null) {
+            if (memberQueryRequestModel.getIsVip()) {
                 criteria.add(Restrictions.eq("memberClass", "3", true));
             } else {
                 criteria.add(Restrictions.ne("memberClass", "3", true));

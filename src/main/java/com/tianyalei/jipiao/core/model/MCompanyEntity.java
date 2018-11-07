@@ -48,7 +48,7 @@ public class MCompanyEntity extends BaseIdEntity {
      */
     private Byte level;
     /**
-     * 服务费收取方式
+     * 服务费收取方式GroupID=58
      */
     private String serverType;
     /**
@@ -68,7 +68,7 @@ public class MCompanyEntity extends BaseIdEntity {
      */
     private Byte debtTime;
     /**
-     * 所属板块
+     * 所属板块groupid 53
      */
     private String panelname;
     /**
@@ -76,15 +76,15 @@ public class MCompanyEntity extends BaseIdEntity {
      */
     private boolean isBalance;
     /**
-     * 是否可用
+     * 是否可用 ，1可用，0不可用
      */
     private boolean isEnable;
     /**
-     * 审批类型
+     * 审批类型 GroupID=61
      */
     private String approveType;
     /**
-     * 差旅控制方式
+     * 差旅控制方式 GroupID=55
      */
     private String travelControlType;
     /**

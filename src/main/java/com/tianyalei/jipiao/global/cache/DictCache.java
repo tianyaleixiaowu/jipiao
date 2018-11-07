@@ -3,6 +3,7 @@ package com.tianyalei.jipiao.global.cache;
 import com.tianyalei.jipiao.core.manager.DictionaryManager;
 import com.tianyalei.jipiao.core.model.MDictionaryEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -40,6 +41,13 @@ public class DictCache {
             dict();
         }
         return dictMap.get(groupId);
+    }
+
+    public String findByGroupIdAndKey(Integer groupId, String key) {
+        if (StringUtils.isEmpty(key)) {
+            return "";
+        }
+        return findByGroupId(groupId).get(key);
     }
 
 }

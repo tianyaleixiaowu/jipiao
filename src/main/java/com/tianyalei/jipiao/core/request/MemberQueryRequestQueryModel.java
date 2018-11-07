@@ -75,11 +75,11 @@ public class MemberQueryRequestQueryModel extends BaseQueryModel {
     }
 
 
-    public Boolean isVip() {
+    public Boolean getIsVip() {
         return isVip;
     }
 
-    public void setVip(Boolean vip) {
+    public void setIsVip(Boolean vip) {
         isVip = vip;
     }
 
@@ -171,11 +171,11 @@ public class MemberQueryRequestQueryModel extends BaseQueryModel {
         this.position = position;
     }
 
-    public Boolean isEnable() {
+    public Boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(Boolean enable) {
+    public void setIsEnable(Boolean enable) {
         isEnable = enable;
     }
 }
