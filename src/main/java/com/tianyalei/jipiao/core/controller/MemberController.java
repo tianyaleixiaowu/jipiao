@@ -1,6 +1,5 @@
 package com.tianyalei.jipiao.core.controller;
 
-import com.tianyalei.jipiao.core.manager.MemberCardNumManager;
 import com.tianyalei.jipiao.core.manager.MemberManager;
 import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.core.request.MemberQueryRequestQueryModel;
@@ -21,25 +20,15 @@ import javax.annotation.Resource;
 public class MemberController {
     @Resource
     private MemberManager memberManager;
-    @Resource
-    private MemberCardNumManager memberCardNumManager;
-
-    /**
-     * 获取第一条cardNum
-     */
-    @RequestMapping("/cardNum")
-    public BaseData findCardNum() {
-        return ResultGenerator.genSuccessResult(memberCardNumManager.findFirstCardNum());
-    }
 
     @RequestMapping("/list")
     public BaseData list(MemberQueryRequestQueryModel memberQueryRequestModel) {
         return ResultGenerator.genSuccessResult(memberManager.list(memberQueryRequestModel));
     }
 
-    @RequestMapping("/{id}")
-    public BaseData one(@PathVariable Integer id) {
-        return ResultGenerator.genSuccessResult(memberManager.find(id));
+    @RequestMapping("/{cardNum}")
+    public BaseData one(@PathVariable String cardNum) {
+        return ResultGenerator.genSuccessResult(memberManager.findOne(cardNum));
     }
 
     @RequestMapping("/update")
@@ -52,9 +41,9 @@ public class MemberController {
         return ResultGenerator.genSuccessResult(memberManager.addOrUpdate(mMemberEntity, true));
     }
 
-    @RequestMapping("/delete/{id}")
-    public BaseData delete(@PathVariable Integer id) {
-        memberManager.delete(id);
+    @RequestMapping("/delete/{cardNum}")
+    public BaseData delete(@PathVariable String cardNum) {
+        memberManager.delete(cardNum);
         return ResultGenerator.genSuccessResult("删除成功");
     }
 }

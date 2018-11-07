@@ -21,4 +21,9 @@ public class DictionaryController {
     public BaseData queryByGroupId(int groupId) {
         return ResultGenerator.genSuccessResult(dictionaryManager.findByGroupId(groupId));
     }
+
+    @RequestMapping("/list")
+    public BaseData findAll() {
+        return ResultGenerator.genSuccessResult(dictionaryManager.findAll());
+    }
 }

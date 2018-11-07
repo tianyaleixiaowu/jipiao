@@ -1,5 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tianyalei.jipiao.core.model.base.BaseEntity;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class MMemberEntity extends BaseEntity {
      * 真实姓名
      */
     private String realName;
+    @JsonIgnore
     private String userPwd;
     /**
      * 性别（1为男，0为女)

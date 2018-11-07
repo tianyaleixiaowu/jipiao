@@ -30,7 +30,7 @@ public class MemberAddRequestModel {
      */
     private byte gender;
     /**
-     * 人员类型
+     * 人员类型 groupId=54
      */
     private String personnelType;
     /**

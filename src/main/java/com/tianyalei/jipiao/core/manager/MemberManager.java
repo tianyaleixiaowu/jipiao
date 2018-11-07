@@ -1,10 +1,12 @@
 package com.tianyalei.jipiao.core.manager;
 
+import com.tianyalei.jipiao.core.model.MMemberBalanceCompanyEntity;
 import com.tianyalei.jipiao.core.model.MMemberEntity;
 import com.tianyalei.jipiao.core.repository.MemberRepository;
 import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.core.request.MemberQueryRequestQueryModel;
-import com.tianyalei.jipiao.core.response.MemberVO;
+import com.tianyalei.jipiao.core.response.MemberListResponseVO;
+import com.tianyalei.jipiao.core.response.MemberSingleResponseVO;
 import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.tianyalei.jipiao.global.cache.DictCache;
 import com.tianyalei.jipiao.global.specify.Criteria;
@@ -13,6 +15,7 @@ import com.tianyalei.jipiao.global.util.CommonUtil;
 import com.xiaoleilu.hutool.crypto.symmetric.AES;
 import com.xiaoleilu.hutool.crypto.symmetric.SymmetricAlgorithm;
 import com.xiaoleilu.hutool.crypto.symmetric.SymmetricCrypto;
+import com.xiaoleilu.hutool.date.DatePattern;
 import com.xiaoleilu.hutool.date.DateUtil;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import com.xiaoleilu.hutool.util.CharsetUtil;
@@ -40,6 +43,10 @@ public class MemberManager {
     private MemberCardNumManager memberCardNumManager;
     @Resource
     private CompanyManager companyManager;
+    @Resource
+    private CompanyDepartmentManager companyDepartmentManager;
+    @Resource
+    private CompanyTravelLevelManager companyTravelLevelManager;
     @Resource
     private MemberCallManager memberCallManager;
     @Resource
@@ -89,8 +96,8 @@ public class MemberManager {
         return memberRepository.save(mMemberEntity);
     }
 
-    public void delete(Integer id) {
-        MMemberEntity mMemberEntity = find(id);
+    public void delete(String cardNum) {
+        MMemberEntity mMemberEntity = find(cardNum);
         mMemberEntity.setEnable(false);
         delete(mMemberEntity);
     }
@@ -100,11 +107,39 @@ public class MemberManager {
     }
 
 
-    public MMemberEntity find(Integer id) {
-        return memberRepository.getOne(id);
+    public MMemberEntity find(String cardNum) {
+        return memberRepository.findByCardNum(cardNum);
     }
 
-    public SimplePage<MemberVO> list(MemberQueryRequestQueryModel memberQueryRequestModel) {
+    /**
+     * 根据cardNum找到一个
+     * @param cardNum  cardNum
+     * @return MemberSingleResponseVO
+     */
+    public MemberSingleResponseVO findOne(String cardNum) {
+        MMemberEntity entity = find(cardNum);
+        MemberSingleResponseVO singleResponseVO = new MemberSingleResponseVO();
+        BeanUtil.copyProperties(entity, singleResponseVO);
+        singleResponseVO.setCompanyIdValue(companyManager.findName(entity.getCompanyId()));
+        singleResponseVO.setDepartmentIdValue(companyDepartmentManager.findName(entity.getDepartmentId()));
+        MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity = memberBalanceCompanyManager.findByCardNum(cardNum);
+        if (mMemberBalanceCompanyEntity != null) {
+            singleResponseVO.setTravelLevelId(mMemberBalanceCompanyEntity.getTravelLevelId());
+            singleResponseVO.setTravelLevelIdValue(companyTravelLevelManager.find(mMemberBalanceCompanyEntity
+                    .getTravelLevelId()).getLevelName());
+        }
+        singleResponseVO.setCellPhone(CommonUtil.aesDecode(entity.getCellPhone()));
+        singleResponseVO.setBackupCellPhone(CommonUtil.aesDecode(entity.getBackupCellPhone()));
+        singleResponseVO.setPaperNum(CommonUtil.aesDecode(entity.getPaperNum()));
+        singleResponseVO.setBirthday(DateUtil.format(entity.getBirthday(), DatePattern.NORM_DATE_FORMAT));
+        //remark
+        singleResponseVO.setRemark(memberExtendManager.findRemarkByCardNum(cardNum));
+
+        return singleResponseVO;
+    }
+
+
+    public SimplePage<MemberListResponseVO> list(MemberQueryRequestQueryModel memberQueryRequestModel) {
         Criteria<MMemberEntity> criteria = new Criteria<>();
         criteria.add(Restrictions.eq("cardNum", memberQueryRequestModel.getCardNum(), true));
         criteria.add(Restrictions.eq("memberType", memberQueryRequestModel.getMemberType(), true));
@@ -143,15 +178,15 @@ public class MemberManager {
                 ecContactEntities.getContent().stream().map(this::parseMemberVO).collect(Collectors.toList()));
     }
 
-    private MemberVO parseMemberVO(MMemberEntity mMemberEntity) {
-        MemberVO memberVO = new MemberVO();
-        BeanUtil.copyProperties(mMemberEntity, memberVO);
-        memberVO.setMemberTypeValue(dictCache.findByGroupId(7).get(memberVO.getMemberType()));
-        memberVO.setCompanyIdValue(companyManager.findName(memberVO.getCompanyId()));
-        memberVO.setCellPhone(CommonUtil.aesDecode(memberVO.getCellPhone()));
-        memberVO.setPositionValue(dictCache.findByGroupId(49).get(memberVO.getPosition()));
-        memberVO.setAdministrativeLevelValue(dictCache.findByGroupId(31).get(memberVO.getAdministrativeLevel()));
-        return memberVO;
+    private MemberListResponseVO parseMemberVO(MMemberEntity mMemberEntity) {
+        MemberListResponseVO memberListResponseVO = new MemberListResponseVO();
+        BeanUtil.copyProperties(mMemberEntity, memberListResponseVO);
+        memberListResponseVO.setMemberTypeValue(dictCache.findByGroupId(7).get(memberListResponseVO.getMemberType()));
+        memberListResponseVO.setCompanyIdValue(companyManager.findName(memberListResponseVO.getCompanyId()));
+        memberListResponseVO.setCellPhone(CommonUtil.aesDecode(memberListResponseVO.getCellPhone()));
+        memberListResponseVO.setPositionValue(dictCache.findByGroupId(49).get(memberListResponseVO.getPosition()));
+        memberListResponseVO.setAdministrativeLevelValue(dictCache.findByGroupId(31).get(memberListResponseVO.getAdministrativeLevel()));
+        return memberListResponseVO;
     }
 
     public List<MMemberEntity> findAll() {

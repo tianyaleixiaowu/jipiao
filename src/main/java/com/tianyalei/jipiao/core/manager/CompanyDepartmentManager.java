@@ -15,6 +15,17 @@ public class CompanyDepartmentManager {
     @Resource
     private CompanyDepartmentRepository companyDepartmentRepository;
 
+    public String findName(Integer deptId) {
+        MCompanyDepartmentEntity entity = find(deptId);
+        if (entity == null) {
+            return "缺失";
+        }
+        return entity.getDepartmentName();
+    }
+
+    public MCompanyDepartmentEntity find(Integer id) {
+        return companyDepartmentRepository.getOne(id);
+    }
 
     public MCompanyDepartmentEntity add(MCompanyDepartmentEntity mCompanyDepartmentEntity) {
         return companyDepartmentRepository.save(mCompanyDepartmentEntity);

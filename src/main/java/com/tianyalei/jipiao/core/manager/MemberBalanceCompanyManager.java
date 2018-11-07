@@ -4,12 +4,13 @@ import com.tianyalei.jipiao.core.model.MMemberBalanceCompanyEntity;
 import com.tianyalei.jipiao.core.repository.MemberBalanceCompanyRepository;
 import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.global.bean.SimplePage;
-import com.tianyalei.jipiao.global.util.CommonUtil;
+import com.xiaoleilu.hutool.util.CollectionUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -26,15 +27,26 @@ public class MemberBalanceCompanyManager {
     }
 
     public void parse(MemberAddRequestModel memberAddRequestModel) {
-        MMemberBalanceCompanyEntity entity = new MMemberBalanceCompanyEntity();
-        entity.setCardNum(CommonUtil.aesEncode(memberAddRequestModel.getCardNum()));
-        entity.setCompanyId(memberAddRequestModel.getCompanyId());
-        entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
-        entity.setEnable(true);
-        entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
-        add(entity);
-    }
+        List<MMemberBalanceCompanyEntity> entities = memberBalanceCompanyRepository.findByCardNum
+                (memberAddRequestModel.getCardNum());
+        MMemberBalanceCompanyEntity entity;
+        if (CollectionUtil.isEmpty(entities)) {
+            entity = new MMemberBalanceCompanyEntity();
+            entity.setCardNum(memberAddRequestModel.getCardNum());
+            entity.setCompanyId(memberAddRequestModel.getCompanyId());
+            entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
+            entity.setEnable(true);
+            entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
+            add(entity);
+        } else {
+            entity = entities.get(0);
+            entity.setCompanyId(memberAddRequestModel.getCompanyId());
+            entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
+            entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
+            update(entity);
+        }
 
+    }
 
     public MMemberBalanceCompanyEntity update(MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity) {
         return memberBalanceCompanyRepository.save(mMemberBalanceCompanyEntity);
@@ -46,6 +58,16 @@ public class MemberBalanceCompanyManager {
 
     public MMemberBalanceCompanyEntity find(Integer id) {
         return memberBalanceCompanyRepository.getOne(id);
+    }
+
+    public MMemberBalanceCompanyEntity findByCardNum(String cardNum) {
+        List<MMemberBalanceCompanyEntity> entities = memberBalanceCompanyRepository.findByCardNum
+                (cardNum);
+
+        if (CollectionUtil.isEmpty(entities)) {
+            return null;
+        }
+        return entities.get(0);
     }
 
     public SimplePage<MMemberBalanceCompanyEntity> list(String cardNum, Pageable pageable) {
