@@ -56,11 +56,11 @@ public class MCompanyEntity extends BaseIdEntity {
      */
     private BigDecimal serverCost;
     /**
-     * 短信发送方式
+     * 短信发送方式 GroupID=59
      */
     private String sendMessageType;
     /**
-     * 适用机票出票政策
+     * 适用机票出票政策 GroupID=60
      */
     private String policyType;
     /**
@@ -275,11 +275,11 @@ public class MCompanyEntity extends BaseIdEntity {
 
     @Basic
     @Column(name = "IsEnable")
-    public boolean isEnable() {
+    public boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setIsEnable(boolean enable) {
         isEnable = enable;
     }
 

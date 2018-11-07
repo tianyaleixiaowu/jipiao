@@ -2,6 +2,7 @@ package com.tianyalei.jipiao.core.manager;
 
 import com.tianyalei.jipiao.core.model.MCompanyEntity;
 import com.tianyalei.jipiao.core.repository.CompanyRepository;
+import com.tianyalei.jipiao.core.request.CompanyAddRequestModel;
 import com.tianyalei.jipiao.core.request.CompanyQueryRequestModel;
 import com.tianyalei.jipiao.core.response.CompanyListResponseVO;
 import com.tianyalei.jipiao.global.bean.SimplePage;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -38,21 +40,60 @@ public class CompanyManager {
     }
 
     public MCompanyEntity add(MCompanyEntity mCompanyEntity) {
-        return companyRepository.save(mCompanyEntity);
+        return save(mCompanyEntity);
     }
 
     public MCompanyEntity update(MCompanyEntity mCompanyEntity) {
-        return companyRepository.save(mCompanyEntity);
+        return save(mCompanyEntity);
     }
 
     public void delete(Integer id) {
-        companyRepository.deleteById(id);
+        MCompanyEntity entity = find(id);
+        entity.setIsEnable(false);
+        delete(entity);
+    }
+
+    public void delete(MCompanyEntity companyEntity) {
+        save(companyEntity);
+    }
+
+    private MCompanyEntity save(MCompanyEntity companyEntity) {
+        return companyRepository.save(companyEntity);
     }
 
     public MCompanyEntity find(Integer id) {
         return companyRepository.getOne(id);
     }
 
+    public MCompanyEntity addOrUpdate(CompanyAddRequestModel model, boolean add) {
+        Optional<MCompanyEntity> companyEntity = companyRepository.findById(model.getId());
+        MCompanyEntity mCompanyEntity;
+        if (companyEntity.isPresent()) {
+            mCompanyEntity = new MCompanyEntity();
+        } else {
+            mCompanyEntity = companyEntity.get();
+        }
+
+        BeanUtil.copyProperties(model, mCompanyEntity, BeanUtil.CopyOptions.create().setIgnoreNullValue(true));
+        mCompanyEntity.setLevel(level(mCompanyEntity.getParentId()));
+
+        if (add) {
+            add(mCompanyEntity);
+        } else {
+            update(mCompanyEntity);
+        }
+
+        return mCompanyEntity;
+    }
+
+    private byte level(String parentId) {
+        Integer tempParentId = Integer.valueOf(parentId);
+        if (tempParentId == 0) {
+            return 1;
+        }
+        MCompanyEntity entity = companyRepository.getOne(tempParentId);
+        return (byte) (entity.getLevel() + 1);
+    }
 
     /**
      * 查询公司
@@ -60,10 +101,16 @@ public class CompanyManager {
     public SimplePage<CompanyListResponseVO> list(CompanyQueryRequestModel requestModel) {
         Criteria<MCompanyEntity> criteria = new Criteria<>();
         if (!StringUtils.isEmpty(requestModel.getCompanyName())) {
-            criteria.add(Restrictions.like("companyName", "%" + requestModel.getCompanyName() + "%", true));
+            //判断是中文还是英文
+            if (requestModel.getCompanyName().getBytes().length == requestModel.getCompanyName().length()) {
+                criteria.add(Restrictions.like("pinYin", requestModel.getCompanyName(), true));
+            } else {
+                criteria.add(Restrictions.like("companyName", requestModel.getCompanyName(), true));
+            }
         }
         criteria.add(Restrictions.eq("isEnable", requestModel.getEnable(), true));
         criteria.add(Restrictions.eq("panelname", requestModel.getPanelname(), true));
+
         Pageable pageable = PageRequest.of(requestModel.getPage(), requestModel.getSize(), Sort
                 .Direction.DESC, "id");
         Page<MCompanyEntity> ecContactEntities = companyRepository.findAll(criteria, pageable);

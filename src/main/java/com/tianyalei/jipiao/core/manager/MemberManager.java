@@ -61,7 +61,11 @@ public class MemberManager {
     }
 
     public MMemberEntity addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
-        MMemberEntity mMemberEntity = new MMemberEntity();
+        MMemberEntity mMemberEntity = memberRepository.findByCardNum(memberAddRequestModel.getCardNum());
+        if (mMemberEntity == null) {
+            mMemberEntity = new MMemberEntity();
+        }
+
         BeanUtil.copyProperties(memberAddRequestModel, mMemberEntity);
         mMemberEntity.setCellPhone(CommonUtil.aesEncode(memberAddRequestModel.getCellPhone()));
         mMemberEntity.setBackupCellPhone(CommonUtil.aesEncode(memberAddRequestModel.getBackupCellPhone()));
@@ -165,7 +169,7 @@ public class MemberManager {
         }
         if (!StringUtils.isEmpty(memberQueryRequestModel.getRealName())) {
             if (memberQueryRequestModel.isFuzzy()) {
-                criteria.add(Restrictions.eq("realName", "%" + memberQueryRequestModel.getRealName() + "%", true));
+                criteria.add(Restrictions.like("realName", memberQueryRequestModel.getRealName(), true));
             } else {
                 criteria.add(Restrictions.eq("realName", memberQueryRequestModel.getRealName(), true));
             }

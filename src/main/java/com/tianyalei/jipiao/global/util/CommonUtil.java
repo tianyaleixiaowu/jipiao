@@ -42,8 +42,10 @@ public class CommonUtil {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        System.out.println(aesEncode("8UW06P9XhBpfkwZL"));
-        System.out.println(aesDecode(""));
+        //System.out.println(aesEncode("8UW06P9XhBpfkwZL"));
+        //System.out.println(aesDecode(""));
+        System.out.println("啊".getBytes().length == "啊".length());
+        System.out.println("A".getBytes().length == "A".length());
     }
 
     public static String md5(String str) {
