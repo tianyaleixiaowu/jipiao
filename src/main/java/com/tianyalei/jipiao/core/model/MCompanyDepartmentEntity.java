@@ -16,9 +16,12 @@ public class MCompanyDepartmentEntity extends BaseIdEntity {
     private int companyId;
     private String departmentName;
     private boolean isDeptApprove;
+    /**
+     * groupId=61
+     */
     private String approveType;
-    private String hrDeptId;
-    private boolean isEnable;
+    private String hrDeptId = "";
+    private boolean isEnable = true;
 
     @Override
     public String toString() {
@@ -30,6 +33,10 @@ public class MCompanyDepartmentEntity extends BaseIdEntity {
                 ", hrDeptId='" + hrDeptId + '\'' +
                 ", isEnable=" + isEnable +
                 '}';
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     @Basic
@@ -54,11 +61,11 @@ public class MCompanyDepartmentEntity extends BaseIdEntity {
 
     @Basic
     @Column(name = "IsDeptApprove")
-    public boolean isDeptApprove() {
+    public boolean getIsDeptApprove() {
         return isDeptApprove;
     }
 
-    public void setDeptApprove(boolean deptApprove) {
+    public void setIsDeptApprove(boolean deptApprove) {
         isDeptApprove = deptApprove;
     }
 
@@ -84,11 +91,11 @@ public class MCompanyDepartmentEntity extends BaseIdEntity {
 
     @Basic
     @Column(name = "IsEnable")
-    public boolean isEnable() {
+    public boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setIsEnable(boolean enable) {
         isEnable = enable;
     }
 }

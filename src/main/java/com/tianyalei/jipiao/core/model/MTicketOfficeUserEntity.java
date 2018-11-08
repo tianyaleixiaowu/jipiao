@@ -83,11 +83,11 @@ public class MTicketOfficeUserEntity extends BaseIdEntity {
 
     @Basic
     @Column(name = "IsEnable")
-    public boolean isEnable() {
+    public boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setIsEnable(boolean enable) {
         isEnable = enable;
     }
 

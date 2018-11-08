@@ -35,7 +35,7 @@ public class MemberBalanceCompanyManager {
             entity.setCardNum(memberAddRequestModel.getCardNum());
             entity.setCompanyId(memberAddRequestModel.getCompanyId());
             entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
-            entity.setEnable(true);
+            entity.setIsEnable(true);
             entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
             add(entity);
         } else {

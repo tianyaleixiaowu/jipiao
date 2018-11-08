@@ -28,15 +28,21 @@ public class CompanyDepartmentManager {
     }
 
     public MCompanyDepartmentEntity add(MCompanyDepartmentEntity mCompanyDepartmentEntity) {
-        return companyDepartmentRepository.save(mCompanyDepartmentEntity);
+        return save(mCompanyDepartmentEntity);
     }
 
     public MCompanyDepartmentEntity update(MCompanyDepartmentEntity mCompanyDepartmentEntity) {
+        return save(mCompanyDepartmentEntity);
+    }
+
+    private MCompanyDepartmentEntity save(MCompanyDepartmentEntity mCompanyDepartmentEntity) {
         return companyDepartmentRepository.save(mCompanyDepartmentEntity);
     }
 
     public void delete(Integer id) {
-        companyDepartmentRepository.deleteById(id);
+        MCompanyDepartmentEntity entity = find(id);
+        entity.setIsEnable(false);
+        update(entity);
     }
 
     public List<MCompanyDepartmentEntity> findByCompanyId(Integer companyId) {

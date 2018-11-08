@@ -102,7 +102,7 @@ public class MemberManager {
 
     public void delete(String cardNum) {
         MMemberEntity mMemberEntity = find(cardNum);
-        mMemberEntity.setEnable(false);
+        mMemberEntity.setIsEnable(false);
         delete(mMemberEntity);
     }
 

@@ -85,6 +85,10 @@ public class SavePointAspect {
                 String cardNum = jsonContent.substring(index, douhaoIndex).replace("\"", "");
                 //keyword内容是操作的对象的cardNum
                 operationLogEntity.setKeyword(cardNum);
+            } else {
+                if (baseIdEntity instanceof BaseIdEntity) {
+                    operationLogEntity.setKeyword("Id:" + ((BaseIdEntity) baseIdEntity).getId());
+                }
             }
 
             operationLogEntity.setTitle(className.replace("com.tianyalei.jipiao.core.manager.", "") + "." + method);
