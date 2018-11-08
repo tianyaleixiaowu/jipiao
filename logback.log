@@ -3502,3 +3502,259 @@
 2018-11-08 12:07:24.820  INFO 8943 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2018-11-08 12:07:24.835  INFO 8943 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2018-11-08 12:07:24.875  INFO 8943 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-08 14:01:03.053  INFO 8888 --- [Thread-25] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-08 14:01:03.068  INFO 8888 --- [Thread-25] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-08 14:01:03.097  INFO 8888 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-08 14:01:03.141  INFO 8888 --- [Thread-25] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-08 14:01:09.241  INFO 14106 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 14106 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-08 14:01:09.250  INFO 14106 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-08 14:01:11.480  INFO 14106 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-08 14:01:11.702  INFO 14106 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 213ms. Found 15 repository interfaces.
+2018-11-08 14:01:12.455  INFO 14106 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$35cd514] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-08 14:01:13.505  INFO 14106 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-08 14:01:13.679  INFO 14106 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-08 14:01:13.680  INFO 14106 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-08 14:01:13.697  INFO 14106 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-08 14:01:13.894  INFO 14106 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-08 14:01:13.895  INFO 14106 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4500 ms
+2018-11-08 14:01:14.080  INFO 14106 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-08 14:01:14.081  INFO 14106 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-08 14:01:14.081  INFO 14106 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-08 14:01:14.082  INFO 14106 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-08 14:01:14.082  INFO 14106 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-11-08 14:01:14.082  INFO 14106 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-08 14:01:14.083  INFO 14106 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-08 14:01:14.597  INFO 14106 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-08 14:01:14.651  INFO 14106 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-08 14:01:14.653  INFO 14106 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-08 14:01:14.766  INFO 14106 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-08 14:01:15.012  INFO 14106 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-08 14:01:15.466  INFO 14106 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-08 14:01:15.476  INFO 14106 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-08 14:01:17.289  INFO 14106 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-08 14:01:21.273  INFO 14106 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-08 14:01:21.407  WARN 14106 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-08 14:01:22.466  INFO 14106 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-08 14:01:22.470  INFO 14106 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 14.085 seconds (JVM running for 15.369)
+2018-11-08 14:01:35.029  INFO 14106 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-08 14:01:35.029  INFO 14106 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-08 14:01:35.051  INFO 14106 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 21 ms
+2018-11-08 14:01:35.152  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-08 14:01:35.152  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-08 14:01:35.152  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-08 14:01:35.156  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyDepartmentApprover/list
+2018-11-08 14:01:35.156  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-11-08 14:01:35.156  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-08 14:01:35.157  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-08 14:01:35.159  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyDepartmentApproverController.queryByDeptId
+2018-11-08 14:01:35.160  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-08 14:01:35.160  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : companyId->31
+2018-11-08 14:01:35.160  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : departmentName->部门1
+2018-11-08 14:01:35.160  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : isDeptApprove->1
+2018-11-08 14:01:35.160  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : approveType->1
+2018-11-08 14:01:35.160  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : hrDeptId->1
+2018-11-08 14:01:35.160  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : id->2
+2018-11-08 14:01:35.161  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : deptId->447
+2018-11-08 14:01:35.206  INFO 14106 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-11-08 14:01:35.409  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=[MCompanyDepartmentApproverEntity{companyId=30, departmentId=447, cardNum='10214386', realName='闫申桥', approvalSort=1, isEnable=true}]}
+2018-11-08 14:01:35.410  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：256毫秒
+2018-11-08 14:01:35.410  INFO 14106 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-08 14:04:39.233  INFO 14106 --- [Thread-31] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-08 14:04:39.245  INFO 14106 --- [Thread-31] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-08 14:04:39.252  INFO 14106 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-08 14:04:39.278  INFO 14106 --- [Thread-31] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-08 14:04:44.927  INFO 14272 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 14272 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-08 14:04:44.932  INFO 14272 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-08 14:04:46.630  INFO 14272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-08 14:04:46.805  INFO 14272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 166ms. Found 15 repository interfaces.
+2018-11-08 14:04:47.391  INFO 14272 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$255f6f72] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-08 14:04:48.103  INFO 14272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-08 14:04:48.121  INFO 14272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-08 14:04:48.121  INFO 14272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-08 14:04:48.128  INFO 14272 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-08 14:04:48.261  INFO 14272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-08 14:04:48.262  INFO 14272 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3242 ms
+2018-11-08 14:04:48.378  INFO 14272 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-08 14:04:48.380  INFO 14272 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-08 14:04:48.380  INFO 14272 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-08 14:04:48.381  INFO 14272 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-08 14:04:48.381  INFO 14272 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-11-08 14:04:48.381  INFO 14272 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-08 14:04:48.382  INFO 14272 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-08 14:04:48.844  INFO 14272 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-08 14:04:48.899  INFO 14272 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-08 14:04:48.900  INFO 14272 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-08 14:04:49.001  INFO 14272 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-08 14:04:49.183  INFO 14272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-08 14:04:49.576  INFO 14272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-08 14:04:49.587  INFO 14272 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-08 14:04:51.007  INFO 14272 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-08 14:04:55.464  INFO 14272 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-08 14:04:55.542  WARN 14272 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-08 14:04:56.327  INFO 14272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-08 14:04:56.330  INFO 14272 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 12.276 seconds (JVM running for 13.255)
+2018-11-08 14:05:49.131  INFO 14272 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-08 14:05:49.131  INFO 14272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-08 14:05:49.147  INFO 14272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2018-11-08 14:05:49.258  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-08 14:05:49.259  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-08 14:05:49.259  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-08 14:05:49.263  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyDepartmentApprover/add
+2018-11-08 14:05:49.263  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-11-08 14:05:49.263  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-08 14:05:49.264  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-08 14:05:49.266  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyDepartmentApproverController.add
+2018-11-08 14:05:49.267  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-08 14:05:49.267  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : companyId->31
+2018-11-08 14:05:49.267  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : departmentName->部门1
+2018-11-08 14:05:49.267  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : isDeptApprove->1
+2018-11-08 14:05:49.267  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : approveType->1
+2018-11-08 14:05:49.267  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : hrDeptId->1
+2018-11-08 14:05:49.267  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : id->2
+2018-11-08 14:05:49.268  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : deptId->447
+2018-11-08 14:05:49.268  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : departmentId->448
+2018-11-08 14:05:49.268  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : cardNum->123
+2018-11-08 14:05:49.494  WARN 14272 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-11-08 14:05:49.494 ERROR 14272 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'RealName' cannot be null
+2018-11-08 14:05:49.545  INFO 14272 --- [http-nio-8080-exec-1] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-11-08 14:05:49.587  INFO 14272 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法异常时执行.....
+2018-11-08 14:05:49.591 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : ************************异常开始*******************************
+2018-11-08 14:05:49.591 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:296)
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:253)
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:527)
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:242)
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:153)
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.592 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:135)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:61)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.sun.proxy.$Proxy104.save(Unknown Source)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.manager.CompanyDepartmentApproverManager.save(CompanyDepartmentApproverManager.java:34)
+2018-11-08 14:05:49.593 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.manager.CompanyDepartmentApproverManager.add(CompanyDepartmentApproverManager.java:20)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.manager.CompanyDepartmentApproverManager$$FastClassBySpringCGLIB$$23ad1bf6.invoke(<generated>)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+2018-11-08 14:05:49.594 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.manager.CompanyDepartmentApproverManager$$EnhancerBySpringCGLIB$$98a07ea4.add(<generated>)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.controller.CompanyDepartmentApproverController.add(CompanyDepartmentApproverController.java:32)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.controller.CompanyDepartmentApproverController$$FastClassBySpringCGLIB$$8994841a.invoke(<generated>)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+2018-11-08 14:05:49.595 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.core.controller.CompanyDepartmentApproverController$$EnhancerBySpringCGLIB$$2416ed90.add(<generated>)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : java.lang.reflect.Method.invoke(Method.java:497)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+2018-11-08 14:05:49.596 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:901)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:712)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:459)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
+2018-11-08 14:05:49.597 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : com.tianyalei.jipiao.global.filter.UrlFilter.doFilter(UrlFilter.java:24)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+2018-11-08 14:05:49.598 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : java.lang.Thread.run(Thread.java:745)
+2018-11-08 14:05:49.599 ERROR 14272 --- [http-nio-8080-exec-1] c.t.j.g.e.GlobalExceptionHandler         : ************************异常结束*******************************
+2018-11-08 14:06:21.658  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-08 14:06:21.658  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : token为：dcb455b137ee4078b8c80b7c6a8a8772
+2018-11-08 14:06:21.658  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-08 14:06:21.658  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyDepartmentApprover/add
+2018-11-08 14:06:21.658  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-11-08 14:06:21.658  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyDepartmentApproverController.add
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : companyId->31
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : departmentName->部门1
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : isDeptApprove->1
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : approveType->1
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : hrDeptId->1
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : id->2
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : deptId->447
+2018-11-08 14:06:21.659  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : departmentId->448
+2018-11-08 14:06:21.660  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : cardNum->123
+2018-11-08 14:06:21.660  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : realName->aaa
+2018-11-08 14:06:21.744  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=MCompanyDepartmentApproverEntity{companyId=31, departmentId=448, cardNum='123', realName='aaa', approvalSort=0, isEnable=true}}
+2018-11-08 14:06:21.746  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：88毫秒
+2018-11-08 14:06:21.747  INFO 14272 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------

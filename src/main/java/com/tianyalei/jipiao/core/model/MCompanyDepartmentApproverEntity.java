@@ -18,8 +18,19 @@ public class MCompanyDepartmentApproverEntity extends BaseIdEntity {
     private String cardNum;
     private String realName;
     private byte approvalSort;
-    private boolean isEnable;
+    private boolean isEnable = true;
 
+    @Override
+    public String toString() {
+        return "MCompanyDepartmentApproverEntity{" +
+                "companyId=" + companyId +
+                ", departmentId=" + departmentId +
+                ", cardNum='" + cardNum + '\'' +
+                ", realName='" + realName + '\'' +
+                ", approvalSort=" + approvalSort +
+                ", isEnable=" + isEnable +
+                '}';
+    }
 
     @Basic
     @Column(name = "CompanyID")
