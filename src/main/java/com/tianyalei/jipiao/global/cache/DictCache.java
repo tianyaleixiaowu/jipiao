@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +19,6 @@ public class DictCache {
     private DictionaryManager dictionaryManager;
 
     private Map<Integer, Map<String, String>> dictMap = new HashMap<>();
-
-    private List<MDictionaryEntity> list = new ArrayList<>();
 
     private Map<Integer, Map<String, String>> dict() {
         List<MDictionaryEntity> list = dictionaryManager.findAll();

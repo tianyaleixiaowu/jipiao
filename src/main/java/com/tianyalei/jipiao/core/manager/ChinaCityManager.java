@@ -18,4 +18,8 @@ public class ChinaCityManager {
     public List<MHtChinaCityEntity> findAll() {
         return cityRepository.findAll();
     }
+
+    public String findNameByCityId(String cityId) {
+        return cityRepository.findByCityId(cityId).getCnName();
+    }
 }

@@ -13,18 +13,18 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "M_CompanyTravelSetting", catalog = "")
 public class MCompanyTravelSettingEntity extends BaseIdEntity {
-    private int travelLevelId;
+    private Integer travelLevelId;
     private String planeLevel;
     private String trainLevel;
 
 
     @Basic
     @Column(name = "TravelLevelID")
-    public int getTravelLevelId() {
+    public Integer getTravelLevelId() {
         return travelLevelId;
     }
 
-    public void setTravelLevelId(int travelLevelId) {
+    public void setTravelLevelId(Integer travelLevelId) {
         this.travelLevelId = travelLevelId;
     }
 

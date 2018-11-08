@@ -2,10 +2,7 @@ package com.tianyalei.jipiao.core.model;
 
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -18,6 +15,20 @@ public class MCompanyTravelLevelEntity extends BaseIdEntity {
     private String levelName;
     private String levelType;
     private boolean isEnable = true;
+
+    /**
+     * 添加的是城市时，城市id的集合，逗号分隔
+     */
+    @Transient
+    private String cities;
+
+    public String getCities() {
+        return cities;
+    }
+
+    public void setCities(String cities) {
+        this.cities = cities;
+    }
 
     @Basic
     @Column(name = "IsEnable")

@@ -14,10 +14,19 @@ import java.util.List;
 public class CompanyTravelLevelManager {
     @Resource
     private CompanyTravelLevelRepository companyTravelLevelRepository;
+    @Resource
+    private CompanyTravelSettingHotelCityManager companyTravelSettingHotelCityManager;
 
 
     public MCompanyTravelLevelEntity add(MCompanyTravelLevelEntity mCompanyEntity) {
-        return companyTravelLevelRepository.save(mCompanyEntity);
+        MCompanyTravelLevelEntity entity = companyTravelLevelRepository.save(mCompanyEntity);
+        //将city的数据，插入到M_CompanyTravelSettingHotelCity表
+        if ("2".equals(mCompanyEntity.getLevelType())) {
+            String cities = mCompanyEntity.getCities();
+            companyTravelSettingHotelCityManager.add(entity.getId(), cities);
+        }
+
+        return entity;
     }
 
     public MCompanyTravelLevelEntity find(Integer id) {

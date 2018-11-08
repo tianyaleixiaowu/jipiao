@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
+ * 差旅等级
  * @author wuweifeng wrote on 2018/11/1.
  */
 @RestController
@@ -18,7 +19,7 @@ public class CompanyTravelLevelController {
     @Resource
     private CompanyTravelLevelManager companyTravelLevelManager;
 
-    @RequestMapping
+    @RequestMapping("/list")
     public BaseData queryByCompanyId(Integer companyId) {
         return ResultGenerator.genSuccessResult(companyTravelLevelManager.findByCompanyId(companyId));
     }
