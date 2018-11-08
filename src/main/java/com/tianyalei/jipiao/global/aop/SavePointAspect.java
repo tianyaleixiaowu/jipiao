@@ -62,13 +62,14 @@ public class SavePointAspect {
 
             if (method.contains("add")) {
                 baseIdEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
-
                 operationLogEntity.setOperationType("add");
             } else if (method.contains("update")) {
+                baseIdEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
                 operationLogEntity.setOperationType("update");
             } else if (method.contains("delete")) {
                 operationLogEntity.setOperationType("delete");
             }
+
             baseIdEntity.setCreateUserId(userId + "");
             baseIdEntity.setCreateRealName("CreateRealName");
             baseIdEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));

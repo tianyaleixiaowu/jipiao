@@ -1,7 +1,11 @@
 package com.tianyalei.jipiao.core.model;
 
-import javax.persistence.*;
-import java.util.Objects;
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * 单位审批人表
@@ -9,8 +13,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "M_CompanyApprover", catalog = "")
-public class MCompanyApproverEntity {
-    private Integer id;
+public class MCompanyApproverEntity extends BaseIdEntity {
     private int companyId;
     private String cardNum;
     /**
@@ -24,14 +27,7 @@ public class MCompanyApproverEntity {
     /**
      * 是否可用
      */
-    private boolean isEnable;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    public Integer getId() {
-        return id;
-    }
+    private boolean isEnable = true;
 
     @Basic
     @Column(name = "CompanyID")
@@ -73,24 +69,15 @@ public class MCompanyApproverEntity {
         this.approvalSort = approvalSort;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Basic
     @Column(name = "IsEnable")
-    public boolean isEnable() {
+    public boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setIsEnable(boolean enable) {
         isEnable = enable;
     }
 
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, companyId, cardNum, realName, approvalSort, isEnable);
-    }
 }

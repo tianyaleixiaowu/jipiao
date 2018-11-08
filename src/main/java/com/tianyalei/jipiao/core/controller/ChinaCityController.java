@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
+ * 城市列表
  * @author wuweifeng wrote on 2018/11/7.
  */
 @RestController
