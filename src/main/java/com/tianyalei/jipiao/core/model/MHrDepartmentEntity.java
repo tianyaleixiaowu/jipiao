@@ -1,24 +1,35 @@
 package com.tianyalei.jipiao.core.model;
 
 import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.global.excel.ExcelColumn;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
  */
 @Entity
 @Table(name = "M_HRDepartment", catalog = "")
-public class MHrDepartmentEntity extends BaseEntity {
+public class MHrDepartmentEntity extends BaseEntity implements Serializable {
+    @ExcelColumn(value = "部门ID", col = 1)
     private String depId;
+    @ExcelColumn(value = "部门名称", col = 2)
     private String depName;
+    @ExcelColumn(value = "部门等级", col=3)
     private Byte depLevel;
+    @ExcelColumn(value = "组织结构ID", col=4)
     private String orgId;
+    @ExcelColumn(value = "组织结构名称", col=5)
     private String orgName;
+    @ExcelColumn(value = "使用状态", col=6)
     private String useStatus;
+    @ExcelColumn(value = "资金单位ID", col=7)
     private String capitalDep;
+    @ExcelColumn(value = "资金单位名称", col=8)
     private String capitalDepName;
-    private boolean isEnable;
+
+    private boolean isEnable = true;
     private String impFlag;
 
     @Id
