@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author wuweifeng wrote on 2018/11/1.
  */
 @RestController
-@RequestMapping
+@RequestMapping("user")
 public class SysUserController {
     @Resource
     private SysUserManager sysUserManager;
@@ -23,9 +23,8 @@ public class SysUserController {
         return sysUserManager.login(sysUser);
     }
 
-    @RequestMapping("modifyPassword")
-    public BaseData modifyPassword(String oldPassword, String newPassword, HttpServletRequest request) {
-        Long userId = (Long) request.getAttribute("userId");
-        return sysUserManager.modifyPassword(userId, oldPassword, newPassword);
+    @RequestMapping("menu")
+    public BaseData menu(HttpServletRequest request) {
+        return sysUserManager.menu(request);
     }
 }

@@ -39,6 +39,7 @@ public interface Constant {
      * 用户访问任何接口header里带的token
      */
     String AUTHORIZATION = "token";
+    String USERID = "userId";
 
 
     int PAGE_SIZE = 10;

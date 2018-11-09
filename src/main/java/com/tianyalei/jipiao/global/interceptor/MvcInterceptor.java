@@ -16,20 +16,20 @@ public class MvcInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getHeader("token");
+        String userId = request.getHeader("userId");
         if (request.getRequestURI().contains("login") || request.getRequestURI().contains("error")) {
             return true;
         }
 
-        Long userId = ApplicationContextProvider.getBean(UserCache.class).findUserByToken(token);
+        String userName = ApplicationContextProvider.getBean(UserCache.class).findNameByUserId(userId);
         //没token，或token在缓存中找不到
-        //if (token == null || userId == null) {
+        //if (userId == null || userName == null) {
         //    gotoLogin(response);
         //    return false;
         //}
 
-        //request.setAttribute("userId", userId);
-        request.setAttribute("userId", 1);
+        request.setAttribute("userId", userId);
+        request.setAttribute("userName", userName);
         return true;
     }
 

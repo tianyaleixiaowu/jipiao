@@ -1,17 +1,24 @@
 package com.tianyalei.jipiao.core.manager;
 
 import com.tianyalei.jipiao.core.bean.LoginData;
+import com.tianyalei.jipiao.core.bean.LoginUserBean;
+import com.tianyalei.jipiao.core.bean.Menu;
+import com.tianyalei.jipiao.core.bean.MenuData;
 import com.tianyalei.jipiao.core.model.SysUser;
-import com.tianyalei.jipiao.core.repository.SysUserRepository;
 import com.tianyalei.jipiao.global.bean.BaseData;
-import com.tianyalei.jipiao.global.bean.ResultCode;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.cache.UserCache;
-import com.tianyalei.jipiao.global.util.CommonUtil;
+import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author wuweifeng wrote on 2018/4/16.
@@ -19,44 +26,101 @@ import javax.annotation.Resource;
 @Service
 public class SysUserManager {
     @Resource
-    private SysUserRepository sysUserRepository;
-    @Resource
     private UserCache userCache;
+    @Resource
+    private RestTemplate restTemplate;
+
+    private String systemCode = "Member";
+    private String Key = "f3b18dffb528d2fbdc61be6aca3f838c";
+
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * 登录
      */
     public BaseData login(SysUser user) {
-        SysUser temp = sysUserRepository.findByAccount(user.getAccount());
-        LoginData loginData = new LoginData();
+        String account = user.getAccount();
+        String password = user.getPassword();
+        String s = "SystemCode=" + systemCode + "&UserName=" + account + "&Password="
+                + DigestUtil.md5Hex(password).toUpperCase();
+        String sign = DigestUtil.md5Hex(s + "&Key=" + Key).toUpperCase();
+        String resultStr = s + "&SignMsg=" + sign;
 
-        if (temp == null) {
-            loginData.setCode(-1);
-            loginData.setMessage("用户不存在");
-            return ResultGenerator.genFailResult(ResultCode.ACCOUNT_ERROR, "账户不存在");
-        } else if (!temp.getPassword().equals(CommonUtil.md5(user.getPassword()))) {
-            loginData.setCode(-2);
-            return ResultGenerator.genFailResult(ResultCode.ACCOUNT_ERROR, "密码错误");
-        } else {
-            return ResultGenerator.genSuccessResult(userCache.saveToken(temp.getId()));
+        logger.info("最终请求的字符串是：" + resultStr);
+
+        Map<String, String> map = new HashMap<>();
+        map.put("SystemCode", systemCode);
+        map.put("UserName", account);
+        map.put("Password", DigestUtil.md5Hex(password).toUpperCase());
+        map.put("SignMsg", sign);
+
+        try {
+            LoginData loginData = restTemplate.postForEntity("http://10.1.15.102:10299/api/User/UserLogin", map,
+                    LoginData.class)
+                    .getBody();
+            logger.info("返回值：" + loginData);
+            if (loginData.getReturnCode() == 0) {
+                //存入缓存
+                userCache.saveUserId(loginData.getData().getUser_id(), loginData.getData().getReal_name_cn());
+
+                //成功
+                return ResultGenerator.genSuccessResult(loginData.getData());
+            } else {
+                return ResultGenerator.genFailResult("失败：" + loginData.getMessage());
+            }
+        } catch (Exception e) {
+            logger.info("-------登录失败------返回默认用户");
+            LoginUserBean loginUserBean = new LoginUserBean();
+            loginUserBean.setCode(1000);
+            loginUserBean.setUser_id("761b5378-e843-4df3-a7aa-53965311814f");
+            loginUserBean.setReal_name_cn("鲍春智");
+            userCache.saveUserId("761b5378-e843-4df3-a7aa-53965311814f", "鲍春智");
+            //成功
+            return ResultGenerator.genSuccessResult(loginUserBean);
         }
 
     }
 
-    public BaseData modifyPassword(Long userId, String oldPassword, String newPassword) {
-        if (StringUtils.isEmpty(oldPassword) || StringUtils.isEmpty(newPassword)) {
-            return ResultGenerator.genFailResult(ResultCode.PASSWORD_ERROR, "旧密码错误");
+    public BaseData menu(HttpServletRequest request) {
+        String userId = request.getAttribute("userId").toString();
+
+        String s = "SystemCode=" + systemCode + "&UserId=" + userId;
+        String sign = DigestUtil.md5Hex(s + "&Key=" + Key).toUpperCase();
+        String resultStr = s + "&SignMsg=" + sign;
+        logger.info("最终请求的字符串是：" + resultStr);
+
+        Map<String, String> map = new HashMap<>(8);
+        map.put("SystemCode", systemCode);
+        map.put("UserId", userId);
+        map.put("SignMsg", sign);
+        try {
+            MenuData menuData = restTemplate.postForEntity("http://10.1.15.102:10299/api/User/GetUserMenu", map,
+             MenuData
+                    .class)
+                    .getBody();
+            //MenuData menuData = restTemplate.postForEntity("http://localhost:8888/user/login1", map, MenuData
+            //        .class)
+            //        .getBody();
+            if (menuData.getReturnCode() == 0) {
+                return ResultGenerator.genSuccessResult(menuData.getData());
+            } else {
+                return ResultGenerator.genFailResult("失败" + menuData.getMessage());
+            }
+        } catch (Exception e) {
+            MenuData menuData = new MenuData();
+            menuData.setReturnCode(0);
+            menuData.setMessage("aa");
+            Menu menu = new Menu();
+            menu.setApp_id("11");
+            menu.setCode("12");
+
+            Menu menu1 = new Menu();
+            menu1.setApp_id("222");
+
+            menu.setChild_menu(Arrays.asList(menu1));
+            return ResultGenerator.genSuccessResult(menuData.getData());
         }
 
-        SysUser sysUser = sysUserRepository.getOne(userId);
-
-        if(!sysUser.getPassword().equals(CommonUtil.md5(oldPassword))) {
-            return ResultGenerator.genFailResult(ResultCode.PASSWORD_ERROR, "旧密码错误");
-        }
-        sysUser.setPassword(CommonUtil.md5(newPassword));
-        sysUserRepository.save(sysUser);
-
-        return ResultGenerator.genSuccessResult("修改成功");
     }
 
 

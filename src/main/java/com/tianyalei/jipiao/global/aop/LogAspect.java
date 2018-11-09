@@ -44,8 +44,7 @@ public class LogAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         logger.info("-------------------用户发起请求-----------------");
-        logger.info("token为：" + request.getHeader(Constant.AUTHORIZATION));
-        logger.info("userId为：" + userTokenCache.findUserByToken(request.getHeader(Constant.AUTHORIZATION)));
+        logger.info("userId为：" + request.getHeader(Constant.USERID));
         timer = DateUtil.timer();
         // 记录下请求内容
         logger.info("URL : " + request.getRequestURL().toString());

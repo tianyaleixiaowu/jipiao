@@ -1,6 +1,6 @@
 package com.tianyalei.jipiao.global.cache;
 
-import com.tianyalei.jipiao.global.util.CommonUtil;
+import com.xiaoleilu.hutool.util.ObjectUtil;
 import org.springframework.cache.Cache;
 import org.springframework.stereotype.Component;
 
@@ -14,13 +14,14 @@ public class UserCache {
     @Resource
     private Cache cache;
 
-    public String saveToken(Long userId) {
-        String token = CommonUtil.token();
-        cache.put(token, userId);
-        return token;
+    public void saveUserId(String userId, String realName) {
+        cache.put(userId, realName);
     }
 
-    public Long findUserByToken(String token) {
-        return cache.get(token, Long.class);
+    public String findNameByUserId(String userId) {
+        if (ObjectUtil.isNull(cache.get(userId))) {
+            return null;
+        }
+        return cache.get(userId).toString();
     }
 }

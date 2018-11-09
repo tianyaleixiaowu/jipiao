@@ -1,13 +1,16 @@
 package com.tianyalei.jipiao.core.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author wuweifeng wrote on 2018/4/16.
  */
-public class LoginData {
+public class MenuData {
     private Integer ReturnCode;
     private String Message;
     private String Status;
-    private LoginUserBean Data;
+    private List<Menu> Data = new ArrayList<>();
 
     public Integer getReturnCode() {
         return ReturnCode;
@@ -33,21 +36,11 @@ public class LoginData {
         ReturnCode = returnCode;
     }
 
-    public LoginUserBean getData() {
+    public List<Menu> getData() {
         return Data;
     }
 
-    @Override
-    public String toString() {
-        return "LoginData{" +
-                "ReturnCode=" + ReturnCode +
-                ", Message='" + Message + '\'' +
-                ", Status='" + Status + '\'' +
-                ", Data=" + Data +
-                '}';
-    }
-
-    public void setData(LoginUserBean data) {
+    public void setData(List<Menu> data) {
         Data = data;
     }
 }

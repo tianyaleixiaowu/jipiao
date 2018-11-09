@@ -3,7 +3,6 @@ package com.tianyalei.jipiao.global.aop;
 import com.tianyalei.jipiao.core.model.MOperationLogEntity;
 import com.tianyalei.jipiao.core.model.base.BaseEntity;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
-import com.tianyalei.jipiao.global.cache.UserCache;
 import com.xiaoleilu.hutool.json.JSONUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -26,13 +25,9 @@ import java.sql.Timestamp;
 @Order(2)
 public class SavePointAspect {
     @Resource
-    private UserCache userTokenCache;
-    @Resource
     private OperationLogManager operationLogManager;
 
-
     private Logger logger = LoggerFactory.getLogger(getClass().getName());
-
 
     @Pointcut("execution(public * com.tianyalei.jipiao.core.manager.*.*(..))")
     public void webLog() {
@@ -43,7 +38,17 @@ public class SavePointAspect {
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        Integer userId = (Integer) request.getAttribute("userId");
+        String userId = "";
+        String userName = "";
+        Object tempUserId = request.getAttribute("userId");
+        if (tempUserId != null) {
+            userId = tempUserId.toString();
+            Object o = request.getAttribute("userName");
+            if (o != null) {
+                userName = o.toString();
+            }
+        }
+
         String method = joinPoint.getSignature().getName();
         String className = joinPoint.getSignature().getDeclaringTypeName();
 
@@ -70,8 +75,8 @@ public class SavePointAspect {
                 operationLogEntity.setOperationType("delete");
             }
 
-            baseIdEntity.setCreateUserId(userId + "");
-            baseIdEntity.setCreateRealName("CreateRealName");
+            baseIdEntity.setCreateUserId(userId);
+            baseIdEntity.setCreateRealName(userName);
             baseIdEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
             String jsonContent = JSONUtil.toJsonStr(o);
