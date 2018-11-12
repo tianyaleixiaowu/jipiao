@@ -68,16 +68,7 @@ public class HrManager {
         List<T> failureList = new ArrayList<>();
         for (T t : list) {
             try {
-                if (t instanceof MHrDepartmentEntity) {
-                    //addDept((MHrDepartmentEntity) t);
-                    eventPublisher.publishEvent(new HrEvent(t));
-                } else if (t instanceof MHrEmployeeEntity) {
-                    addEmployee((MHrEmployeeEntity) t);
-                } else if (t instanceof MHrOrganizationEntity) {
-                    addOrgz((MHrOrganizationEntity) t);
-                } else if (t instanceof MHrRelationalEntity) {
-                    addRelation((MHrRelationalEntity) t);
-                }
+                eventPublisher.publishEvent(new HrEvent(t));
             } catch (Exception e) {
                 //如果有id重复的，就会失败，把失败的都存起来
                 failureList.add(t);
@@ -92,33 +83,38 @@ public class HrManager {
     @CreateUserAnnotation
     @EventListener(HrEvent.class)
     public void addDept(HrEvent hrEvent) {
-        if (hrEvent.getSource() instanceof MHrDepartmentEntity) {
-            hrDepartmentRepository.save((MHrDepartmentEntity)hrEvent.getSource());
+        Object object = hrEvent.getSource();
+        if (object instanceof MHrDepartmentEntity) {
+            if (hrDepartmentRepository.existsById(((MHrDepartmentEntity) object).getDepId())) {
+                throw new RuntimeException();
+            }
+
+            hrDepartmentRepository.save((MHrDepartmentEntity) object);
+        } else if (object instanceof MHrOrganizationEntity) {
+            if (hrOrganizationRepository.existsById(((MHrOrganizationEntity) object).getOrgId())) {
+                throw new RuntimeException();
+            }
+            hrOrganizationRepository.save((MHrOrganizationEntity) object);
+        } else if (object instanceof MHrEmployeeEntity) {
+            if (hrEmployeeRepository.existsById(((MHrEmployeeEntity) object).getEmployeeId())) {
+                throw new RuntimeException();
+            }
+            hrEmployeeRepository.save((MHrEmployeeEntity) object);
+        } else if (object instanceof MHrRelationalEntity) {
+            MHrRelationalEntity oo = (MHrRelationalEntity) object;
+            MHrRelationalEntity entity = hrRelationalRepository.findFirstByDeptIdAndEmployeeId(oo.getDeptId(),
+                    oo.getEmployeeId());
+            if (entity != null) {
+                throw new RuntimeException();
+            }
+            hrRelationalRepository.save(oo);
         }
 
     }
 
-    @CreateUserAnnotation
-    private void addOrgz(MHrOrganizationEntity organizationEntity) {
-        hrOrganizationRepository.save(organizationEntity);
-    }
-
-    @CreateUserAnnotation
-    private void addEmployee(MHrEmployeeEntity employeeEntity) {
-        hrEmployeeRepository.save(employeeEntity);
-    }
-
-    @CreateUserAnnotation
-    private void addRelation(MHrRelationalEntity relationalEntity) {
-        hrRelationalRepository.save(relationalEntity);
-    }
-
     private class HrEvent extends ApplicationEvent {
-        //Object baseEntity;
-
         public HrEvent(Object source) {
             super(source);
-            //this.baseEntity =source;
         }
     }
 }

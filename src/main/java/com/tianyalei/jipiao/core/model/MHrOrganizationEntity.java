@@ -1,9 +1,11 @@
 package com.tianyalei.jipiao.core.model;
 
 import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.global.excel.ExcelColumn;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -11,22 +13,36 @@ import java.util.Objects;
 @Entity
 @Table(name = "M_HROrganization", catalog = "")
 public class MHrOrganizationEntity extends BaseEntity {
+    @ExcelColumn(value = "组织结构ID", col = 1)
     private String orgId;
+    @ExcelColumn(value = "单位等级", col = 2)
     private Byte level;
+    @ExcelColumn(value = "组织结构名称", col = 3)
     private String orgName;
+    @ExcelColumn(value = "使用状态", col = 4)
     private String status;
+    @ExcelColumn(value = "账号编码", col = 5)
     private String accountCode;
+    @ExcelColumn(value = "责任中心ID", col = 6)
     private String dutyCenterId;
+    @ExcelColumn(value = "责任中心名称", col = 7)
     private String dutyCenterName;
+    @ExcelColumn(value = "资金单位ID", col = 8)
     private String capitalUnit;
+    @ExcelColumn(value = "资金单位名称", col = 9)
     private String capitalUnitName;
+    @ExcelColumn(value = "预算单位ID", col = 10)
     private String budgetUnit;
+    @ExcelColumn(value = "资金单位名称", col = 11)
     private String budgetUnitName;
+    @ExcelColumn(value = "所属板块", col = 12)
     private String panelname;
+    @ExcelColumn(value = "币种", col = 13)
     private String currency;
-    private Boolean isEnable;
+
+    private Boolean isEnable = true;
     private String remark;
-    private String impFlag;
+    private String impFlag = UUID.randomUUID().toString();
 
     @Id
     @Column(name = "OrgID")

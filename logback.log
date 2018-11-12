@@ -1963,3 +1963,106 @@ org.springframework.web.HttpMediaTypeNotAcceptableException: Could not find acce
 2018-11-12 18:16:06.439  INFO 32950 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2018-11-12 18:16:06.447  INFO 32950 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2018-11-12 18:16:06.471  INFO 32950 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-12 18:27:57.995  INFO 33575 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 33575 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-12 18:27:58.001  INFO 33575 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-12 18:27:59.885  INFO 33575 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-12 18:28:00.176  INFO 33575 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 274ms. Found 23 repository interfaces.
+2018-11-12 18:28:00.956  INFO 33575 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7c7c15e8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-12 18:28:01.735  INFO 33575 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-12 18:28:01.757  INFO 33575 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 18:28:01.757  INFO 33575 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 18:28:01.766  INFO 33575 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-12 18:28:01.936  INFO 33575 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-12 18:28:01.937  INFO 33575 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3839 ms
+2018-11-12 18:28:02.071  INFO 33575 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 18:28:02.072  INFO 33575 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 18:28:02.072  INFO 33575 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 18:28:02.073  INFO 33575 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 18:28:02.073  INFO 33575 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-11-12 18:28:02.073  INFO 33575 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-12 18:28:02.074  INFO 33575 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 18:28:02.570  INFO 33575 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-12 18:28:02.659  INFO 33575 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-12 18:28:02.661  INFO 33575 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-12 18:28:02.885  INFO 33575 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-12 18:28:03.071  INFO 33575 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-12 18:28:03.516  INFO 33575 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-12 18:28:03.529  INFO 33575 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-12 18:28:05.107  INFO 33575 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-12 18:28:10.565  INFO 33575 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 18:28:10.671  WARN 33575 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-12 18:28:11.277  INFO 33575 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-12 18:28:11.282  INFO 33575 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 14.401 seconds (JVM running for 15.549)
+2018-11-12 18:28:23.846  INFO 33575 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-12 18:28:23.846  INFO 33575 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-12 18:28:23.878  INFO 33575 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 32 ms
+2018-11-12 18:28:23.996  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-12 18:28:23.997  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-12 18:28:23.999  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/hr/department
+2018-11-12 18:28:23.999  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-11-12 18:28:23.999  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : multipart/form-data; boundary=----WebKitFormBoundaryA0TEJyB6tMghpgiL
+2018-11-12 18:28:24.000  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-12 18:28:24.003  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.HrController.hrDepartment
+2018-11-12 18:28:24.003  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-12 18:28:24.004  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : preview->false
+2018-11-12 18:28:24.004  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : enable->true
+2018-11-12 18:28:24.706  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=上传成功}
+2018-11-12 18:28:24.709  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：710毫秒
+2018-11-12 18:28:24.709  INFO 33575 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-12 18:39:07.242  INFO 33575 --- [Thread-32] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 18:39:07.265  INFO 33575 --- [Thread-32] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-12 18:39:07.277  INFO 33575 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-12 18:39:07.294  INFO 33575 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-12 18:39:14.762 DEBUG 34085 --- [background-preinit] .h.v.m.ResourceBundleMessageInterpolator : Loaded expression factory via original TCCL
+2018-11-12 18:39:15.074  INFO 34085 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 34085 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-12 18:39:15.076  INFO 34085 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-11-12 18:39:16.941  INFO 34085 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-12 18:39:17.232  INFO 34085 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 278ms. Found 23 repository interfaces.
+2018-11-12 18:39:17.945  INFO 34085 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$dce798ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-12 18:39:18.880  INFO 34085 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-12 18:39:18.903  INFO 34085 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 18:39:18.904  INFO 34085 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 18:39:18.913  INFO 34085 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-12 18:39:19.120  INFO 34085 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-12 18:39:19.121  INFO 34085 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3926 ms
+2018-11-12 18:39:19.374  INFO 34085 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 18:39:19.374  INFO 34085 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 18:39:19.374  INFO 34085 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 18:39:19.374  INFO 34085 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 18:39:19.375  INFO 34085 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-11-12 18:39:19.375  INFO 34085 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-12 18:39:19.375  INFO 34085 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 18:39:19.775  INFO 34085 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-12 18:39:19.874  INFO 34085 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-12 18:39:19.877  INFO 34085 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-12 18:39:20.076  INFO 34085 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-12 18:39:20.333  INFO 34085 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-12 18:39:21.141  INFO 34085 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-12 18:39:21.160  INFO 34085 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-12 18:39:22.961  INFO 34085 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-12 18:39:28.514  INFO 34085 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 18:39:28.603  WARN 34085 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-12 18:39:29.240  INFO 34085 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-12 18:39:29.246  INFO 34085 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 15.601 seconds (JVM running for 17.048)
+2018-11-12 18:39:36.971  INFO 34085 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-12 18:39:36.972  INFO 34085 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-12 18:39:36.996  INFO 34085 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2018-11-12 18:39:39.556  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-11-12 18:39:39.557  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：null
+2018-11-12 18:39:39.559  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/hr/department
+2018-11-12 18:39:39.560  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-11-12 18:39:39.560  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : multipart/form-data; boundary=----WebKitFormBoundaryJElz1P49A0fC5yuU
+2018-11-12 18:39:39.560  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-11-12 18:39:39.562  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.HrController.hrDepartment
+2018-11-12 18:39:39.563  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-11-12 18:39:39.563  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : preview->false
+2018-11-12 18:39:39.563  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : enable->true
+2018-11-12 18:39:40.345  INFO 34085 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-11-12 18:39:40.537  INFO 34085 --- [http-nio-8080-exec-1] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-11-12 18:39:44.711  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-11-12 18:39:44.717  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：5159毫秒
+2018-11-12 18:39:44.729  INFO 34085 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------

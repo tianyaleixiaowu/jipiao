@@ -1,9 +1,11 @@
 package com.tianyalei.jipiao.core.model;
 
 import com.tianyalei.jipiao.core.model.base.BaseEntity;
+import com.tianyalei.jipiao.global.excel.ExcelColumn;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -11,19 +13,31 @@ import java.util.Objects;
 @Entity
 @Table(name = "M_HREmployee", catalog = "")
 public class MHrEmployeeEntity extends BaseEntity {
+    @ExcelColumn(value = "员工编号", col = 1)
     private String employeeId;
+    @ExcelColumn(value = "真实姓名", col = 2)
     private String realName;
+    @ExcelColumn(value = "性别", col = 3)
     private String gender;
+    @ExcelColumn(value = "员工类型", col = 4)
     private String employeeType;
+    @ExcelColumn(value = "传真号码", col = 5)
     private String faxNum;
+    @ExcelColumn(value = "邮件", col = 6)
     private String email;
+    @ExcelColumn(value = "证件号码", col = 7)
     private String paperNum;
+    @ExcelColumn(value = "电话号码", col = 8)
     private String phoneNum;
+    @ExcelColumn(value = "职务", col = 9)
     private String position;
+    @ExcelColumn(value = "职称", col = 10)
     private String jobTitle;
+    @ExcelColumn(value = "HR人员编号", col = 11)
     private String hrCode;
-    private boolean isEnable;
-    private String impFlag;
+
+    private boolean isEnable = true;
+    private String impFlag = UUID.randomUUID().toString();
     private Byte travelLevel;
 
     @Id
