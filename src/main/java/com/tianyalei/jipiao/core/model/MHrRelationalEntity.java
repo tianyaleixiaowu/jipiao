@@ -1,5 +1,7 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
+
 import javax.persistence.*;
 
 /**
@@ -7,21 +9,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "M_HRRelational", catalog = "")
-public class MHrRelationalEntity {
+public class MHrRelationalEntity extends BaseIdEntity {
 
-    private Integer id;
     private String deptId;
     private String employeeId;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Column(name = "DeptID")
     public String getDeptId() {

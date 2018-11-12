@@ -5,6 +5,7 @@ import com.tianyalei.jipiao.global.excel.ExcelColumn;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -30,7 +31,7 @@ public class MHrDepartmentEntity extends BaseEntity implements Serializable {
     private String capitalDepName;
 
     private boolean isEnable = true;
-    private String impFlag;
+    private String impFlag = UUID.randomUUID().toString();
 
     @Id
     @Column(name = "DepID")

@@ -20,8 +20,8 @@ public class UserCache {
 
     public String findNameByUserId(String userId) {
         if (ObjectUtil.isNull(cache.get(userId))) {
-            return null;
+            return "";
         }
-        return cache.get(userId).toString();
+        return cache.get(userId).get().toString();
     }
 }
