@@ -38,8 +38,16 @@ public class SavePointAspect {
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        String userId = request.getAttribute("userId").toString();
-        String userName = request.getAttribute("userName").toString();
+        String userId = "";
+        String userName = "";
+        Object tempUserId = request.getAttribute("userId");
+        if (tempUserId != null) {
+            userId = tempUserId.toString();
+            Object o = request.getAttribute("userName");
+            if (o != null) {
+                userName = o.toString();
+            }
+        }
 
         String method = joinPoint.getSignature().getName();
         String className = joinPoint.getSignature().getDeclaringTypeName();
