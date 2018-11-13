@@ -99,8 +99,8 @@ public class SavePointAspect {
             operationLogEntity.setTitle(className.replace("com.tianyalei.jipiao.core.manager.", "") + "." + method);
 
             operationLogEntity.setCreateUserId(userId + "");
-            operationLogEntity.setCreateRealName("CreateUserName");
-            operationLogEntity.setCreateUserName("CreateUserName");
+            operationLogEntity.setCreateRealName(userName);
+            operationLogEntity.setCreateUserName(userName);
             operationLogEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
             request.setAttribute("operationLogEntity", operationLogEntity);
         }

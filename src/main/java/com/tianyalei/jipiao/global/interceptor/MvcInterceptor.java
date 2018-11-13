@@ -21,10 +21,10 @@ public class MvcInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
         //TODO 待删除
-        if (userId == null) {
-            userId = "a";
-            ApplicationContextProvider.getBean(UserCache.class).saveUserId(userId, "a");
-        }
+        //if (userId == null) {
+        //    userId = "a";
+        //    ApplicationContextProvider.getBean(UserCache.class).saveUserId(userId, "a");
+        //}
         String userName = ApplicationContextProvider.getBean(UserCache.class).findNameByUserId(userId);
         //没token，或token在缓存中找不到
         if (userId == null || userName == null) {
