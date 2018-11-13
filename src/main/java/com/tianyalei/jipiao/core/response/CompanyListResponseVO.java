@@ -18,6 +18,19 @@ public class CompanyListResponseVO {
      */
     private String panelnameValue;
     /**
+     * 适用机票出票政策 GroupID=60
+     */
+    private String policyType;
+    private String policyTypeValue;
+    /**
+     * 欠款期限（月）
+     */
+    private Byte debtTime;
+    /**
+     * 是否可用 ，1可用，0不可用
+     */
+    private boolean isEnable;
+    /**
      * 审批类型 GroupID=61
      */
     private String approveType;
@@ -54,25 +67,36 @@ public class CompanyListResponseVO {
     private Timestamp createTime;
     private Timestamp updateTime;
 
-    @Override
-    public String toString() {
-        return "CompanyListResponseVO{" +
-                "id='" + id + '\'' +
-                "companyName='" + companyName + '\'' +
-                ", panelname='" + panelname + '\'' +
-                ", panelnameValue='" + panelnameValue + '\'' +
-                ", approveType='" + approveType + '\'' +
-                ", approveTypeValue='" + approveTypeValue + '\'' +
-                ", travelControlType='" + travelControlType + '\'' +
-                ", travelControlTypeValue='" + travelControlTypeValue + '\'' +
-                ", isBalance=" + isBalance +
-                ", serverType='" + serverType + '\'' +
-                ", serverTypeValue='" + serverTypeValue + '\'' +
-                ", serverCost=" + serverCost +
-                ", createRealName='" + createRealName + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
+    public String getPolicyType() {
+        return policyType;
+    }
+
+    public void setPolicyType(String policyType) {
+        this.policyType = policyType;
+    }
+
+    public String getPolicyTypeValue() {
+        return policyTypeValue;
+    }
+
+    public void setPolicyTypeValue(String policyTypeValue) {
+        this.policyTypeValue = policyTypeValue;
+    }
+
+    public Byte getDebtTime() {
+        return debtTime;
+    }
+
+    public void setDebtTime(Byte debtTime) {
+        this.debtTime = debtTime;
+    }
+
+    public boolean getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean enable) {
+        isEnable = enable;
     }
 
     public Integer getId() {

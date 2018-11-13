@@ -125,6 +125,7 @@ public class CompanyManager {
         vo.setApproveTypeValue(dictCache.findByGroupIdAndKey(61, vo.getApproveType()));
         vo.setTravelControlTypeValue(dictCache.findByGroupIdAndKey(55, vo.getTravelControlType()));
         vo.setServerTypeValue(dictCache.findByGroupIdAndKey(58, vo.getServerType()));
+        vo.setPolicyTypeValue(dictCache.findByGroupIdAndKey(60, vo.getPolicyType()));
         return vo;
     }
 
