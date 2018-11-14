@@ -2,10 +2,13 @@ package com.tianyalei.jipiao.core.manager;
 
 import com.tianyalei.jipiao.core.model.MCompanyDepartmentEntity;
 import com.tianyalei.jipiao.core.repository.CompanyDepartmentRepository;
+import com.tianyalei.jipiao.global.bean.SimplePage;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -45,8 +48,14 @@ public class CompanyDepartmentManager {
         update(entity);
     }
 
-    public List<MCompanyDepartmentEntity> findByCompanyId(Integer companyId) {
-        return companyDepartmentRepository.findByCompanyIdAndIsEnableTrue(companyId);
+    public SimplePage<MCompanyDepartmentEntity> findByCompanyId(Integer companyId, int pp, int size) {
+        if (size == 0) {
+            size = 10;
+        }
+        Pageable pageable = PageRequest.of(pp, size);
+        Page<MCompanyDepartmentEntity> page = companyDepartmentRepository.findByCompanyIdAndIsEnableTrue(companyId, pageable);
+        return new SimplePage<>(page.getTotalPages(), page
+                .getTotalElements(), page.getContent());
     }
 
 

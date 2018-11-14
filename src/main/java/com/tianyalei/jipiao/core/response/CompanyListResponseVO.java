@@ -67,6 +67,31 @@ public class CompanyListResponseVO {
     private Timestamp createTime;
     private Timestamp updateTime;
 
+    @Override
+    public String toString() {
+        return "CompanyListResponseVO{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                ", panelname='" + panelname + '\'' +
+                ", panelnameValue='" + panelnameValue + '\'' +
+                ", policyType='" + policyType + '\'' +
+                ", policyTypeValue='" + policyTypeValue + '\'' +
+                ", debtTime=" + debtTime +
+                ", isEnable=" + isEnable +
+                ", approveType='" + approveType + '\'' +
+                ", approveTypeValue='" + approveTypeValue + '\'' +
+                ", travelControlType='" + travelControlType + '\'' +
+                ", travelControlTypeValue='" + travelControlTypeValue + '\'' +
+                ", isBalance=" + isBalance +
+                ", serverType='" + serverType + '\'' +
+                ", serverTypeValue='" + serverTypeValue + '\'' +
+                ", serverCost=" + serverCost +
+                ", createRealName='" + createRealName + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
+
     public String getPolicyType() {
         return policyType;
     }

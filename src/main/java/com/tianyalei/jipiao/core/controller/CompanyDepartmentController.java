@@ -21,8 +21,8 @@ public class CompanyDepartmentController {
 
 
     @RequestMapping("/list")
-    public BaseData queryByCompanyId(Integer companyId) {
-        return ResultGenerator.genSuccessResult(companyDepartmentManager.findByCompanyId(companyId));
+    public BaseData queryByCompanyId(Integer companyId, int page, int size) {
+        return ResultGenerator.genSuccessResult(companyDepartmentManager.findByCompanyId(companyId, page, size));
     }
 
     /**
