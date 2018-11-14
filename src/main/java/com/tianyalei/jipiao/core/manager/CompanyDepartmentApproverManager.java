@@ -2,10 +2,13 @@ package com.tianyalei.jipiao.core.manager;
 
 import com.tianyalei.jipiao.core.model.MCompanyDepartmentApproverEntity;
 import com.tianyalei.jipiao.core.repository.CompanyDepartmentApproverRepository;
+import com.tianyalei.jipiao.global.bean.SimplePage;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -38,7 +41,14 @@ public class CompanyDepartmentApproverManager {
         return companyDepartmentApproverRepository.getOne(id);
     }
 
-    public List<MCompanyDepartmentApproverEntity> findByDeptId(Integer deptId) {
-        return companyDepartmentApproverRepository.findByDepartmentId(deptId);
+    public SimplePage<MCompanyDepartmentApproverEntity> findByDeptId(Integer deptId, int pp , int size) {
+        if (size == 0) {
+            size = 10;
+        }
+        Pageable pageable = PageRequest.of(pp, size);
+        Page<MCompanyDepartmentApproverEntity> page = companyDepartmentApproverRepository.findByDepartmentId(deptId,
+                pageable);
+        return new SimplePage<>(page.getTotalPages(), page
+                .getTotalElements(), page.getContent());
     }
 }

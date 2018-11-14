@@ -19,8 +19,8 @@ public class CompanyBudgetController {
     private CompanyBudgetManager companyBudgetManager;
 
     @RequestMapping("list")
-    public BaseData query(Integer companyId) {
-        return ResultGenerator.genSuccessResult(companyBudgetManager.findByCompanyId(companyId));
+    public BaseData query(Integer companyId, int page, int size) {
+        return ResultGenerator.genSuccessResult(companyBudgetManager.findByCompanyId(companyId, page, size));
     }
 
     /**

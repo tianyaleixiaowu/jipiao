@@ -20,8 +20,8 @@ public class CompanyApproverController {
     private CompanyApproverManager companyApproverManager;
 
     @RequestMapping("/list")
-    public BaseData queryByCompanyId(Integer companyId) {
-        return ResultGenerator.genSuccessResult(companyApproverManager.findByCompanyId(companyId));
+    public BaseData queryByCompanyId(Integer companyId, int page, int size) {
+        return ResultGenerator.genSuccessResult(companyApproverManager.findByCompanyId(companyId, page, size));
     }
 
     /**
