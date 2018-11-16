@@ -20,7 +20,13 @@ public class CompanyDepartmentApproverController {
     private CompanyDepartmentApproverManager companyDepartmentApproverManager;
 
     @RequestMapping("/list")
-    public BaseData queryByDeptId(Integer deptId, int page, int size) {
+    public BaseData queryByDeptId(Integer deptId, Integer page, Integer size) {
+        if (page == null) {
+            page = 0;
+        }
+        if (size == null) {
+            size = 10;
+        }
         return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.findByDeptId(deptId, page, size));
     }
 

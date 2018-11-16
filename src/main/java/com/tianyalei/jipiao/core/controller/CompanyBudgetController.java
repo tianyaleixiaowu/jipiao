@@ -19,7 +19,13 @@ public class CompanyBudgetController {
     private CompanyBudgetManager companyBudgetManager;
 
     @RequestMapping("list")
-    public BaseData query(Integer companyId, int page, int size) {
+    public BaseData query(Integer companyId, Integer page, Integer size) {
+        if (page == null) {
+            page = 0;
+        }
+        if (size == null) {
+            size = 10;
+        }
         return ResultGenerator.genSuccessResult(companyBudgetManager.findByCompanyId(companyId, page, size));
     }
 

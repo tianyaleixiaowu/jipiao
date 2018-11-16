@@ -20,7 +20,13 @@ public class CompanyTravelLevelController {
     private CompanyTravelLevelManager companyTravelLevelManager;
 
     @RequestMapping("/list")
-    public BaseData queryByCompanyId(Integer companyId, int page, int size) {
+    public BaseData queryByCompanyId(Integer companyId, Integer page, Integer size) {
+        if (page == null) {
+            page = 0;
+        }
+        if (size == null) {
+            size = 10;
+        }
         return ResultGenerator.genSuccessResult(companyTravelLevelManager.findByCompanyId(companyId, page, size));
     }
 
