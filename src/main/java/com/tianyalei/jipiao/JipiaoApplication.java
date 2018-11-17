@@ -1,5 +1,7 @@
 package com.tianyalei.jipiao;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
@@ -26,6 +28,11 @@ public class JipiaoApplication {
         view.setOrder(-100);
         return view;
     }
+
+	@Bean
+	public ObjectMapper objectMapper() {
+		return new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(JipiaoApplication.class, args);
