@@ -16,28 +16,24 @@ import javax.annotation.Resource;
 @Service
 public class MemberCallManager {
     @Resource
-    private MemberCallRepository memberCallRepository;
-
-    public void add(MMemberCallEntity mMemberCallEntity) {
-        memberCallRepository.save(mMemberCallEntity);
-    }
+    private MemberCallSingleManager memberCallSingleManager;
 
     void parse(MemberAddRequestModel mMemberEntity) {
         MMemberCallEntity mMemberCallEntity = new MMemberCallEntity();
         mMemberCallEntity.setCardNum(CommonUtil.aesEncode(mMemberEntity.getCardNum()));
         mMemberCallEntity.setCallPhone(CommonUtil.aesEncode(mMemberCallEntity.getCallPhone()));
-        add(mMemberCallEntity);
+        memberCallSingleManager.add(mMemberCallEntity);
         if (!StringUtils.isEmpty(mMemberEntity.getBackupCellPhone())) {
             MMemberCallEntity mMemberCallEntity1 = new MMemberCallEntity();
             mMemberCallEntity1.setCardNum(CommonUtil.aesEncode(mMemberEntity.getCardNum()));
             mMemberCallEntity1.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getBackupCellPhone()));
-            add(mMemberCallEntity1);
+            memberCallSingleManager.add(mMemberCallEntity1);
         }
         if (!StringUtils.isEmpty(mMemberEntity.getPhoneNum())) {
             MMemberCallEntity mMemberCallEntity1 = new MMemberCallEntity();
             mMemberCallEntity1.setCardNum(CommonUtil.aesEncode(mMemberEntity.getCardNum()));
             mMemberCallEntity1.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getPhoneNum()));
-            add(mMemberCallEntity1);
+            memberCallSingleManager.add(mMemberCallEntity1);
         }
     }
 

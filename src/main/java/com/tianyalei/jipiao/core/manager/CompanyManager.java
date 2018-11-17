@@ -30,6 +30,8 @@ public class CompanyManager {
     private CompanyRepository companyRepository;
     @Resource
     private DictCache dictCache;
+    @Resource
+    private CompanySingleManager companySingleManager;
 
     public String findName(Integer companyId) {
         MCompanyEntity companyEntity = find(companyId);
@@ -39,13 +41,7 @@ public class CompanyManager {
         return companyEntity.getCompanyName();
     }
 
-    public MCompanyEntity add(MCompanyEntity mCompanyEntity) {
-        return save(mCompanyEntity);
-    }
 
-    public MCompanyEntity update(MCompanyEntity mCompanyEntity) {
-        return save(mCompanyEntity);
-    }
 
     public void delete(Integer id) {
         MCompanyEntity entity = find(id);
@@ -78,9 +74,9 @@ public class CompanyManager {
         mCompanyEntity.setLevel(level(mCompanyEntity.getParentId()));
 
         if (add) {
-            add(mCompanyEntity);
+            companySingleManager.add(mCompanyEntity);
         } else {
-            update(mCompanyEntity);
+            companySingleManager.update(mCompanyEntity);
         }
 
         return mCompanyEntity;

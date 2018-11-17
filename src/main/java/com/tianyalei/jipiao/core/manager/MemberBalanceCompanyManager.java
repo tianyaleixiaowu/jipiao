@@ -21,10 +21,9 @@ public class MemberBalanceCompanyManager {
     private MemberBalanceCompanyRepository memberBalanceCompanyRepository;
     @Resource
     private CompanyManager companyManager;
+    @Resource
+    private MemberBalanceCompanySingleManager memberBalanceCompanySingleManager;
 
-    public MMemberBalanceCompanyEntity add(MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity) {
-        return memberBalanceCompanyRepository.save(mMemberBalanceCompanyEntity);
-    }
 
     public void parse(MemberAddRequestModel memberAddRequestModel) {
         List<MMemberBalanceCompanyEntity> entities = memberBalanceCompanyRepository.findByCardNum
@@ -37,19 +36,15 @@ public class MemberBalanceCompanyManager {
             entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
             entity.setIsEnable(true);
             entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
-            add(entity);
+            memberBalanceCompanySingleManager.add(entity);
         } else {
             entity = entities.get(0);
             entity.setCompanyId(memberAddRequestModel.getCompanyId());
             entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
             entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
-            update(entity);
+            memberBalanceCompanySingleManager.update(entity);
         }
 
-    }
-
-    public MMemberBalanceCompanyEntity update(MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity) {
-        return memberBalanceCompanyRepository.save(mMemberBalanceCompanyEntity);
     }
 
     public void delete(Integer id) {

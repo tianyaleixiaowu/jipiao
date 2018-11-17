@@ -52,13 +52,12 @@ public class MemberManager {
     @Resource
     private MemberExtendManager memberExtendManager;
     @Resource
+    private MemberSingleManager memberSingleManager;
+    @Resource
     private MemberBalanceCompanyManager memberBalanceCompanyManager;
     @Resource
     private DictCache dictCache;
 
-    private MMemberEntity add(MMemberEntity mMemberEntity) {
-        return memberRepository.save(mMemberEntity);
-    }
 
     public MMemberEntity addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
         MMemberEntity mMemberEntity = memberRepository.findByCardNum(memberAddRequestModel.getCardNum());
@@ -84,17 +83,14 @@ public class MemberManager {
             memberBalanceCompanyManager.parse(memberAddRequestModel);
         }
         if (add) {
-            add(mMemberEntity);
+            memberSingleManager.add(mMemberEntity);
         } else {
-            update(mMemberEntity);
+            memberSingleManager.update(mMemberEntity);
         }
 
         return mMemberEntity;
     }
 
-    private MMemberEntity update(MMemberEntity mMemberEntity) {
-        return memberRepository.save(mMemberEntity);
-    }
 
     public MMemberEntity save(MMemberEntity mMemberEntity) {
         return memberRepository.save(mMemberEntity);

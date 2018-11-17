@@ -15,14 +15,9 @@ import javax.annotation.Resource;
 public class MemberExtendManager {
     @Resource
     private MemberExtendRepository memberExtendRepository;
+    @Resource
+    private MemberExtendSingleManager memberExtendSingleManager;
 
-    public void add(MMemberExtendEntity mMemberExtendEntity) {
-        save(mMemberExtendEntity);
-    }
-
-    public void update(MMemberExtendEntity mMemberExtendEntity) {
-        save(mMemberExtendEntity);
-    }
 
     public MMemberExtendEntity findByCardNum(String cardNum) {
         return memberExtendRepository.findByCardNum(cardNum);
@@ -46,14 +41,11 @@ public class MemberExtendManager {
             mMemberExtendEntity = new MMemberExtendEntity();
             mMemberExtendEntity.setCardNum(memberAddRequestModel.getCardNum());
             mMemberExtendEntity.setRemark(memberAddRequestModel.getRemark());
-            add(mMemberExtendEntity);
+            memberExtendSingleManager.add(mMemberExtendEntity);
         } else {
             mMemberExtendEntity.setRemark(memberAddRequestModel.getRemark());
-            update(mMemberExtendEntity);
+            memberExtendSingleManager.update(mMemberExtendEntity);
         }
     }
 
-    private void save(MMemberExtendEntity mMemberExtendEntity) {
-        memberExtendRepository.save(mMemberExtendEntity);
-    }
 }
