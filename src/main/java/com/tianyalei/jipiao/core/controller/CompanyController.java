@@ -26,6 +26,11 @@ public class CompanyController {
          return ResultGenerator.genSuccessResult(companyManager.list(requestModel));
     }
 
+    @RequestMapping("/{id}")
+    public BaseData one(@PathVariable Integer id) {
+        return ResultGenerator.genSuccessResult(companyManager.find(id));
+    }
+
     @RequestMapping("add")
     public BaseData find(CompanyAddRequestModel requestModel) {
         companyManager.addOrUpdate(requestModel, true);
