@@ -32,6 +32,12 @@ public class CompanyTravelLevelManager {
         return entity;
     }
 
+    public MCompanyTravelLevelEntity enable(Integer id, Boolean enable) {
+        MCompanyTravelLevelEntity entity = find(id);
+        entity.setEnable(enable);
+       return companyTravelLevelRepository.save(entity);
+    }
+
     public MCompanyTravelLevelEntity find(Integer id) {
         return companyTravelLevelRepository.getOne(id);
     }

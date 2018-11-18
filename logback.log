@@ -42,3 +42,25 @@
 2018-11-18 14:18:11.228  INFO 12908 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2018-11-18 14:18:11.232  INFO 12908 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2018-11-18 14:18:11.244  INFO 12908 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-11-18 20:10:07.955  INFO 31384 --- [main] c.t.jipiao.JipiaoApplicationTests        : Starting JipiaoApplicationTests on wuwf with PID 31384 (started by Administrator in F:\idea_project\jipiao)
+2018-11-18 20:10:07.966  INFO 31384 --- [main] c.t.jipiao.JipiaoApplicationTests        : The following profiles are active: local
+2018-11-18 20:10:10.299  INFO 31384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-18 20:10:10.796  INFO 31384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 477ms. Found 23 repository interfaces.
+2018-11-18 20:10:11.870  INFO 31384 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c357c0ef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-18 20:10:13.429  INFO 31384 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-18 20:10:13.916  INFO 31384 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-18 20:10:13.920  INFO 31384 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-18 20:10:14.342  INFO 31384 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-18 20:10:15.245  INFO 31384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-18 20:10:15.585  INFO 31384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-18 20:10:15.621  INFO 31384 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-18 20:10:18.301  INFO 31384 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-18 20:10:29.888  INFO 31384 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-18 20:10:30.094  WARN 31384 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-18 20:10:32.025  INFO 31384 --- [main] c.t.jipiao.JipiaoApplicationTests        : Started JipiaoApplicationTests in 24.913 seconds (JVM running for 27.417)
+2018-11-18 20:10:32.374  INFO 31384 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-18 20:10:32.399  INFO 31384 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-18 20:10:32.404  INFO 31384 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-18 20:10:32.424  INFO 31384 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

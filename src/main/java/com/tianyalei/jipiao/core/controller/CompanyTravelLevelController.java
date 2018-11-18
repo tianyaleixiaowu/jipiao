@@ -37,4 +37,9 @@ public class CompanyTravelLevelController {
     public BaseData add(MCompanyTravelLevelEntity entity) {
         return ResultGenerator.genSuccessResult(companyTravelLevelManager.add(entity));
     }
+
+    @RequestMapping("/enable")
+    public BaseData update(Integer id, Boolean enable) {
+        return ResultGenerator.genSuccessResult(companyTravelLevelManager.enable(id, enable));
+    }
 }
