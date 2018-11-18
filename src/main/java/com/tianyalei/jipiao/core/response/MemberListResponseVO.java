@@ -23,6 +23,10 @@ public class MemberListResponseVO {
      */
     private Integer companyId;
     /**
+     * 部门ID
+     */
+    private Integer departmentId;
+    /**
      * 公司名字
      */
     private String companyIdValue;
@@ -43,13 +47,14 @@ public class MemberListResponseVO {
 
     @Override
     public String toString() {
-        return "MemberVO{" +
+        return "MemberListResponseVO{" +
                 "cardNum='" + cardNum + '\'' +
                 ", memberType='" + memberType + '\'' +
                 ", memberTypeValue='" + memberTypeValue + '\'' +
                 ", gender=" + gender +
                 ", realName='" + realName + '\'' +
                 ", companyId=" + companyId +
+                ", departmentId=" + departmentId +
                 ", companyIdValue='" + companyIdValue + '\'' +
                 ", cellPhone='" + cellPhone + '\'' +
                 ", position='" + position + '\'' +
@@ -89,6 +94,14 @@ public class MemberListResponseVO {
 
     public void setGender(byte gender) {
         this.gender = gender;
+    }
+
+    public Integer getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
     }
 
     public String getRealName() {
