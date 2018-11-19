@@ -1,7 +1,6 @@
 package com.tianyalei.jipiao.core.manager;
 
 import com.tianyalei.jipiao.core.model.MMemberCallEntity;
-import com.tianyalei.jipiao.core.repository.MemberCallRepository;
 import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.global.util.CommonUtil;
 import org.springframework.stereotype.Service;
@@ -20,18 +19,18 @@ public class MemberCallManager {
 
     void parse(MemberAddRequestModel mMemberEntity) {
         MMemberCallEntity mMemberCallEntity = new MMemberCallEntity();
-        mMemberCallEntity.setCardNum(CommonUtil.aesEncode(mMemberEntity.getCardNum()));
-        mMemberCallEntity.setCallPhone(CommonUtil.aesEncode(mMemberCallEntity.getCallPhone()));
+        mMemberCallEntity.setCardNum(mMemberEntity.getCardNum());
+        mMemberCallEntity.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getCellPhone()));
         memberCallSingleManager.add(mMemberCallEntity);
         if (!StringUtils.isEmpty(mMemberEntity.getBackupCellPhone())) {
             MMemberCallEntity mMemberCallEntity1 = new MMemberCallEntity();
-            mMemberCallEntity1.setCardNum(CommonUtil.aesEncode(mMemberEntity.getCardNum()));
+            mMemberCallEntity1.setCardNum(mMemberEntity.getCardNum());
             mMemberCallEntity1.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getBackupCellPhone()));
             memberCallSingleManager.add(mMemberCallEntity1);
         }
         if (!StringUtils.isEmpty(mMemberEntity.getPhoneNum())) {
             MMemberCallEntity mMemberCallEntity1 = new MMemberCallEntity();
-            mMemberCallEntity1.setCardNum(CommonUtil.aesEncode(mMemberEntity.getCardNum()));
+            mMemberCallEntity1.setCardNum(mMemberEntity.getCardNum());
             mMemberCallEntity1.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getPhoneNum()));
             memberCallSingleManager.add(mMemberCallEntity1);
         }
