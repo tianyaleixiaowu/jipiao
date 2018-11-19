@@ -157,7 +157,10 @@ public class EncryptUtil {
     public static String encryptBase64(String clearText, String password) {
         try {
             if (StringUtils.isEmpty(password)) {
-                password = "123456";
+                return "";
+            }
+            if (StringUtils.isEmpty(clearText)) {
+                return "";
             }
             // 1 获取加密密文字节数组
             byte[] cipherTextBytes = encrypt(clearText.getBytes(CHARACTER), pwdHandler(password));
