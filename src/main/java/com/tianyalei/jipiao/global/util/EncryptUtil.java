@@ -1,5 +1,6 @@
 package com.tianyalei.jipiao.global.util;
 
+import org.springframework.util.StringUtils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -155,6 +156,9 @@ public class EncryptUtil {
      */
     public static String encryptBase64(String clearText, String password) {
         try {
+            if (StringUtils.isEmpty(password)) {
+                password = "123456";
+            }
             // 1 获取加密密文字节数组
             byte[] cipherTextBytes = encrypt(clearText.getBytes(CHARACTER), pwdHandler(password));
 
