@@ -64,6 +64,7 @@ public class MemberManager {
         MMemberEntity mMemberEntity = memberRepository.findByCardNum(memberAddRequestModel.getCardNum());
         if (mMemberEntity == null) {
             mMemberEntity = new MMemberEntity();
+            mMemberEntity.setCardNum(memberCardNumManager.findFirstCardNum().getCardNum());
         }
 
         BeanUtil.copyProperties(memberAddRequestModel, mMemberEntity);
