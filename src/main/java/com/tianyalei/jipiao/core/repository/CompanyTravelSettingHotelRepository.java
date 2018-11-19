@@ -10,4 +10,8 @@ import java.util.List;
  */
 public interface CompanyTravelSettingHotelRepository extends JpaRepository<MCompanyTravelSettingHotelEntity, Integer> {
     List<MCompanyTravelSettingHotelEntity> findByTravelLevelId(Integer travelLevelId);
+
+    MCompanyTravelSettingHotelEntity findByTravelLevelIdAndCityLevelId(Integer travelLevelId, Integer cityLevelId);
+
+    void deleteByTravelLevelId(Integer travelLevelId);
 }

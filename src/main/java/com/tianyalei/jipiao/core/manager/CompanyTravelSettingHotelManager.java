@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 差旅等级设置
+ *
  * @author wuweifeng wrote on 2018/11/1.
  */
 @Service
@@ -18,11 +19,24 @@ public class CompanyTravelSettingHotelManager {
 
 
     public MCompanyTravelSettingHotelEntity add(MCompanyTravelSettingHotelEntity companyTravelSettingHotelEntity) {
-        return companyTravelSettingHotelRepository.save(companyTravelSettingHotelEntity);
+        MCompanyTravelSettingHotelEntity entity = companyTravelSettingHotelRepository.findByTravelLevelIdAndCityLevelId
+                (companyTravelSettingHotelEntity
+                                .getTravelLevelId(),
+                        companyTravelSettingHotelEntity.getCityLevelId());
+        if (entity == null) {
+            return companyTravelSettingHotelRepository.save(companyTravelSettingHotelEntity);
+        } else {
+            return null;
+        }
+
     }
 
     public MCompanyTravelSettingHotelEntity update(MCompanyTravelSettingHotelEntity companyTravelSettingHotelEntity) {
         return companyTravelSettingHotelRepository.save(companyTravelSettingHotelEntity);
+    }
+
+    public void deleteByTravelLevelId(Integer travelLevelId) {
+        companyTravelSettingHotelRepository.deleteByTravelLevelId(travelLevelId);
     }
 
     public MCompanyTravelSettingHotelEntity find(Integer id) {
