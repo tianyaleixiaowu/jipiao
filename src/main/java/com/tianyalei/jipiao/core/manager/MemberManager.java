@@ -19,6 +19,7 @@ import com.xiaoleilu.hutool.date.DatePattern;
 import com.xiaoleilu.hutool.date.DateUtil;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import com.xiaoleilu.hutool.util.CharsetUtil;
+import com.xiaoleilu.hutool.util.CollectionUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -80,7 +81,7 @@ public class MemberManager {
 
         //如果会员类型选择为企业会员, 也要把所选单位默认设置为会员的结算单位 M_MemberBalanceCompany
         if ("2".equals(memberAddRequestModel.getMemberType())) {
-            memberBalanceCompanyManager.parse(memberAddRequestModel);
+            memberBalanceCompanyManager.addOrUpdate(memberAddRequestModel);
         }
         if (add) {
             memberSingleManager.add(mMemberEntity);
@@ -122,8 +123,10 @@ public class MemberManager {
         BeanUtil.copyProperties(entity, singleResponseVO);
         singleResponseVO.setCompanyIdValue(companyManager.findName(entity.getCompanyId()));
         singleResponseVO.setDepartmentIdValue(companyDepartmentManager.findName(entity.getDepartmentId()));
-        MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity = memberBalanceCompanyManager.findByCardNum(cardNum);
-        if (mMemberBalanceCompanyEntity != null) {
+        List<MMemberBalanceCompanyEntity> list = memberBalanceCompanyManager.findByCardNum
+                (cardNum);
+        if (CollectionUtil.isNotEmpty(list)) {
+            MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity = list.get(0);
             singleResponseVO.setTravelLevelId(mMemberBalanceCompanyEntity.getTravelLevelId());
             singleResponseVO.setTravelLevelIdValue(companyTravelLevelManager.find(mMemberBalanceCompanyEntity
                     .getTravelLevelId()).getLevelName());

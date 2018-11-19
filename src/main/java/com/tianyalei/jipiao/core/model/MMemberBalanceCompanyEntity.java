@@ -17,7 +17,7 @@ public class MMemberBalanceCompanyEntity extends BaseIdEntity {
     private int companyId;
     private String companyName;
     private int travelLevelId;
-    private boolean isEnable;
+    private boolean isEnable = true;
 
 
     @Basic

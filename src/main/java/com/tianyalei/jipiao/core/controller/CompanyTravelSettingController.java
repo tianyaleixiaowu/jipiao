@@ -19,17 +19,14 @@ public class CompanyTravelSettingController {
     @Resource
     private CompanyTravelSettingManager companyTravelSettingManager;
 
-    @RequestMapping("/query")
-    public BaseData queryByTravelLevelId(Integer travelLevelId) {
-        return ResultGenerator.genSuccessResult(companyTravelSettingManager.findByTravelLevelId(travelLevelId));
-    }
-
-    /**
-     * 添加
-     */
     @RequestMapping("/add")
     public BaseData add(MCompanyTravelSettingEntity entity) {
         return ResultGenerator.genSuccessResult(companyTravelSettingManager.add(entity));
+    }
+
+    @RequestMapping("/query")
+    public BaseData queryByTravelLevelId(Integer travelLevelId) {
+        return ResultGenerator.genSuccessResult(companyTravelSettingManager.findByTravelLevelId(travelLevelId));
     }
 
     /**

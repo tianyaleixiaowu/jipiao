@@ -4,7 +4,7 @@ import com.tianyalei.jipiao.core.model.MMemberBalanceCompanyEntity;
 import com.tianyalei.jipiao.core.repository.MemberBalanceCompanyRepository;
 import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.global.bean.SimplePage;
-import com.xiaoleilu.hutool.util.CollectionUtil;
+import com.xiaoleilu.hutool.util.BeanUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,27 +24,33 @@ public class MemberBalanceCompanyManager {
     @Resource
     private MemberBalanceCompanySingleManager memberBalanceCompanySingleManager;
 
-
-    public void parse(MemberAddRequestModel memberAddRequestModel) {
-        List<MMemberBalanceCompanyEntity> entities = memberBalanceCompanyRepository.findByCardNum
-                (memberAddRequestModel.getCardNum());
-        MMemberBalanceCompanyEntity entity;
-        if (CollectionUtil.isEmpty(entities)) {
+    public void addOrUpdate(MMemberBalanceCompanyEntity tempEntity) {
+        MMemberBalanceCompanyEntity entity = memberBalanceCompanyRepository.findByCardNumAndCompanyId
+                (tempEntity.getCardNum(), tempEntity.getCompanyId()
+                );
+        if (entity == null) {
             entity = new MMemberBalanceCompanyEntity();
-            entity.setCardNum(memberAddRequestModel.getCardNum());
-            entity.setCompanyId(memberAddRequestModel.getCompanyId());
-            entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
+            entity.setCardNum(tempEntity.getCardNum());
+            entity.setCompanyId(tempEntity.getCompanyId());
+            entity.setCompanyName(companyManager.findName(tempEntity.getCompanyId()));
             entity.setIsEnable(true);
-            entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
+            entity.setTravelLevelId(tempEntity.getTravelLevelId());
+
             memberBalanceCompanySingleManager.add(entity);
         } else {
-            entity = entities.get(0);
-            entity.setCompanyId(memberAddRequestModel.getCompanyId());
-            entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
-            entity.setTravelLevelId(memberAddRequestModel.getTravelLevelId());
+            entity.setCompanyName(companyManager.findName(tempEntity.getCompanyId()));
+            entity.setIsEnable(true);
+            entity.setTravelLevelId(tempEntity.getTravelLevelId());
+
             memberBalanceCompanySingleManager.update(entity);
         }
+    }
 
+    public void addOrUpdate(MemberAddRequestModel memberAddRequestModel) {
+        MMemberBalanceCompanyEntity entity = new MMemberBalanceCompanyEntity();
+        BeanUtil.copyProperties(memberAddRequestModel, entity);
+        entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
+        addOrUpdate(entity);
     }
 
     public void delete(Integer id) {
@@ -55,14 +61,9 @@ public class MemberBalanceCompanyManager {
         return memberBalanceCompanyRepository.getOne(id);
     }
 
-    public MMemberBalanceCompanyEntity findByCardNum(String cardNum) {
-        List<MMemberBalanceCompanyEntity> entities = memberBalanceCompanyRepository.findByCardNum
+    public List<MMemberBalanceCompanyEntity> findByCardNum(String cardNum) {
+        return memberBalanceCompanyRepository.findByCardNumOrderByIdDesc
                 (cardNum);
-
-        if (CollectionUtil.isEmpty(entities)) {
-            return null;
-        }
-        return entities.get(0);
     }
 
     public SimplePage<MMemberBalanceCompanyEntity> list(String cardNum, Pageable pageable) {

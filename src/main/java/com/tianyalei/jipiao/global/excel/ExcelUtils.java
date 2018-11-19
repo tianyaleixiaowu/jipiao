@@ -129,19 +129,19 @@ public class ExcelUtils {
                                 log.warn(String.format("row:%s is blank ignore!", i));
                             }
                         } catch (Exception e) {
-                            log.error(String.format("parse row:%s exception!", i), e);
+                            log.error(String.format("addOrUpdate row:%s exception!", i), e);
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            log.error(String.format("parse excel exception!"), e);
+            log.error(String.format("addOrUpdate excel exception!"), e);
         } finally {
             if (workbook != null) {
                 try {
                     workbook.close();
                 } catch (Exception e) {
-                    log.error(String.format("parse excel exception!"), e);
+                    log.error(String.format("addOrUpdate excel exception!"), e);
                 }
             }
         }

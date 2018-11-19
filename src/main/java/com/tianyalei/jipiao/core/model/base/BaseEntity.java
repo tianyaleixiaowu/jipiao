@@ -1,6 +1,11 @@
 package com.tianyalei.jipiao.core.model.base;
 
-import javax.persistence.*;
+import com.xiaoleilu.hutool.date.DateUtil;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 import java.sql.Timestamp;
 
 /**
@@ -16,6 +21,18 @@ public class BaseEntity {
     private String createRealName;
     private Timestamp createTime;
     private Timestamp updateTime;
+
+
+    private String createTimeStr;
+
+    @Transient
+    public String getCreateTimeStr() {
+        return DateUtil.formatDate(createTime);
+    }
+
+    public void setCreateTimeStr(String createTimeStr) {
+        this.createTimeStr = createTimeStr;
+    }
 
     @Basic
     @Column(name = "CreateUserID")
@@ -53,6 +70,7 @@ public class BaseEntity {
     public Timestamp getCreateTime() {
         return createTime;
     }
+
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;

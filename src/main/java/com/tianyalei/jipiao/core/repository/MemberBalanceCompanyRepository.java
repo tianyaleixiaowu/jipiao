@@ -16,7 +16,9 @@ public interface MemberBalanceCompanyRepository extends JpaRepository<MMemberBal
     Page<MMemberBalanceCompanyEntity> findByCardNum(String cardNum, Pageable pageable);
 
     /**
-     * 一个cardNum应该只有一条数据在这个表里。TravelLevelID是可以修改的，差旅等级
+     * TravelLevelID是可以修改的，差旅等级
      */
-    List<MMemberBalanceCompanyEntity> findByCardNum(String cardNum);
+    List<MMemberBalanceCompanyEntity> findByCardNumOrderByIdDesc(String cardNum);
+
+    MMemberBalanceCompanyEntity findByCardNumAndCompanyId(String cardNum, Integer companyId);
 }
