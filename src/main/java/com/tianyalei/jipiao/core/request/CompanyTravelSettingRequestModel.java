@@ -7,8 +7,10 @@ public class CompanyTravelSettingRequestModel {
     private Integer travelLevelId;
     private String planeLevel;
     private String trainLevel;
+
     private Integer cityLevelId;
     private String hotelFeeValue;
 
+    
 
 }

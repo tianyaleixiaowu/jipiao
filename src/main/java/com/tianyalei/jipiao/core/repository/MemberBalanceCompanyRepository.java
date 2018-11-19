@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface MemberBalanceCompanyRepository extends JpaRepository<MMemberBalanceCompanyEntity, Integer> {
 
-    Page<MMemberBalanceCompanyEntity> findByCardNum(String cardNum, Pageable pageable);
+    Page<MMemberBalanceCompanyEntity> findByCardNumOrderByIdDesc(String cardNum, Pageable pageable);
 
     /**
      * TravelLevelID是可以修改的，差旅等级

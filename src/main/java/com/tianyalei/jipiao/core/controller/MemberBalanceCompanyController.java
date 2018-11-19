@@ -4,6 +4,8 @@ import com.tianyalei.jipiao.core.manager.MemberBalanceCompanyManager;
 import com.tianyalei.jipiao.core.model.MMemberBalanceCompanyEntity;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,8 +28,9 @@ public class MemberBalanceCompanyController {
     //}
 
     @RequestMapping("/{cardNum}")
-    public BaseData one(@PathVariable String cardNum) {
-        return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.findByCardNum(cardNum));
+    public BaseData one(@PathVariable String cardNum, Integer page, Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.list(cardNum, pageable));
     }
 
     @RequestMapping("/update")

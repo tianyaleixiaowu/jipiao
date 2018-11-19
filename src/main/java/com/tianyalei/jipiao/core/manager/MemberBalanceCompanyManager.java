@@ -68,7 +68,7 @@ public class MemberBalanceCompanyManager {
 
     public SimplePage<MMemberBalanceCompanyEntity> list(String cardNum, Pageable pageable) {
         Page<MMemberBalanceCompanyEntity> page = memberBalanceCompanyRepository
-                .findByCardNum(cardNum, pageable);
+                .findByCardNumOrderByIdDesc(cardNum, pageable);
         return new SimplePage<>(page.getTotalPages(), page.getTotalElements(), page.getContent());
     }
 }
