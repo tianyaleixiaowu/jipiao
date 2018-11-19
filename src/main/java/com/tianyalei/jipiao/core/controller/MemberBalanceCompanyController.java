@@ -29,6 +29,12 @@ public class MemberBalanceCompanyController {
 
     @RequestMapping("/{cardNum}")
     public BaseData one(@PathVariable String cardNum, Integer page, Integer size) {
+        if (page == null) {
+            page = 0;
+        }
+        if (size == null) {
+            size = 10;
+        }
         Pageable pageable = PageRequest.of(page, size);
         return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.list(cardNum, pageable));
     }
