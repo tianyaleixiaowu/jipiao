@@ -61,10 +61,13 @@ public class MemberManager {
 
 
     public MMemberEntity addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
+        if (StringUtils.isEmpty(memberAddRequestModel.getCardNum())) {
+            memberAddRequestModel.setCardNum(memberCardNumManager.findFirstCardNum().getCardNum());
+
+        }
         MMemberEntity mMemberEntity = memberRepository.findByCardNum(memberAddRequestModel.getCardNum());
         if (mMemberEntity == null) {
             mMemberEntity = new MMemberEntity();
-            mMemberEntity.setCardNum(memberCardNumManager.findFirstCardNum().getCardNum());
         }
 
         BeanUtil.copyProperties(memberAddRequestModel, mMemberEntity);
