@@ -54,7 +54,7 @@ public class SavePointAspect {
 
         Object[] obj = joinPoint.getArgs();
         for (Object o : obj) {
-            if (!(o instanceof BaseIdEntity)) {
+            if (!(o instanceof BaseEntity)) {
                 continue;
             }
             BaseEntity baseIdEntity = (BaseEntity) o;

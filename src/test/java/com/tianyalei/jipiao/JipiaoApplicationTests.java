@@ -1,5 +1,6 @@
 package com.tianyalei.jipiao;
 
+import com.tianyalei.jipiao.core.manager.MemberCardNumManager;
 import com.tianyalei.jipiao.core.manager.MemberManager;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,8 @@ import javax.annotation.Resource;
 public class JipiaoApplicationTests {
     @Resource
     private MemberManager memberManager;
+    @Resource
+    private MemberCardNumManager memberCardNumManager;
 
     @Test
     public void contextLoads() {
@@ -22,6 +25,8 @@ public class JipiaoApplicationTests {
         //     entity.setCellPhone(CommonUtil.aesEncode(CreateIDCardNo.getTelephone()));
         //    memberManager.save(entity);
         //}
+        String s =memberCardNumManager.findFirstCardNum().getCardNum();
+        System.out.println(s);
     }
 
 }
