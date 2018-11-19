@@ -34,11 +34,16 @@ public class CompanyManager {
     private CompanySingleManager companySingleManager;
 
     public String findName(Integer companyId) {
-        MCompanyEntity companyEntity = find(companyId);
-        if (companyEntity == null) {
+        try {
+            MCompanyEntity companyEntity = find(companyId);
+            if (companyEntity == null) {
+                return "缺失";
+            }
+            return companyEntity.getCompanyName();
+        } catch (Exception e) {
             return "缺失";
         }
-        return companyEntity.getCompanyName();
+
     }
 
 

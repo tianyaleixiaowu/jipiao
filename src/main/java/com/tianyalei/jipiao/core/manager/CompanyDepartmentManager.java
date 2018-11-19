@@ -19,11 +19,16 @@ public class CompanyDepartmentManager {
     private CompanyDepartmentRepository companyDepartmentRepository;
 
     public String findName(Integer deptId) {
-        MCompanyDepartmentEntity entity = find(deptId);
-        if (entity == null) {
+        try {
+            MCompanyDepartmentEntity entity = find(deptId);
+            if (entity == null) {
+                return "缺失";
+            }
+            return entity.getDepartmentName();
+        } catch (Exception e) {
             return "缺失";
         }
-        return entity.getDepartmentName();
+
     }
 
     public MCompanyDepartmentEntity find(Integer id) {
