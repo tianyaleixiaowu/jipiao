@@ -4,6 +4,7 @@ import com.tianyalei.jipiao.core.manager.CompanyDepartmentApproverManager;
 import com.tianyalei.jipiao.core.model.MCompanyDepartmentApproverEntity;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +32,7 @@ public class CompanyDepartmentApproverController {
     }
 
     @RequestMapping("/{id}")
-    public BaseData one(Integer id) {
+    public BaseData one(@PathVariable Integer id) {
         return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.find(id));
     }
 
