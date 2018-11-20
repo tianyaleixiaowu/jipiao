@@ -17,11 +17,9 @@ public class CompanyTravelSettingHotelCityManager {
     private CompanyTravelSettingHotelCityRepository companyTravelSettingHotelCityRepository;
     @Resource
     private ChinaCityManager chinaCityManager;
+    @Resource
+    private CompanyTravelSettingHotelCitySingleManager companyTravelSettingHotelCitySingleManager;
 
-
-    public MCompanyTravelSettingHotelCityEntity add(MCompanyTravelSettingHotelCityEntity companyTravelSettingHotelCityEntity) {
-        return companyTravelSettingHotelCityRepository.save(companyTravelSettingHotelCityEntity);
-    }
 
     public void add(Integer travelLevelId, String cities) {
         String[] cityArray = cities.split(",");
@@ -33,7 +31,7 @@ public class CompanyTravelSettingHotelCityManager {
             mCompanyTravelSettingHotelEntity.setCityLevelId(travelLevelId);
             mCompanyTravelSettingHotelEntity.setCityId(cityId);
             mCompanyTravelSettingHotelEntity.setCityName(chinaCityManager.findNameByCityId(cityId));
-            add(mCompanyTravelSettingHotelEntity);
+            companyTravelSettingHotelCitySingleManager.add(mCompanyTravelSettingHotelEntity);
         }
     }
 

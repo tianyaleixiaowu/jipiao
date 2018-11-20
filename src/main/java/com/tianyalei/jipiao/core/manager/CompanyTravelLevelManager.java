@@ -21,6 +21,7 @@ public class CompanyTravelLevelManager {
     private CompanyTravelSettingHotelCityManager companyTravelSettingHotelCityManager;
 
 
+
     public MCompanyTravelLevelEntity add(MCompanyTravelLevelEntity mCompanyEntity) {
         MCompanyTravelLevelEntity entity = companyTravelLevelRepository.save(mCompanyEntity);
         //将city的数据，插入到M_CompanyTravelSettingHotelCity表
