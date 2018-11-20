@@ -34,17 +34,14 @@ public class MemberBalanceCompanyManager {
                 );
         if (entity == null) {
             entity = new MMemberBalanceCompanyEntity();
-            entity.setCardNum(tempEntity.getCardNum());
-            entity.setCompanyId(tempEntity.getCompanyId());
+            BeanUtil.copyProperties(tempEntity, entity);
             entity.setCompanyName(companyManager.findName(tempEntity.getCompanyId()));
             entity.setIsEnable(true);
-            entity.setTravelLevelId(tempEntity.getTravelLevelId());
 
             memberBalanceCompanySingleManager.add(entity);
         } else {
+            BeanUtil.copyProperties(tempEntity, entity);
             entity.setCompanyName(companyManager.findName(tempEntity.getCompanyId()));
-            entity.setIsEnable(true);
-            entity.setTravelLevelId(tempEntity.getTravelLevelId());
 
             memberBalanceCompanySingleManager.update(entity);
         }
