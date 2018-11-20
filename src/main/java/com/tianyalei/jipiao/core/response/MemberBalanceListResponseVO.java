@@ -4,6 +4,7 @@ package com.tianyalei.jipiao.core.response;
  * @author wuweifeng wrote on 2018/11/20.
  */
 public class MemberBalanceListResponseVO {
+    private Integer id;
     private String cardNum;
     private int companyId;
     private String companyName;
@@ -15,13 +16,22 @@ public class MemberBalanceListResponseVO {
     @Override
     public String toString() {
         return "MemberBalanceListResponseVO{" +
-                "cardNum='" + cardNum + '\'' +
+                "id=" + id +
+                ", cardNum='" + cardNum + '\'' +
                 ", companyId=" + companyId +
                 ", companyName='" + companyName + '\'' +
                 ", travelLevelId=" + travelLevelId +
                 ", isEnable=" + isEnable +
                 ", travelLevelName='" + travelLevelName + '\'' +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCardNum() {
