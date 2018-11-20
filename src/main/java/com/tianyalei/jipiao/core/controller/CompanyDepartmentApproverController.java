@@ -30,6 +30,11 @@ public class CompanyDepartmentApproverController {
         return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.findByDeptId(deptId, page, size));
     }
 
+    @RequestMapping("/{id}")
+    public BaseData one(Integer id) {
+        return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.find(id));
+    }
+
     /**
      * 添加
      */

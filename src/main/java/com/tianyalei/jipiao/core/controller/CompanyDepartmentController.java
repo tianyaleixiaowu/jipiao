@@ -4,6 +4,7 @@ import com.tianyalei.jipiao.core.manager.CompanyDepartmentManager;
 import com.tianyalei.jipiao.core.model.MCompanyDepartmentEntity;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,11 @@ public class CompanyDepartmentController {
             size = 10;
         }
         return ResultGenerator.genSuccessResult(companyDepartmentManager.findByCompanyId(companyId, page, size));
+    }
+
+    @RequestMapping("/{id}")
+    public BaseData one(@PathVariable Integer id) {
+        return ResultGenerator.genSuccessResult(companyDepartmentManager.find(id));
     }
 
     /**
