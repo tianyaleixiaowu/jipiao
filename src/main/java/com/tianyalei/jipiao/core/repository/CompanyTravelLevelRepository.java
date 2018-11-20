@@ -12,4 +12,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 public interface CompanyTravelLevelRepository extends JpaRepository<MCompanyTravelLevelEntity, Integer>,
         JpaSpecificationExecutor<MCompanyTravelLevelEntity> {
     Page<MCompanyTravelLevelEntity> findByCompanyId(Integer companyId, Pageable pageable);
+
+    Page<MCompanyTravelLevelEntity> findByCompanyIdAndLevelType(Integer companyId, String levelType, Pageable
+            pageable);
 }

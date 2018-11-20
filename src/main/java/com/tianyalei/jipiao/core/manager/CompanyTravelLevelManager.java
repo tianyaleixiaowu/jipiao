@@ -35,20 +35,28 @@ public class CompanyTravelLevelManager {
     public MCompanyTravelLevelEntity enable(Integer id, Boolean enable) {
         MCompanyTravelLevelEntity entity = find(id);
         entity.setEnable(enable);
-       return companyTravelLevelRepository.save(entity);
+        return companyTravelLevelRepository.save(entity);
     }
 
     public MCompanyTravelLevelEntity find(Integer id) {
         return companyTravelLevelRepository.getOne(id);
     }
 
-    public SimplePage<MCompanyTravelLevelEntity> findByCompanyId(Integer companyId, int pp, int size) {
+    public SimplePage<MCompanyTravelLevelEntity> findByCompanyId(Integer companyId, int pp, int size, boolean city) {
         if (size == 0) {
             size = 10;
         }
         Pageable pageable = PageRequest.of(pp, size);
-        Page<MCompanyTravelLevelEntity> page = companyTravelLevelRepository.findByCompanyId(companyId,
-                pageable);
+        Page<MCompanyTravelLevelEntity> page;
+        if (!city) {
+            page = companyTravelLevelRepository.findByCompanyIdAndLevelType
+                    (companyId, "1",
+                            pageable);
+        } else {
+            page = companyTravelLevelRepository.findByCompanyId(companyId,
+                    pageable);
+        }
+
         return new SimplePage<>(page.getTotalPages(), page
                 .getTotalElements(), page.getContent());
     }
