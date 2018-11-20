@@ -39,8 +39,8 @@ public class MemberBalanceCompanyController {
         return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.list(cardNum, pageable));
     }
 
-    @RequestMapping("/{id}")
-    public BaseData oneBalance(@PathVariable Integer id) {
+    @RequestMapping()
+    public BaseData oneBalance(Integer id) {
         return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.find(id));
     }
 
