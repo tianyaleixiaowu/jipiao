@@ -53,7 +53,7 @@ public class CompanyTravelLevelManager {
                     (companyId, "1",
                             pageable);
         } else {
-            page = companyTravelLevelRepository.findByCompanyId(companyId,
+            page = companyTravelLevelRepository.findByCompanyIdAndLevelType(companyId,  "2",
                     pageable);
         }
 
