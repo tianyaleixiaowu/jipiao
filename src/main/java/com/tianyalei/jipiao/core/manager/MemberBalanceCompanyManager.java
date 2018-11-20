@@ -3,6 +3,7 @@ package com.tianyalei.jipiao.core.manager;
 import com.tianyalei.jipiao.core.model.MMemberBalanceCompanyEntity;
 import com.tianyalei.jipiao.core.repository.MemberBalanceCompanyRepository;
 import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
+import com.tianyalei.jipiao.core.response.MemberBalanceListResponseVO;
 import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -23,6 +25,8 @@ public class MemberBalanceCompanyManager {
     private CompanyManager companyManager;
     @Resource
     private MemberBalanceCompanySingleManager memberBalanceCompanySingleManager;
+    @Resource
+    private CompanyTravelLevelManager companyTravelLevelManager;
 
     public void addOrUpdate(MMemberBalanceCompanyEntity tempEntity) {
         MMemberBalanceCompanyEntity entity = memberBalanceCompanyRepository.findByCardNumAndCompanyId
@@ -57,8 +61,9 @@ public class MemberBalanceCompanyManager {
         memberBalanceCompanyRepository.deleteById(id);
     }
 
-    public MMemberBalanceCompanyEntity find(Integer id) {
-        return memberBalanceCompanyRepository.getOne(id);
+    public MemberBalanceListResponseVO find(Integer id) {
+        MMemberBalanceCompanyEntity entity = memberBalanceCompanyRepository.getOne(id);
+        return parse(entity);
     }
 
     public List<MMemberBalanceCompanyEntity> findByCardNum(String cardNum) {
@@ -66,9 +71,18 @@ public class MemberBalanceCompanyManager {
                 (cardNum);
     }
 
-    public SimplePage<MMemberBalanceCompanyEntity> list(String cardNum, Pageable pageable) {
+    public SimplePage<MemberBalanceListResponseVO> list(String cardNum, Pageable pageable) {
         Page<MMemberBalanceCompanyEntity> page = memberBalanceCompanyRepository
                 .findByCardNumOrderByIdDesc(cardNum, pageable);
-        return new SimplePage<>(page.getTotalPages(), page.getTotalElements(), page.getContent());
+
+        return new SimplePage<>(page.getTotalPages(), page.getTotalElements(), page.getContent().stream()
+                .map(this::parse).collect(Collectors.toList()));
+    }
+
+    private MemberBalanceListResponseVO parse(MMemberBalanceCompanyEntity entity) {
+        MemberBalanceListResponseVO vo = new MemberBalanceListResponseVO();
+        BeanUtil.copyProperties(entity, vo);
+        vo.setTravelLevelName(companyTravelLevelManager.find(entity.getTravelLevelId()).getLevelName());
+        return vo;
     }
 }
