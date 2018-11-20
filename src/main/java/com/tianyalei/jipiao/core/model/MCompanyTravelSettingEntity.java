@@ -17,6 +17,14 @@ public class MCompanyTravelSettingEntity extends BaseIdEntity {
     private String planeLevel;
     private String trainLevel;
 
+    @Override
+    public String toString() {
+        return "MCompanyTravelSettingEntity{" +
+                "travelLevelId=" + travelLevelId +
+                ", planeLevel='" + planeLevel + '\'' +
+                ", trainLevel='" + trainLevel + '\'' +
+                '}';
+    }
 
     @Basic
     @Column(name = "TravelLevelID")

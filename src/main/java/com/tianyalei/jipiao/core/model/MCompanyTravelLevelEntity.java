@@ -16,6 +16,18 @@ public class MCompanyTravelLevelEntity extends BaseIdEntity {
     private String levelType;
     private boolean isEnable = true;
 
+    @Override
+    public String toString() {
+        return "MCompanyTravelLevelEntity{" +
+                "companyId=" + companyId +
+                ", level=" + level +
+                ", levelName='" + levelName + '\'' +
+                ", levelType='" + levelType + '\'' +
+                ", isEnable=" + isEnable +
+                ", cities='" + cities + '\'' +
+                '}';
+    }
+
     /**
      * 添加的是城市时，城市id的集合，逗号分隔
      */
@@ -32,11 +44,11 @@ public class MCompanyTravelLevelEntity extends BaseIdEntity {
 
     @Basic
     @Column(name = "IsEnable")
-    public boolean isEnable() {
+    public boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setIsEnable(boolean enable) {
         isEnable = enable;
     }
 

@@ -19,6 +19,15 @@ public class MCompanyTravelSettingHotelEntity extends BaseIdEntity {
     private BigDecimal hotelFeeValue;
     private String currency;
 
+    @Override
+    public String toString() {
+        return "MCompanyTravelSettingHotelEntity{" +
+                "travelLevelId=" + travelLevelId +
+                ", cityLevelId=" + cityLevelId +
+                ", hotelFeeValue=" + hotelFeeValue +
+                ", currency='" + currency + '\'' +
+                '}';
+    }
 
     @Basic
     @Column(name = "TravelLevelID")

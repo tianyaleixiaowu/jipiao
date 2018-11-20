@@ -34,7 +34,7 @@ public class CompanyTravelLevelManager {
 
     public MCompanyTravelLevelEntity enable(Integer id, Boolean enable) {
         MCompanyTravelLevelEntity entity = find(id);
-        entity.setEnable(enable);
+        entity.setIsEnable(enable);
         return companyTravelLevelRepository.save(entity);
     }
 

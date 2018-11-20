@@ -56,11 +56,11 @@ public class MemberBalanceListResponseVO {
         this.travelLevelId = travelLevelId;
     }
 
-    public boolean isEnable() {
+    public boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setIsEnable(boolean enable) {
         isEnable = enable;
     }
 
