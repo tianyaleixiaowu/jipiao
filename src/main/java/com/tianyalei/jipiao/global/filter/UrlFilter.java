@@ -19,8 +19,8 @@ public class UrlFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String path = httpRequest.getRequestURI();
-        if (path.contains("/jipiao")) {
-            path = path.replace("/jipiao/api/", "");
+        if (path.contains("/api")) {
+            path = path.replace("/api/", "");
             httpRequest.getRequestDispatcher(path).forward(request, response);
         } else {
             chain.doFilter(request, response);
