@@ -20,7 +20,7 @@ public class UrlFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String path = httpRequest.getRequestURI();
         if (path.contains("/api")) {
-            path = path.replace("/api/", "");
+            path = path.replace("/api", "");
             httpRequest.getRequestDispatcher(path).forward(request, response);
         } else {
             chain.doFilter(request, response);
