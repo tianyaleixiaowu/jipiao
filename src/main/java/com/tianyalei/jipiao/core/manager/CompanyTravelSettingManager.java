@@ -25,6 +25,8 @@ public class CompanyTravelSettingManager {
     @Resource
     private CompanyTravelSettingSingleManager companyTravelSettingSingleManager;
     @Resource
+    private CompanyTravelLevelManager companyTravelLevelManager;
+    @Resource
     private CompanyTravelSettingHotelManager companyTravelSettingHotelManager;
 
     @Transactional(rollbackFor = Exception.class)
@@ -88,6 +90,7 @@ public class CompanyTravelSettingManager {
         for (MCompanyTravelSettingHotelEntity entity : hotelEntityList) {
             HotelModel hotelModel = new HotelModel();
             BeanUtil.copyProperties(entity, hotelModel);
+            hotelModel.setLevelName(companyTravelLevelManager.find(hotelModel.getCityLevelId()).getLevelName());
             hotels.add(hotelModel);
         }
         vo.setHotels(hotels);

@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class HotelModel {
     private Integer cityLevelId;
+    private String levelName;
     private BigDecimal hotelFeeValue;
     private String currency;
 
@@ -14,8 +15,18 @@ public class HotelModel {
     public String toString() {
         return "HotelModel{" +
                 "cityLevelId=" + cityLevelId +
-                ", hotelFeeValue='" + hotelFeeValue + '\'' +
+                ", levelName='" + levelName + '\'' +
+                ", hotelFeeValue=" + hotelFeeValue +
+                ", currency='" + currency + '\'' +
                 '}';
+    }
+
+    public String getLevelName() {
+        return levelName;
+    }
+
+    public void setLevelName(String levelName) {
+        this.levelName = levelName;
     }
 
     public String getCurrency() {
