@@ -12,7 +12,6 @@ import com.tianyalei.jipiao.global.cache.DictCache;
 import com.tianyalei.jipiao.global.specify.Criteria;
 import com.tianyalei.jipiao.global.specify.Restrictions;
 import com.tianyalei.jipiao.global.util.CommonUtil;
-import com.xiaoleilu.hutool.crypto.symmetric.AES;
 import com.xiaoleilu.hutool.crypto.symmetric.SymmetricAlgorithm;
 import com.xiaoleilu.hutool.crypto.symmetric.SymmetricCrypto;
 import com.xiaoleilu.hutool.date.DatePattern;
@@ -63,7 +62,6 @@ public class MemberManager {
     public MMemberEntity addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
         if (StringUtils.isEmpty(memberAddRequestModel.getCardNum())) {
             memberAddRequestModel.setCardNum(memberCardNumManager.findFirstCardNum().getCardNum());
-
         }
         MMemberEntity mMemberEntity = memberRepository.findByCardNum(memberAddRequestModel.getCardNum());
         if (mMemberEntity == null) {
@@ -154,11 +152,11 @@ public class MemberManager {
         criteria.add(Restrictions.eq("hrCode", memberQueryRequestModel.getHrCode(), true));
         if (!StringUtils.isEmpty(memberQueryRequestModel.getPaperNum())) {
             //身份证号是加密的
-            criteria.add(Restrictions.eq("paperNum", new AES().encrypt(memberQueryRequestModel.getPaperNum()), true));
+            criteria.add(Restrictions.eq("paperNum", CommonUtil.aesEncode(memberQueryRequestModel.getPaperNum()), true));
         }
         if (!StringUtils.isEmpty(memberQueryRequestModel.getCellPhone())) {
             //身份证号是加密的
-            criteria.add(Restrictions.eq("cellPhone", new AES().encrypt(memberQueryRequestModel.getCellPhone()), true));
+            criteria.add(Restrictions.eq("cellPhone", CommonUtil.aesEncode(memberQueryRequestModel.getCellPhone()), true));
         }
         criteria.add(Restrictions.eq("administrativeLevel", memberQueryRequestModel.getAdministrativeLevel(), true));
         criteria.add(Restrictions.eq("position", memberQueryRequestModel.getPosition(), true));
