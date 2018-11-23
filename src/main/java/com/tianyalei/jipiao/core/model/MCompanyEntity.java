@@ -78,7 +78,7 @@ public class MCompanyEntity extends BaseIdEntity {
     /**
      * 是否可用 ，1可用，0不可用
      */
-    private boolean isEnable;
+    private boolean isEnable = true;
     /**
      * 审批类型 GroupID=61
      */

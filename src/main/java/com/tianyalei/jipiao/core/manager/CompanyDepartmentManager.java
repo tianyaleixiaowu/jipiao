@@ -63,5 +63,4 @@ public class CompanyDepartmentManager {
                 .getTotalElements(), page.getContent());
     }
 
-
 }
