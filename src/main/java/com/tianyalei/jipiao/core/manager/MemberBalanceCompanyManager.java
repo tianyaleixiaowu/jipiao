@@ -40,7 +40,7 @@ public class MemberBalanceCompanyManager {
 
             memberBalanceCompanySingleManager.add(entity);
         } else {
-            BeanUtil.copyProperties(tempEntity, entity);
+            BeanUtil.copyProperties(tempEntity, entity, "id");
             entity.setCompanyName(companyManager.findName(tempEntity.getCompanyId()));
 
             memberBalanceCompanySingleManager.update(entity);

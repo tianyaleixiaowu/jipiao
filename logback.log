@@ -1561,3 +1561,26 @@
 2018-11-23 15:48:24.061  INFO 5881 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=SimplePage{totalPage=1, totalCount=1, list=[MemberListResponseVO{cardNum='10207680', memberType='2', memberTypeValue='企业客户', gender=1, realName='赵志军', companyId=13, departmentId=244, companyIdValue='宝鸡石油输送管有限公司', cellPhone='15908410459', position=' ', positionValue='null', administrativeLevel='', administrativeLevelValue='null'}]}}
 2018-11-23 15:48:24.062  INFO 5881 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：152毫秒
 2018-11-23 15:48:24.062  INFO 5881 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-11-23 16:30:39.254  INFO 6122 --- [main] c.t.jipiao.JipiaoApplicationTests        : Starting JipiaoApplicationTests on weifengdeMacBook-Pro.local with PID 6122 (started by wuwf in /Users/wuwf/project/jipiao)
+2018-11-23 16:30:39.256  INFO 6122 --- [main] c.t.jipiao.JipiaoApplicationTests        : The following profiles are active: local
+2018-11-23 16:30:42.541  INFO 6122 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-23 16:30:43.022  INFO 6122 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 429ms. Found 23 repository interfaces.
+2018-11-23 16:30:44.341  INFO 6122 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$befed7fb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-23 16:30:45.598  INFO 6122 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-23 16:30:45.729  INFO 6122 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-23 16:30:45.732  INFO 6122 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-23 16:30:46.055  INFO 6122 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-23 16:30:46.332  INFO 6122 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-23 16:30:46.992  INFO 6122 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-23 16:30:47.020  INFO 6122 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-11-23 16:30:49.257  INFO 6122 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-23 16:30:57.951  INFO 6122 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-23 16:30:58.142  WARN 6122 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-23 16:30:59.300  INFO 6122 --- [main] c.t.jipiao.JipiaoApplicationTests        : Started JipiaoApplicationTests in 21.083 seconds (JVM running for 22.581)
+2018-11-23 16:30:59.478  INFO 6122 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-11-23 16:30:59.856  INFO 6122 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-23 16:30:59.868  INFO 6122 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-23 16:30:59.871  INFO 6122 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-23 16:30:59.892  INFO 6122 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
