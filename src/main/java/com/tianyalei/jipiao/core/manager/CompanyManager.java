@@ -69,11 +69,7 @@ public class CompanyManager {
     public MCompanyEntity addOrUpdate(CompanyAddRequestModel model, boolean add) {
         Optional<MCompanyEntity> companyEntity = companyRepository.findById(model.getId());
         MCompanyEntity mCompanyEntity;
-        if (companyEntity.isPresent()) {
-            mCompanyEntity = new MCompanyEntity();
-        } else {
-            mCompanyEntity = companyEntity.get();
-        }
+        mCompanyEntity = companyEntity.orElseGet(MCompanyEntity::new);
 
         BeanUtil.copyProperties(model, mCompanyEntity, BeanUtil.CopyOptions.create().setIgnoreNullValue(true));
         mCompanyEntity.setLevel(level(mCompanyEntity.getParentId()));
