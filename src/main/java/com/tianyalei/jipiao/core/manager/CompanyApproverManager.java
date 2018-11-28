@@ -34,7 +34,12 @@ public class CompanyApproverManager {
     }
 
     private MCompanyApproverEntity save(MCompanyApproverEntity mCompanyApproverEntity) {
-        return companyApproverRepository.save(mCompanyApproverEntity);
+        //数据库cardNum和companyId唯一
+        try {
+            return companyApproverRepository.save(mCompanyApproverEntity);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public MCompanyApproverEntity find(Integer id) {

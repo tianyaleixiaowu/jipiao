@@ -20,11 +20,11 @@ import javax.annotation.Resource;
 @RequestMapping("memberBalanceCompany")
 public class MemberBalanceCompanyController {
     @Resource
-    private MemberBalanceCompanyManager MemberBalanceCompanyManager;
+    private MemberBalanceCompanyManager memberBalanceCompanyManager;
 
     //@RequestMapping("/list")
     //public BaseData list() {
-    //    return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.list(MemberBalanceCompanyQueryRequestModel));
+    //    return ResultGenerator.genSuccessResult(memberBalanceCompanyManager.list(MemberBalanceCompanyQueryRequestModel));
     //}
 
     @RequestMapping("/{cardNum}")
@@ -36,23 +36,29 @@ public class MemberBalanceCompanyController {
             size = 10;
         }
         Pageable pageable = PageRequest.of(page, size);
-        return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.list(cardNum, pageable));
+        return ResultGenerator.genSuccessResult(memberBalanceCompanyManager.list(cardNum, pageable));
     }
 
     @RequestMapping()
     public BaseData oneBalance(Integer id) {
-        return ResultGenerator.genSuccessResult(MemberBalanceCompanyManager.find(id));
+        return ResultGenerator.genSuccessResult(memberBalanceCompanyManager.find(id));
     }
 
     @RequestMapping("/update")
     public BaseData update(MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity) {
-        MemberBalanceCompanyManager.addOrUpdate(mMemberBalanceCompanyEntity);
+        if (mMemberBalanceCompanyEntity.getTravelLevelId() == 0) {
+            return ResultGenerator.genFailResult("差旅等级不能为空");
+        }
+        memberBalanceCompanyManager.addOrUpdate(mMemberBalanceCompanyEntity);
         return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/add")
     public BaseData save(MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity) {
-        MemberBalanceCompanyManager.addOrUpdate(mMemberBalanceCompanyEntity);
+        if (mMemberBalanceCompanyEntity.getTravelLevelId() == 0) {
+            return ResultGenerator.genFailResult("差旅等级不能为空");
+        }
+        memberBalanceCompanyManager.addOrUpdate(mMemberBalanceCompanyEntity);
         return ResultGenerator.genSuccessResult();
     }
 

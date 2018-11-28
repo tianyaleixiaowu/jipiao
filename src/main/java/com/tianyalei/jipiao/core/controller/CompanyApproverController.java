@@ -41,7 +41,11 @@ public class CompanyApproverController {
      */
     @RequestMapping("/add")
     public BaseData add(MCompanyApproverEntity entity) {
-        return ResultGenerator.genSuccessResult(companyApproverManager.add(entity));
+        MCompanyApproverEntity entity1 = companyApproverManager.add(entity);
+        if (entity1 == null) {
+            return ResultGenerator.genFailResult("重复的审批人");
+        }
+        return ResultGenerator.genSuccessResult(entity1);
     }
 
     /**
@@ -49,7 +53,11 @@ public class CompanyApproverController {
      */
     @RequestMapping("/update")
     public BaseData update(MCompanyApproverEntity entity) {
-        return ResultGenerator.genSuccessResult(companyApproverManager.update(entity));
+        MCompanyApproverEntity entity1 = companyApproverManager.update(entity);
+        if (entity1 == null) {
+            return ResultGenerator.genFailResult("重复的审批人");
+        }
+        return ResultGenerator.genSuccessResult(entity1);
     }
 
     /**

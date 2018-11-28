@@ -5,11 +5,14 @@ import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.core.request.MemberQueryRequestQueryModel;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
+import com.xiaoleilu.hutool.util.CollectionUtil;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * 会员
@@ -32,13 +35,16 @@ public class MemberController {
     }
 
     @RequestMapping("/update")
-    public BaseData update(MemberAddRequestModel mMemberEntity) {
+    public BaseData update(@Valid MemberAddRequestModel mMemberEntity, BindingResult bindingResult) {
         memberManager.addOrUpdate(mMemberEntity, false);
         return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/add")
-    public BaseData save(MemberAddRequestModel mMemberEntity) {
+    public BaseData save(@Valid MemberAddRequestModel mMemberEntity, BindingResult bindingResult) {
+        if (CollectionUtil.isNotEmpty(bindingResult.getAllErrors())) {
+            return ResultGenerator.genFailResult(bindingResult.getAllErrors().get(0).getDefaultMessage());
+        }
         memberManager.addOrUpdate(mMemberEntity, true);
         return ResultGenerator.genSuccessResult();
     }

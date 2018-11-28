@@ -1,5 +1,6 @@
 package com.tianyalei.jipiao.global.util;
 
+import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
 import org.springframework.util.StringUtils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -300,9 +301,10 @@ public class EncryptUtil {
     }
 
     public static void main(String[] args) {
-        String test = encryptBase64("8UW06P9XhBpfkwZL", "vX6LicvxUgZoVPUB");
+        String test = encryptBase64("13911043069", "vX6LicvxUgZoVPUB");
+        //String test = encryptBase64("17710215005", "f3b18dffb528d2fbdc61be6aca3f838c");
         System.out.println(test);
-
-        System.out.println(decryptBase64(test, "vX6LicvxUgZoVPUB"));
+        System.out.println(DigestUtil.md5Hex("123456").toUpperCase());
+        //System.out.println(decryptBase64(test, "vX6LicvxUgZoVPUB"));
     }
 }

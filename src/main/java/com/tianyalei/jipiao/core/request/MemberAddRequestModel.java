@@ -1,5 +1,7 @@
 package com.tianyalei.jipiao.core.request;
 
+import javax.validation.constraints.NotEmpty;
+
 /**
  * @author wuweifeng wrote on 2018/11/6.
  */
@@ -56,6 +58,7 @@ public class MemberAddRequestModel {
     /**
      * 读取M_HTCountry表，数据存储CountryCode字段内容
      */
+    @NotEmpty(message = "国家不能为空")
     private String country;
     /**
      * 民族 GroupID=8

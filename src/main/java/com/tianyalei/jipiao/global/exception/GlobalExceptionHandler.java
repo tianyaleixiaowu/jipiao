@@ -55,6 +55,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ResponseBody
     public BaseData jsonHandler(HttpServletRequest request, Exception e) throws Exception {
         log(e);
+        //如果是数据
+        //if (e instanceof DataIntegrityViolationException) {
+        //    //Column 'Country' cannot be null
+        //    String message = e.getCause().getCause().getMessage();
+        //
+        //    return ResultGenerator.genFailResult(ResultCode.INTERNAL_SERVER_ERROR, message.replace("Column", ""));
+        //}
+
         return ResultGenerator.genFailResult(ResultCode.INTERNAL_SERVER_ERROR, e.getMessage());
     }
 

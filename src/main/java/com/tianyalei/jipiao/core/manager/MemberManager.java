@@ -130,8 +130,8 @@ public class MemberManager {
         if (CollectionUtil.isNotEmpty(list)) {
             MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity = list.get(0);
             singleResponseVO.setTravelLevelId(mMemberBalanceCompanyEntity.getTravelLevelId());
-            singleResponseVO.setTravelLevelIdValue(companyTravelLevelManager.find(mMemberBalanceCompanyEntity
-                    .getTravelLevelId()).getLevelName());
+            singleResponseVO.setTravelLevelIdValue(companyTravelLevelManager.findName(mMemberBalanceCompanyEntity
+                    .getTravelLevelId()));
         }
         singleResponseVO.setCellPhone(CommonUtil.aesDecode(entity.getCellPhone()));
         singleResponseVO.setBackupCellPhone(CommonUtil.aesDecode(entity.getBackupCellPhone()));

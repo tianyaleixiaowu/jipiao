@@ -43,6 +43,13 @@ public class CompanyTravelLevelManager {
         return companyTravelLevelRepository.getOne(id);
     }
 
+    public String findName(Integer id) {
+        if (id == null || id == 0) {
+            return "";
+        }
+        return find(id).getLevelName();
+    }
+
     public SimplePage<MCompanyTravelLevelEntity> findByCompanyId(Integer companyId, int pp, int size, boolean city) {
         if (size == 0) {
             size = 10;
