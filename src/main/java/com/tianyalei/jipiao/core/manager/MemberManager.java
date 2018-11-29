@@ -64,7 +64,8 @@ public class MemberManager {
     public BaseData addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
         //添加时查重
         if (add ) {
-            MMemberEntity entity = memberRepository.findFirstByCellPhone(memberAddRequestModel.getCellPhone());
+            String newPhone = CommonUtil.aesEncode(memberAddRequestModel.getCellPhone());
+            MMemberEntity entity = memberRepository.findFirstByCellPhone(newPhone);
             if (entity != null) {
                 return ResultGenerator.genFailResult("手机号重复");
             }
