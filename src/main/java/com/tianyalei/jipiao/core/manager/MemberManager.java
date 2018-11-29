@@ -62,9 +62,12 @@ public class MemberManager {
 
 
     public BaseData addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
-        MMemberEntity entity = memberRepository.findFirstByCellPhone(memberAddRequestModel.getCellPhone());
-        if (entity != null) {
-            return ResultGenerator.genFailResult("手机号重复");
+        //添加时查重
+        if (add ) {
+            MMemberEntity entity = memberRepository.findFirstByCellPhone(memberAddRequestModel.getCellPhone());
+            if (entity != null) {
+                return ResultGenerator.genFailResult("手机号重复");
+            }
         }
 
         if (StringUtils.isEmpty(memberAddRequestModel.getCardNum())) {
