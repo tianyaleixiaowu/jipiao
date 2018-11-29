@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 public interface MemberRepository extends JpaRepository<MMemberEntity, Integer>, JpaSpecificationExecutor<MMemberEntity> {
 
     MMemberEntity findByCardNum(String cardNum);
+
+    MMemberEntity findFirstByCellPhone(String phone);
 }

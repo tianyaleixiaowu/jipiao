@@ -37,7 +37,7 @@ public class MemberController {
     @RequestMapping("/update")
     public BaseData update(@Valid MemberAddRequestModel mMemberEntity, BindingResult bindingResult) {
         memberManager.addOrUpdate(mMemberEntity, false);
-        return ResultGenerator.genSuccessResult();
+        return memberManager.addOrUpdate(mMemberEntity, true);
     }
 
     @RequestMapping("/add")
@@ -45,8 +45,8 @@ public class MemberController {
         if (CollectionUtil.isNotEmpty(bindingResult.getAllErrors())) {
             return ResultGenerator.genFailResult(bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
-        memberManager.addOrUpdate(mMemberEntity, true);
-        return ResultGenerator.genSuccessResult();
+
+        return memberManager.addOrUpdate(mMemberEntity, true);
     }
 
     @RequestMapping("/delete/{cardNum}")

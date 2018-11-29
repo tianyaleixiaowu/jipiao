@@ -7,6 +7,8 @@ import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.core.request.MemberQueryRequestQueryModel;
 import com.tianyalei.jipiao.core.response.MemberListResponseVO;
 import com.tianyalei.jipiao.core.response.MemberSingleResponseVO;
+import com.tianyalei.jipiao.global.bean.BaseData;
+import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.tianyalei.jipiao.global.cache.DictCache;
 import com.tianyalei.jipiao.global.specify.Criteria;
@@ -59,7 +61,12 @@ public class MemberManager {
     private DictCache dictCache;
 
 
-    public MMemberEntity addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
+    public BaseData addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
+        MMemberEntity entity = memberRepository.findFirstByCellPhone(memberAddRequestModel.getCellPhone());
+        if (entity != null) {
+            return ResultGenerator.genFailResult("手机号重复");
+        }
+
         if (StringUtils.isEmpty(memberAddRequestModel.getCardNum())) {
             memberAddRequestModel.setCardNum(memberCardNumManager.findFirstCardNum().getCardNum());
         }
@@ -86,12 +93,12 @@ public class MemberManager {
             memberBalanceCompanyManager.addOrUpdate(memberAddRequestModel);
         }
         if (add) {
-            memberSingleManager.add(mMemberEntity);
+            mMemberEntity = memberSingleManager.add(mMemberEntity);
         } else {
-            memberSingleManager.update(mMemberEntity);
+            mMemberEntity = memberSingleManager.update(mMemberEntity);
         }
 
-        return mMemberEntity;
+        return ResultGenerator.genSuccessResult(mMemberEntity);
     }
 
 
@@ -116,7 +123,9 @@ public class MemberManager {
 
     /**
      * 根据cardNum找到一个
-     * @param cardNum  cardNum
+     *
+     * @param cardNum
+     *         cardNum
      * @return MemberSingleResponseVO
      */
     public MemberSingleResponseVO findOne(String cardNum) {
@@ -152,11 +161,13 @@ public class MemberManager {
         criteria.add(Restrictions.eq("hrCode", memberQueryRequestModel.getHrCode(), true));
         if (!StringUtils.isEmpty(memberQueryRequestModel.getPaperNum())) {
             //身份证号是加密的
-            criteria.add(Restrictions.eq("paperNum", CommonUtil.aesEncode(memberQueryRequestModel.getPaperNum()), true));
+            criteria.add(Restrictions.eq("paperNum", CommonUtil.aesEncode(memberQueryRequestModel.getPaperNum()),
+                    true));
         }
         if (!StringUtils.isEmpty(memberQueryRequestModel.getCellPhone())) {
             //身份证号是加密的
-            criteria.add(Restrictions.eq("cellPhone", CommonUtil.aesEncode(memberQueryRequestModel.getCellPhone()), true));
+            criteria.add(Restrictions.eq("cellPhone", CommonUtil.aesEncode(memberQueryRequestModel.getCellPhone()),
+                    true));
         }
         criteria.add(Restrictions.eq("administrativeLevel", memberQueryRequestModel.getAdministrativeLevel(), true));
         criteria.add(Restrictions.eq("position", memberQueryRequestModel.getPosition(), true));
@@ -190,7 +201,8 @@ public class MemberManager {
         memberListResponseVO.setCompanyIdValue(companyManager.findName(memberListResponseVO.getCompanyId()));
         memberListResponseVO.setCellPhone(CommonUtil.aesDecode(memberListResponseVO.getCellPhone()));
         memberListResponseVO.setPositionValue(dictCache.findByGroupId(49).get(memberListResponseVO.getPosition()));
-        memberListResponseVO.setAdministrativeLevelValue(dictCache.findByGroupId(31).get(memberListResponseVO.getAdministrativeLevel()));
+        memberListResponseVO.setAdministrativeLevelValue(dictCache.findByGroupId(31).get(memberListResponseVO
+                .getAdministrativeLevel()));
         return memberListResponseVO;
     }
 
