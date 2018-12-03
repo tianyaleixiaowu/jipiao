@@ -5,6 +5,7 @@ import com.tianyalei.jipiao.core.bean.LoginUserBean;
 import com.tianyalei.jipiao.core.bean.Menu;
 import com.tianyalei.jipiao.core.bean.MenuData;
 import com.tianyalei.jipiao.core.model.SysUser;
+import com.tianyalei.jipiao.core.repository.SysUserRepository;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.cache.UserCache;
@@ -29,11 +30,17 @@ public class SysUserManager {
     private UserCache userCache;
     @Resource
     private RestTemplate restTemplate;
+    @Resource
+    private SysUserRepository sysUserRepository;
 
     private String systemCode = "Member";
     private String Key = "f3b18dffb528d2fbdc61be6aca3f838c";
 
     Logger logger = LoggerFactory.getLogger(getClass());
+
+    public void save(SysUser sysUser) {
+        sysUserRepository.save(sysUser);
+    }
 
     /**
      * 登录

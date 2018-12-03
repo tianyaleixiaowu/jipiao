@@ -16,7 +16,12 @@ public class OperationLogManager {
     private OperationLogRepository operationLogRepository;
 
     public MOperationLogEntity operationLog(MOperationLogEntity mOperationLogEntity) {
-        return operationLogRepository.save(mOperationLogEntity);
+        try {
+            return operationLogRepository.save(mOperationLogEntity);
+        } catch (Exception e) {
+            //TODO do nothing
+            return null;
+        }
     }
 
     //public MOperationLogEntity update(MOperationLogEntity MOperationLogEntity) {

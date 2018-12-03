@@ -100,7 +100,7 @@ public class SavePointAspect {
 
             operationLogEntity.setCreateUserId(userId + "");
             operationLogEntity.setCreateRealName(userName);
-            operationLogEntity.setCreateUserName(userName);
+            //operationLogEntity.setCreateUserName(userName);
             operationLogEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
             request.setAttribute("operationLogEntity", operationLogEntity);
         }

@@ -17,6 +17,16 @@ public class SysUser {
      */
     private String password;
 
+    private String aa;
+
+    public String getAa() {
+        return aa;
+    }
+
+    public void setAa(String aa) {
+        this.aa = aa;
+    }
+
     public Long getId() {
         return id;
     }
