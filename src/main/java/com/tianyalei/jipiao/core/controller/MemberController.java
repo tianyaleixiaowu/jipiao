@@ -36,7 +36,7 @@ public class MemberController {
 
     @RequestMapping("/update")
     public BaseData update(@Valid MemberAddRequestModel mMemberEntity, BindingResult bindingResult) {
-        return memberManager.addOrUpdate(mMemberEntity, true);
+        return memberManager.addOrUpdate(mMemberEntity, false);
     }
 
     @RequestMapping("/add")
