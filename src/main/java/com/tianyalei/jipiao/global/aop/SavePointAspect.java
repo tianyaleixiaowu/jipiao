@@ -77,7 +77,7 @@ public class SavePointAspect {
 
             baseIdEntity.setCreateUserId(userId);
             baseIdEntity.setCreateRealName(userName);
-            baseIdEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+            //baseIdEntity.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 
             String jsonContent = JSONUtil.toJsonStr(o);
             operationLogEntity.setContent(jsonContent);
