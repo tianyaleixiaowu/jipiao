@@ -44,6 +44,7 @@ public class MemberListResponseVO {
      */
     private String administrativeLevel;
     private String administrativeLevelValue;
+    private boolean isEnable;
 
     @Override
     public String toString() {
@@ -64,6 +65,13 @@ public class MemberListResponseVO {
                 '}';
     }
 
+    public boolean getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean enable) {
+        isEnable = enable;
+    }
     public String getCardNum() {
         return cardNum;
     }

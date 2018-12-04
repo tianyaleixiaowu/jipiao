@@ -102,7 +102,7 @@ public class MemberAddRequestModel {
     /**
      * 是否可用
      */
-    private boolean isEnable = false;
+    private boolean isEnable;
 
     @Override
     public String toString() {

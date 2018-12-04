@@ -108,6 +108,15 @@ public class MemberSingleResponseVO {
      * 创建用户的票台ID
      */
     private int ticketOfficeId;
+    private boolean isEnable;
+
+    public boolean getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean enable) {
+        isEnable = enable;
+    }
 
     public String getCompanyIdValue() {
         return companyIdValue;
