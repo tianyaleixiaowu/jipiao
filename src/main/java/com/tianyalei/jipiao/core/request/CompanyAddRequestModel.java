@@ -163,11 +163,11 @@ public class CompanyAddRequestModel {
         this.address = address;
     }
 
-    public boolean isEnable() {
+    public boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(boolean enable) {
+    public void setIsEnable(boolean enable) {
         isEnable = enable;
     }
 
