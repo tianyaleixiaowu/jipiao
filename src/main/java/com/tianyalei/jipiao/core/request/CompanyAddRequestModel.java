@@ -219,11 +219,11 @@ public class CompanyAddRequestModel {
         this.sendMessageType = sendMessageType;
     }
 
-    public boolean isBalance() {
+    public boolean getIsBalance() {
         return isBalance;
     }
 
-    public void setBalance(boolean balance) {
+    public void setIsBalance(boolean balance) {
         isBalance = balance;
     }
 
