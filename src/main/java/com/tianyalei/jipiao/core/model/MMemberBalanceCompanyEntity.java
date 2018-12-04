@@ -16,7 +16,7 @@ public class MMemberBalanceCompanyEntity extends BaseIdEntity {
     private String cardNum;
     private int companyId;
     private String companyName;
-    private int travelLevelId;
+    private Integer travelLevelId;
     private boolean isEnable = true;
 
 
@@ -52,11 +52,11 @@ public class MMemberBalanceCompanyEntity extends BaseIdEntity {
 
     @Basic
     @Column(name = "TravelLevelID")
-    public int getTravelLevelId() {
+    public Integer getTravelLevelId() {
         return travelLevelId;
     }
 
-    public void setTravelLevelId(int travelLevelId) {
+    public void setTravelLevelId(Integer travelLevelId) {
         this.travelLevelId = travelLevelId;
     }
 

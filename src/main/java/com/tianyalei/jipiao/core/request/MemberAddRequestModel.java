@@ -99,6 +99,10 @@ public class MemberAddRequestModel {
      * 创建用户的票台ID
      */
     private int ticketOfficeId;
+    /**
+     * 是否可用
+     */
+    private boolean isEnable = false;
 
     @Override
     public String toString() {
@@ -128,7 +132,16 @@ public class MemberAddRequestModel {
                 ", hrCode='" + hrCode + '\'' +
                 ", remark='" + remark + '\'' +
                 ", ticketOfficeId=" + ticketOfficeId +
+                ", isEnable=" + isEnable +
                 '}';
+    }
+
+    public boolean getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(boolean enable) {
+        isEnable = enable;
     }
 
     public String getCardNum() {

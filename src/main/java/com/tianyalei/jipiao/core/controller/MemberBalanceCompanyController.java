@@ -46,7 +46,8 @@ public class MemberBalanceCompanyController {
 
     @RequestMapping("/update")
     public BaseData update(MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity) {
-        if (mMemberBalanceCompanyEntity.getTravelLevelId() == 0) {
+        if (mMemberBalanceCompanyEntity.getTravelLevelId() == null || mMemberBalanceCompanyEntity.getTravelLevelId()
+                == 0) {
             return ResultGenerator.genFailResult("差旅等级不能为空");
         }
         memberBalanceCompanyManager.addOrUpdate(mMemberBalanceCompanyEntity);
@@ -55,7 +56,8 @@ public class MemberBalanceCompanyController {
 
     @RequestMapping("/add")
     public BaseData save(MMemberBalanceCompanyEntity mMemberBalanceCompanyEntity) {
-        if (mMemberBalanceCompanyEntity.getTravelLevelId() == 0) {
+        if (mMemberBalanceCompanyEntity.getTravelLevelId() == null || mMemberBalanceCompanyEntity.getTravelLevelId()
+                == 0) {
             return ResultGenerator.genFailResult("差旅等级不能为空");
         }
         memberBalanceCompanyManager.addOrUpdate(mMemberBalanceCompanyEntity);
