@@ -81,6 +81,10 @@ public class CompanyTravelSettingManager {
     public CompanyTravelSettingResponseVO findVoByTravelLevelId(Integer travelLevelId) {
         MCompanyTravelSettingEntity settingEntity = findByTravelLevelId(travelLevelId);
         CompanyTravelSettingResponseVO vo = new CompanyTravelSettingResponseVO();
+        //如果还没设置过，就返回个空
+        if (settingEntity == null) {
+            return vo;
+        }
         BeanUtil.copyProperties(settingEntity, vo);
 
         List<MCompanyTravelSettingHotelEntity> hotelEntityList = companyTravelSettingHotelManager.findByTravelLevelId
