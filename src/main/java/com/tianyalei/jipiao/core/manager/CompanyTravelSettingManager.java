@@ -37,6 +37,7 @@ public class CompanyTravelSettingManager {
         if (entity == null) {
             entity = new MCompanyTravelSettingEntity();
         }
+        entity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
         entity.setPlaneLevel(companyTravelSettingRequestModel.getPlaneLevel());
         entity.setTrainLevel(companyTravelSettingRequestModel.getTrainLevel());
         if (add) {
