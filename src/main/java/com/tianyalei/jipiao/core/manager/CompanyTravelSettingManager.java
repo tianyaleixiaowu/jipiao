@@ -7,6 +7,7 @@ import com.tianyalei.jipiao.core.request.CompanyTravelSettingRequestModel;
 import com.tianyalei.jipiao.core.request.HotelModel;
 import com.tianyalei.jipiao.core.response.CompanyTravelSettingResponseVO;
 import com.xiaoleilu.hutool.util.BeanUtil;
+import com.xiaoleilu.hutool.util.CollectionUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,7 @@ import java.util.List;
 
 /**
  * 差旅等级设置
+ *
  * @author wuweifeng wrote on 2018/11/1.
  */
 @Service
@@ -39,6 +41,9 @@ public class CompanyTravelSettingManager {
         entity.setTrainLevel(companyTravelSettingRequestModel.getTrainLevel());
         if (add) {
             companyTravelSettingSingleManager.add(entity);
+            if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
+                return;
+            }
             //添加hotel相关
             for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {
                 MCompanyTravelSettingHotelEntity settingHotelEntity = new MCompanyTravelSettingHotelEntity();
@@ -49,6 +54,9 @@ public class CompanyTravelSettingManager {
         } else {
             companyTravelSettingSingleManager.update(entity);
 
+            if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
+                return;
+            }
             companyTravelSettingHotelManager.deleteByTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
             //添加hotel相关
             for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {

@@ -32,6 +32,11 @@ public class CompanyTravelSettingController {
         return ResultGenerator.genSuccessResult(companyTravelSettingManager.findVoByTravelLevelId(travelLevelId));
     }
 
+    @RequestMapping("/company")
+    public BaseData queryByCompanyId(Integer companyId) {
+        return ResultGenerator.genSuccessResult(companyTravelSettingManager.findVoByTravelLevelId(companyId));
+    }
+
     /**
      * 修改
      */
