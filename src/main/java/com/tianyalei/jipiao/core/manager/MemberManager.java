@@ -31,6 +31,7 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -83,7 +84,11 @@ public class MemberManager {
         mMemberEntity.setCellPhone(CommonUtil.aesEncode(memberAddRequestModel.getCellPhone()));
         mMemberEntity.setBackupCellPhone(CommonUtil.aesEncode(memberAddRequestModel.getBackupCellPhone()));
         mMemberEntity.setPaperNum(CommonUtil.aesEncode(memberAddRequestModel.getPaperNum()));
-        mMemberEntity.setBirthday(DateUtil.parse(memberAddRequestModel.getBirthday()));
+
+        Map<String, String> map = CommonUtil.getBirAgeSex(memberAddRequestModel.getPaperNum());
+        mMemberEntity.setBirthday(DateUtil.parse(map.get("birthday")));
+        mMemberEntity.setGender(Byte.valueOf(map.get("sexCode")));
+        //mMemberEntity.setBirthday(DateUtil.parse(memberAddRequestModel.getBirthday()));
 
         //删除cardNum的数据
         memberCardNumManager.deleteByCardNum(memberAddRequestModel.getCardNum());
