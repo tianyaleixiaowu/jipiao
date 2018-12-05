@@ -48,6 +48,9 @@ public class MemberBalanceCompanyManager {
     }
 
     public void addOrUpdate(MemberAddRequestModel memberAddRequestModel) {
+        if (memberAddRequestModel.getTravelLevelId() == null || memberAddRequestModel.getTravelLevelId() == 0) {
+            return;
+        }
         MMemberBalanceCompanyEntity entity = new MMemberBalanceCompanyEntity();
         BeanUtil.copyProperties(memberAddRequestModel, entity);
         entity.setCompanyName(companyManager.findName(memberAddRequestModel.getCompanyId()));
