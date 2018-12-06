@@ -152,3 +152,53 @@
 2018-12-06 15:27:41.969  INFO 64471 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2018-12-06 15:27:41.972  INFO 64471 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2018-12-06 15:27:41.988  INFO 64471 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-06 16:08:00.470  INFO 64671 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 64671 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-06 16:08:00.477  INFO 64671 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-12-06 16:08:02.123  INFO 64671 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-06 16:08:02.382  INFO 64671 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 244ms. Found 23 repository interfaces.
+2018-12-06 16:08:03.077  INFO 64671 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$76b41c0d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-06 16:08:03.812  INFO 64671 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-06 16:08:03.834  INFO 64671 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-06 16:08:03.834  INFO 64671 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-06 16:08:03.844  INFO 64671 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-06 16:08:04.056  INFO 64671 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-06 16:08:04.056  INFO 64671 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3409 ms
+2018-12-06 16:08:04.167  INFO 64671 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-06 16:08:04.168  INFO 64671 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-06 16:08:04.168  INFO 64671 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-06 16:08:04.168  INFO 64671 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-06 16:08:04.168  INFO 64671 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-12-06 16:08:04.168  INFO 64671 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-12-06 16:08:04.169  INFO 64671 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-06 16:08:04.576  INFO 64671 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-06 16:08:05.003  INFO 64671 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-06 16:08:05.060  INFO 64671 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-06 16:08:05.166  INFO 64671 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-06 16:08:05.168  INFO 64671 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-06 16:08:05.413  INFO 64671 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-06 16:08:05.603  INFO 64671 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-06 16:08:06.884  INFO 64671 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-06 16:22:56.836  INFO 64765 --- [main] c.t.jipiao.JipiaoApplicationTests        : Starting JipiaoApplicationTests on weifengdeMacBook-Pro.local with PID 64765 (started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-06 16:22:56.838  INFO 64765 --- [main] c.t.jipiao.JipiaoApplicationTests        : The following profiles are active: local
+2018-12-06 16:22:59.262  INFO 64765 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-06 16:22:59.731  INFO 64765 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 454ms. Found 23 repository interfaces.
+2018-12-06 16:23:01.320  INFO 64765 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$befed7fb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-06 16:23:03.172  INFO 64765 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-06 16:23:04.639  INFO 64765 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-06 16:23:04.835  INFO 64765 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-06 16:23:05.062  INFO 64765 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-06 16:23:05.065  INFO 64765 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-06 16:23:05.455  INFO 64765 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-06 16:23:05.962  INFO 64765 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-06 16:23:08.859  INFO 64765 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-06 16:23:20.889  INFO 64765 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-06 16:23:21.076  WARN 64765 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-06 16:23:22.821  INFO 64765 --- [main] c.t.jipiao.JipiaoApplicationTests        : Started JipiaoApplicationTests in 26.883 seconds (JVM running for 28.522)
+2018-12-06 16:23:23.024  INFO 64765 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-06 16:23:23.037  INFO 64765 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-06 16:23:23.040  INFO 64765 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-06 16:23:23.058  INFO 64765 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

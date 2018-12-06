@@ -9,6 +9,7 @@ import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.tianyalei.jipiao.global.cache.DictCache;
 import com.tianyalei.jipiao.global.specify.Criteria;
 import com.tianyalei.jipiao.global.specify.Restrictions;
+import com.tianyalei.jipiao.global.util.CommonUtil;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,7 +44,6 @@ public class CompanyManager {
         } catch (Exception e) {
             return "缺失";
         }
-
     }
 
 
@@ -66,7 +66,6 @@ public class CompanyManager {
     }
 
     public MCompanyEntity addOrUpdate(CompanyAddRequestModel model, boolean add) {
-
         if (add) {
             MCompanyEntity entity = companyRepository.findByCompanyName(model.getCompanyName());
             if (entity != null) {
@@ -80,6 +79,7 @@ public class CompanyManager {
 
         BeanUtil.copyProperties(model, mCompanyEntity, BeanUtil.CopyOptions.create().setIgnoreNullValue(true));
         mCompanyEntity.setLevel(level(mCompanyEntity.getParentId()));
+        mCompanyEntity.setPinYin(CommonUtil.toFirstChar(mCompanyEntity.getCompanyName()));
 
         if (add) {
             companySingleManager.add(mCompanyEntity);
