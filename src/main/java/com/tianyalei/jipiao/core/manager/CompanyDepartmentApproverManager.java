@@ -2,13 +2,16 @@ package com.tianyalei.jipiao.core.manager;
 
 import com.tianyalei.jipiao.core.model.MCompanyDepartmentApproverEntity;
 import com.tianyalei.jipiao.core.repository.CompanyDepartmentApproverRepository;
+import com.tianyalei.jipiao.core.response.CompanyDepartmentApproverVO;
 import com.tianyalei.jipiao.global.bean.SimplePage;
+import com.xiaoleilu.hutool.util.BeanUtil;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.stream.Collectors;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -17,6 +20,8 @@ import javax.annotation.Resource;
 public class CompanyDepartmentApproverManager {
     @Resource
     private CompanyDepartmentApproverRepository companyDepartmentApproverRepository;
+    @Resource
+    private CompanyDepartmentManager companyDepartmentManager;
 
 
     public MCompanyDepartmentApproverEntity add(MCompanyDepartmentApproverEntity mCompanyEntity) {
@@ -41,7 +46,7 @@ public class CompanyDepartmentApproverManager {
         return companyDepartmentApproverRepository.getOne(id);
     }
 
-    public SimplePage<MCompanyDepartmentApproverEntity> findByDeptId(Integer deptId, int pp , int size) {
+    public SimplePage<CompanyDepartmentApproverVO> findByDeptId(Integer deptId, int pp , int size) {
         if (size == 0) {
             size = 10;
         }
@@ -49,10 +54,10 @@ public class CompanyDepartmentApproverManager {
         Page<MCompanyDepartmentApproverEntity> page = companyDepartmentApproverRepository.findByDepartmentId(deptId,
                 pageable);
         return new SimplePage<>(page.getTotalPages(), page
-                .getTotalElements(), page.getContent());
+                .getTotalElements(), page.getContent().stream().map(this::parse).collect(Collectors.toList()));
     }
 
-    public SimplePage<MCompanyDepartmentApproverEntity> findByCompanyId(Integer companyId, int pp, int size) {
+    public SimplePage<CompanyDepartmentApproverVO> findByCompanyId(Integer companyId, int pp, int size) {
         if (size == 0) {
             size = 10;
         }
@@ -60,6 +65,13 @@ public class CompanyDepartmentApproverManager {
         Page<MCompanyDepartmentApproverEntity> page = companyDepartmentApproverRepository.findByCompanyId(companyId,
                 pageable);
         return new SimplePage<>(page.getTotalPages(), page
-                .getTotalElements(), page.getContent());
+                .getTotalElements(), page.getContent().stream().map(this::parse).collect(Collectors.toList()));
+    }
+
+    private CompanyDepartmentApproverVO parse(MCompanyDepartmentApproverEntity companyDepartmentApproverEntity) {
+        CompanyDepartmentApproverVO vo = new CompanyDepartmentApproverVO();
+        BeanUtil.copyProperties(companyDepartmentApproverEntity, vo);
+        vo.setDeptName(companyDepartmentManager.findName(companyDepartmentApproverEntity.getDepartmentId()));
+        return vo;
     }
 }
