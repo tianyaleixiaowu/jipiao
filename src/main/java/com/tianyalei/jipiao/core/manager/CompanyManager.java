@@ -47,7 +47,6 @@ public class CompanyManager {
     }
 
 
-
     public void delete(Integer id) {
         MCompanyEntity entity = find(id);
         entity.setIsEnable(false);
@@ -67,6 +66,14 @@ public class CompanyManager {
     }
 
     public MCompanyEntity addOrUpdate(CompanyAddRequestModel model, boolean add) {
+
+        if (add) {
+            MCompanyEntity entity = companyRepository.findByCompanyName(model.getCompanyName());
+            if (entity != null) {
+                return null;
+            }
+        }
+
         Optional<MCompanyEntity> companyEntity = companyRepository.findById(model.getId());
         MCompanyEntity mCompanyEntity;
         mCompanyEntity = companyEntity.orElseGet(MCompanyEntity::new);

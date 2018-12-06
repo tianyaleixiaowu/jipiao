@@ -1,6 +1,7 @@
 package com.tianyalei.jipiao.core.controller;
 
 import com.tianyalei.jipiao.core.manager.CompanyManager;
+import com.tianyalei.jipiao.core.model.MCompanyEntity;
 import com.tianyalei.jipiao.core.request.CompanyAddRequestModel;
 import com.tianyalei.jipiao.core.request.CompanyQueryRequestModel;
 import com.tianyalei.jipiao.global.bean.BaseData;
@@ -32,8 +33,11 @@ public class CompanyController {
     }
 
     @RequestMapping("add")
-    public BaseData find(CompanyAddRequestModel requestModel) {
-        companyManager.addOrUpdate(requestModel, true);
+    public BaseData add(CompanyAddRequestModel requestModel) {
+        MCompanyEntity entity = companyManager.addOrUpdate(requestModel, true);
+        if (entity == null) {
+            return ResultGenerator.genFailResult("公司名已存在");
+        }
         return ResultGenerator.genSuccessResult();
     }
 
