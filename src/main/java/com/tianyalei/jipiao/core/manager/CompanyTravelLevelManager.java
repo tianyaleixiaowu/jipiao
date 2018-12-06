@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -19,8 +20,6 @@ public class CompanyTravelLevelManager {
     private CompanyTravelLevelRepository companyTravelLevelRepository;
     @Resource
     private CompanyTravelSettingHotelCityManager companyTravelSettingHotelCityManager;
-
-
 
     public MCompanyTravelLevelEntity add(MCompanyTravelLevelEntity mCompanyEntity) {
         try {
@@ -53,6 +52,11 @@ public class CompanyTravelLevelManager {
             return "";
         }
         return find(id).getLevelName();
+    }
+
+    public List<MCompanyTravelLevelEntity> findByCompanyId(Integer companyId) {
+        return companyTravelLevelRepository.findByCompanyIdAndLevelType
+                (companyId, "1", PageRequest.of(0, 100)).getContent();
     }
 
     public SimplePage<MCompanyTravelLevelEntity> findByCompanyId(Integer companyId, int pp, int size, boolean city) {

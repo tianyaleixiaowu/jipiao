@@ -1,5 +1,6 @@
 package com.tianyalei.jipiao.core.manager;
 
+import com.tianyalei.jipiao.core.model.MCompanyTravelLevelEntity;
 import com.tianyalei.jipiao.core.model.MCompanyTravelSettingEntity;
 import com.tianyalei.jipiao.core.model.MCompanyTravelSettingHotelEntity;
 import com.tianyalei.jipiao.core.repository.CompanyTravelSettingRepository;
@@ -8,6 +9,7 @@ import com.tianyalei.jipiao.core.request.HotelModel;
 import com.tianyalei.jipiao.core.response.CompanyTravelSettingResponseVO;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
+import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import com.xiaoleilu.hutool.util.CollectionUtil;
 import org.springframework.stereotype.Service;
@@ -95,9 +97,10 @@ public class CompanyTravelSettingManager {
         CompanyTravelSettingResponseVO vo = new CompanyTravelSettingResponseVO();
         //如果还没设置过，就返回个空
         if (settingEntity == null) {
-            return vo;
+            return null;
         }
         BeanUtil.copyProperties(settingEntity, vo);
+        vo.setLevelName(companyTravelLevelManager.findName(travelLevelId));
 
         List<MCompanyTravelSettingHotelEntity> hotelEntityList = companyTravelSettingHotelManager.findByTravelLevelId
                 (travelLevelId);
@@ -112,5 +115,21 @@ public class CompanyTravelSettingManager {
         vo.setHotels(hotels);
         return vo;
     }
+
+    public SimplePage<CompanyTravelSettingResponseVO> findVOsByCompanyId(Integer companyId) {
+        List<MCompanyTravelLevelEntity> entities = companyTravelLevelManager.findByCompanyId(companyId);
+
+        List<CompanyTravelSettingResponseVO> vos = new ArrayList<>();
+        for (MCompanyTravelLevelEntity entity : entities) {
+            CompanyTravelSettingResponseVO vo = findVoByTravelLevelId(entity.getId());
+            if (vo != null) {
+                vos.add(vo);
+            }
+        }
+
+        return new SimplePage<>(1, vos.size(), vos);
+
+    }
+
 
 }

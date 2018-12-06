@@ -21,6 +21,27 @@ public class CompanyTravelSettingResponseVO {
      */
     private List<HotelModel> hotels = new ArrayList<>();
 
+    private String levelName;
+
+    @Override
+    public String toString() {
+        return "CompanyTravelSettingResponseVO{" +
+                "travelLevelId=" + travelLevelId +
+                ", planeLevel='" + planeLevel + '\'' +
+                ", trainLevel='" + trainLevel + '\'' +
+                ", hotels=" + hotels +
+                ", levelName='" + levelName + '\'' +
+                '}';
+    }
+
+    public String getLevelName() {
+        return levelName;
+    }
+
+    public void setLevelName(String levelName) {
+        this.levelName = levelName;
+    }
+
     public Integer getTravelLevelId() {
         return travelLevelId;
     }

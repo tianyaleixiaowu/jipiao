@@ -31,6 +31,17 @@ public class CompanyTravelSettingController {
         return ResultGenerator.genSuccessResult(companyTravelSettingManager.findVoByTravelLevelId(travelLevelId));
     }
 
+    @RequestMapping("/list")
+    public BaseData list(Integer companyId, Integer page, Integer size) {
+        if (page == null) {
+            page = 0;
+        }
+        if (size == null) {
+            size = 10;
+        }
+        return ResultGenerator.genSuccessResult(companyTravelSettingManager.findVOsByCompanyId(companyId));
+    }
+
     @RequestMapping("/company")
     public BaseData queryByCompanyId(Integer companyId) {
         return ResultGenerator.genSuccessResult(companyTravelSettingManager.findVoByTravelLevelId(companyId));
