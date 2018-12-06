@@ -21,14 +21,20 @@ public class CompanyDepartmentApproverController {
     private CompanyDepartmentApproverManager companyDepartmentApproverManager;
 
     @RequestMapping("/list")
-    public BaseData queryByDeptId(Integer deptId, Integer page, Integer size) {
+    public BaseData queryByDeptId(Integer deptId, Integer companyId, Integer page, Integer size) {
         if (page == null) {
             page = 0;
         }
         if (size == null) {
             size = 10;
         }
-        return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.findByDeptId(deptId, page, size));
+        if (deptId != null) {
+            return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.findByDeptId(deptId, page, size));
+        }
+        if (companyId != null) {
+            return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.findByCompanyId(companyId, page, size));
+        }
+        return ResultGenerator.genFailResult("部门id和公司id不能都为空");
     }
 
     @RequestMapping("/{id}")

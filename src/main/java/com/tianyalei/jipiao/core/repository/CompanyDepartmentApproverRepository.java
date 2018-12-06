@@ -12,4 +12,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 public interface CompanyDepartmentApproverRepository extends JpaRepository<MCompanyDepartmentApproverEntity, Integer>,
         JpaSpecificationExecutor<MCompanyDepartmentApproverEntity> {
       Page<MCompanyDepartmentApproverEntity> findByDepartmentId(Integer departmentId, Pageable pageable);
+
+      Page<MCompanyDepartmentApproverEntity> findByCompanyId(Integer companyId, Pageable pageable);
 }

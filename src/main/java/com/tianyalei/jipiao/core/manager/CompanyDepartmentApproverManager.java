@@ -51,4 +51,15 @@ public class CompanyDepartmentApproverManager {
         return new SimplePage<>(page.getTotalPages(), page
                 .getTotalElements(), page.getContent());
     }
+
+    public SimplePage<MCompanyDepartmentApproverEntity> findByCompanyId(Integer companyId, int pp, int size) {
+        if (size == 0) {
+            size = 10;
+        }
+        Pageable pageable = PageRequest.of(pp, size);
+        Page<MCompanyDepartmentApproverEntity> page = companyDepartmentApproverRepository.findByCompanyId(companyId,
+                pageable);
+        return new SimplePage<>(page.getTotalPages(), page
+                .getTotalElements(), page.getContent());
+    }
 }
