@@ -112,7 +112,7 @@ public class CompanyManager {
                 criteria.add(Restrictions.like("companyName", requestModel.getCompanyName(), true));
             }
         }
-        criteria.add(Restrictions.eq("isEnable", requestModel.getEnable(), true));
+        criteria.add(Restrictions.eq("isEnable", requestModel.getIsEnable(), true));
         criteria.add(Restrictions.eq("panelname", requestModel.getPanelname(), true));
 
         Pageable pageable = PageRequest.of(requestModel.getPage(), requestModel.getSize(), Sort

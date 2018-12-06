@@ -176,11 +176,11 @@ public class MHrOrganizationEntity extends BaseEntity {
 
     @Basic
     @Column(name = "IsEnable")
-    public Boolean getEnable() {
+    public Boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(Boolean enable) {
+    public void setIsEnable(Boolean enable) {
         isEnable = enable;
     }
 

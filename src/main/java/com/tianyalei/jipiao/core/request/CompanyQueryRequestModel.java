@@ -32,11 +32,11 @@ public class CompanyQueryRequestModel extends BaseQueryModel {
         this.panelname = panelname;
     }
 
-    public Boolean getEnable() {
+    public Boolean getIsEnable() {
         return isEnable;
     }
 
-    public void setEnable(Boolean enable) {
+    public void setIsEnable(Boolean enable) {
         isEnable = enable;
     }
 }
