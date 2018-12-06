@@ -23,8 +23,7 @@ public class CompanyTravelSettingController {
 
     @RequestMapping("/add")
     public BaseData add(@RequestBody CompanyTravelSettingRequestModel model) {
-        companyTravelSettingManager.addOrUpdate(model, true);
-        return ResultGenerator.genSuccessResult("添加成功");
+        return companyTravelSettingManager.addOrUpdate(model, true);
     }
 
     @RequestMapping("/query")
@@ -42,7 +41,6 @@ public class CompanyTravelSettingController {
      */
     @RequestMapping("/update")
     public BaseData update(@RequestBody CompanyTravelSettingRequestModel model) {
-        companyTravelSettingManager.addOrUpdate(model, false);
-        return ResultGenerator.genSuccessResult("更新成功");
+        return companyTravelSettingManager.addOrUpdate(model, false);
     }
 }

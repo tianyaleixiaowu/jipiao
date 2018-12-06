@@ -41,7 +41,11 @@ public class CompanyTravelLevelController {
      */
     @RequestMapping("/add")
     public BaseData add(MCompanyTravelLevelEntity entity) {
-        return ResultGenerator.genSuccessResult(companyTravelLevelManager.add(entity));
+        MCompanyTravelLevelEntity entity1 = companyTravelLevelManager.add(entity);
+        if (entity1 == null) {
+            return ResultGenerator.genFailResult("不能添加重复数据或空数据");
+        }
+        return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/enable")

@@ -23,14 +23,19 @@ public class CompanyTravelLevelManager {
 
 
     public MCompanyTravelLevelEntity add(MCompanyTravelLevelEntity mCompanyEntity) {
-        MCompanyTravelLevelEntity entity = companyTravelLevelRepository.save(mCompanyEntity);
-        //将city的数据，插入到M_CompanyTravelSettingHotelCity表
-        if ("2".equals(mCompanyEntity.getLevelType())) {
-            String cities = mCompanyEntity.getCities();
-            companyTravelSettingHotelCityManager.add(entity.getId(), cities);
+        try {
+            MCompanyTravelLevelEntity entity = companyTravelLevelRepository.save(mCompanyEntity);
+            //将city的数据，插入到M_CompanyTravelSettingHotelCity表
+            if ("2".equals(mCompanyEntity.getLevelType())) {
+                String cities = mCompanyEntity.getCities();
+                companyTravelSettingHotelCityManager.add(entity.getId(), cities);
+            }
+
+            return entity;
+        } catch (Exception e) {
+            return null;
         }
 
-        return entity;
     }
 
     public MCompanyTravelLevelEntity enable(Integer id, Boolean enable) {

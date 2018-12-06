@@ -6,6 +6,8 @@ import com.tianyalei.jipiao.core.repository.CompanyTravelSettingRepository;
 import com.tianyalei.jipiao.core.request.CompanyTravelSettingRequestModel;
 import com.tianyalei.jipiao.core.request.HotelModel;
 import com.tianyalei.jipiao.core.response.CompanyTravelSettingResponseVO;
+import com.tianyalei.jipiao.global.bean.BaseData;
+import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import com.xiaoleilu.hutool.util.CollectionUtil;
 import org.springframework.stereotype.Service;
@@ -32,52 +34,53 @@ public class CompanyTravelSettingManager {
     private CompanyTravelSettingHotelManager companyTravelSettingHotelManager;
 
     @Transactional(rollbackFor = Exception.class)
-    public void addOrUpdate(CompanyTravelSettingRequestModel companyTravelSettingRequestModel, boolean add) {
-        MCompanyTravelSettingEntity entity = findByTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
-        if (entity == null) {
-            entity = new MCompanyTravelSettingEntity();
+    public BaseData addOrUpdate(CompanyTravelSettingRequestModel companyTravelSettingRequestModel, boolean add) {
+        try {
+            MCompanyTravelSettingEntity entity = findByTravelLevelId(companyTravelSettingRequestModel
+                    .getTravelLevelId());
+            if (entity == null) {
+                entity = new MCompanyTravelSettingEntity();
+            }
+            entity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
+            entity.setPlaneLevel(companyTravelSettingRequestModel.getPlaneLevel());
+            entity.setTrainLevel(companyTravelSettingRequestModel.getTrainLevel());
+            if (add) {
+                companyTravelSettingSingleManager.add(entity);
+                if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
+                    return ResultGenerator.genSuccessResult();
+                }
+                //添加hotel相关
+                for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {
+                    MCompanyTravelSettingHotelEntity settingHotelEntity = new MCompanyTravelSettingHotelEntity();
+                    BeanUtil.copyProperties(hotelModel, settingHotelEntity);
+                    settingHotelEntity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
+                    companyTravelSettingHotelManager.add(settingHotelEntity);
+                }
+            } else {
+                companyTravelSettingSingleManager.update(entity);
+
+                if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
+                    return ResultGenerator.genSuccessResult();
+                }
+                companyTravelSettingHotelManager.deleteByTravelLevelId(companyTravelSettingRequestModel
+                        .getTravelLevelId());
+                //添加hotel相关
+                for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {
+                    MCompanyTravelSettingHotelEntity settingHotelEntity = new MCompanyTravelSettingHotelEntity();
+                    BeanUtil.copyProperties(hotelModel, settingHotelEntity);
+                    settingHotelEntity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
+                    companyTravelSettingHotelManager.add(settingHotelEntity);
+                }
+
+            }
+            return ResultGenerator.genSuccessResult();
+        } catch (Exception e) {
+            return ResultGenerator.genFailResult("不能添加重复数据或空数据");
         }
-        entity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
-        entity.setPlaneLevel(companyTravelSettingRequestModel.getPlaneLevel());
-        entity.setTrainLevel(companyTravelSettingRequestModel.getTrainLevel());
-        if (add) {
-            companyTravelSettingSingleManager.add(entity);
-            if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
-                return;
-            }
-            //添加hotel相关
-            for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {
-                MCompanyTravelSettingHotelEntity settingHotelEntity = new MCompanyTravelSettingHotelEntity();
-                BeanUtil.copyProperties(hotelModel, settingHotelEntity);
-                settingHotelEntity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
-                companyTravelSettingHotelManager.add(settingHotelEntity);
-            }
-        } else {
-            companyTravelSettingSingleManager.update(entity);
 
-            if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
-                return;
-            }
-            companyTravelSettingHotelManager.deleteByTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
-            //添加hotel相关
-            for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {
-                MCompanyTravelSettingHotelEntity settingHotelEntity = new MCompanyTravelSettingHotelEntity();
-                BeanUtil.copyProperties(hotelModel, settingHotelEntity);
-                settingHotelEntity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
-                companyTravelSettingHotelManager.add(settingHotelEntity);
-            }
-
-        }
 
     }
 
-    public MCompanyTravelSettingEntity add(MCompanyTravelSettingEntity companyTravelSettingEntity) {
-        return companyTravelSettingRepository.save(companyTravelSettingEntity);
-    }
-
-    public MCompanyTravelSettingEntity update(MCompanyTravelSettingEntity companyTravelSettingEntity) {
-        return companyTravelSettingRepository.save(companyTravelSettingEntity);
-    }
 
     public MCompanyTravelSettingEntity find(Integer id) {
         return companyTravelSettingRepository.getOne(id);
