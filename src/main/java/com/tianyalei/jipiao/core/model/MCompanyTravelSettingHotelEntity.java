@@ -17,7 +17,7 @@ public class MCompanyTravelSettingHotelEntity extends BaseIdEntity {
     private int travelLevelId;
     private int cityLevelId;
     private BigDecimal hotelFeeValue;
-    private String currency;
+    private String currency = "CNY";
 
     @Override
     public String toString() {
