@@ -10,6 +10,7 @@ import com.tianyalei.jipiao.core.response.CompanyTravelSettingResponseVO;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.bean.SimplePage;
+import com.tianyalei.jipiao.global.cache.DictCache;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import com.xiaoleilu.hutool.util.CollectionUtil;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,8 @@ public class CompanyTravelSettingManager {
     private CompanyTravelLevelManager companyTravelLevelManager;
     @Resource
     private CompanyTravelSettingHotelManager companyTravelSettingHotelManager;
+    @Resource
+    private DictCache dictCache;
 
     @Transactional(rollbackFor = Exception.class)
     public BaseData addOrUpdate(CompanyTravelSettingRequestModel companyTravelSettingRequestModel, boolean add) {
@@ -98,6 +101,8 @@ public class CompanyTravelSettingManager {
             return null;
         }
         BeanUtil.copyProperties(settingEntity, vo);
+        vo.setPlaneLevelValue(dictCache.findByGroupIdAndKey(62, vo.getPlaneLevel()));
+        vo.setTrainLevelValue(dictCache.findByGroupIdAndKey(63, vo.getTrainLevel()));
         vo.setLevelName(companyTravelLevelManager.findName(travelLevelId));
 
         List<MCompanyTravelSettingHotelEntity> hotelEntityList = companyTravelSettingHotelManager.findByTravelLevelId

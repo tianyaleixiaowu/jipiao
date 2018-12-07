@@ -15,7 +15,10 @@ public class CompanyTravelSettingResponseVO {
      * 和plane和train是一对一的
      */
     private String planeLevel;
+    private String planeLevelValue;
+
     private String trainLevel;
+    private String trainLevelValue;
     /**
      * 和下面的一对多的
      */
@@ -28,10 +31,28 @@ public class CompanyTravelSettingResponseVO {
         return "CompanyTravelSettingResponseVO{" +
                 "travelLevelId=" + travelLevelId +
                 ", planeLevel='" + planeLevel + '\'' +
+                ", planeLevelValue='" + planeLevelValue + '\'' +
                 ", trainLevel='" + trainLevel + '\'' +
+                ", trainLevelValue='" + trainLevelValue + '\'' +
                 ", hotels=" + hotels +
                 ", levelName='" + levelName + '\'' +
                 '}';
+    }
+
+    public String getPlaneLevelValue() {
+        return planeLevelValue;
+    }
+
+    public void setPlaneLevelValue(String planeLevelValue) {
+        this.planeLevelValue = planeLevelValue;
+    }
+
+    public String getTrainLevelValue() {
+        return trainLevelValue;
+    }
+
+    public void setTrainLevelValue(String trainLevelValue) {
+        this.trainLevelValue = trainLevelValue;
     }
 
     public String getLevelName() {
