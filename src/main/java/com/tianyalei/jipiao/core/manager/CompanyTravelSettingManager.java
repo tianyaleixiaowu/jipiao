@@ -48,7 +48,7 @@ public class CompanyTravelSettingManager {
             entity.setTrainLevel(companyTravelSettingRequestModel.getTrainLevel());
             if (add) {
                 companyTravelSettingSingleManager.add(entity);
-                if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
+                if (CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
                     return ResultGenerator.genSuccessResult();
                 }
                 //添加hotel相关
@@ -61,7 +61,7 @@ public class CompanyTravelSettingManager {
             } else {
                 companyTravelSettingSingleManager.update(entity);
 
-                if (!CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
+                if (CollectionUtil.isEmpty(companyTravelSettingRequestModel.getHotels())) {
                     return ResultGenerator.genSuccessResult();
                 }
                 companyTravelSettingHotelManager.deleteByTravelLevelId(companyTravelSettingRequestModel
