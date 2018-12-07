@@ -49,11 +49,11 @@ public class CompanyDepartmentResponseVO {
         this.departmentName = departmentName;
     }
 
-    public boolean isDeptApprove() {
+    public boolean getIsDeptApprove() {
         return isDeptApprove;
     }
 
-    public void setDeptApprove(boolean deptApprove) {
+    public void setIsDeptApprove(boolean deptApprove) {
         isDeptApprove = deptApprove;
     }
 
