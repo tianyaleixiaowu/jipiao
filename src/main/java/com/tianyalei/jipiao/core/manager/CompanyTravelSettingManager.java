@@ -80,9 +80,7 @@ public class CompanyTravelSettingManager {
             return ResultGenerator.genFailResult("不能添加重复数据或空数据");
         }
 
-
     }
-
 
     public MCompanyTravelSettingEntity find(Integer id) {
         return companyTravelSettingRepository.getOne(id);
@@ -121,6 +119,9 @@ public class CompanyTravelSettingManager {
 
         List<CompanyTravelSettingResponseVO> vos = new ArrayList<>();
         for (MCompanyTravelLevelEntity entity : entities) {
+            if (!entity.getIsEnable()) {
+                continue;
+            }
             CompanyTravelSettingResponseVO vo = findVoByTravelLevelId(entity.getId());
             if (vo != null) {
                 vos.add(vo);
