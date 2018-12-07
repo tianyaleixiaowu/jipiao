@@ -29,9 +29,8 @@ public class MemberBalanceCompanyManager {
     private CompanyTravelLevelManager companyTravelLevelManager;
 
     public void addOrUpdate(MMemberBalanceCompanyEntity tempEntity) {
-        MMemberBalanceCompanyEntity entity = memberBalanceCompanyRepository.findByCardNumAndCompanyId
-                (tempEntity.getCardNum(), tempEntity.getCompanyId()
-                );
+        MMemberBalanceCompanyEntity entity = memberBalanceCompanyRepository.findFirstByCardNumAndCompanyId
+                (tempEntity.getCardNum(), tempEntity.getCompanyId());
         if (entity == null) {
             entity = new MMemberBalanceCompanyEntity();
             BeanUtil.copyProperties(tempEntity, entity);
@@ -69,6 +68,10 @@ public class MemberBalanceCompanyManager {
     public List<MMemberBalanceCompanyEntity> findByCardNum(String cardNum) {
         return memberBalanceCompanyRepository.findByCardNumOrderByIdDesc
                 (cardNum);
+    }
+
+    public MMemberBalanceCompanyEntity findByCardNumAndCompanyId(String cardNum, Integer companyId) {
+        return memberBalanceCompanyRepository.findFirstByCardNumAndCompanyId(cardNum, companyId);
     }
 
     public SimplePage<MemberBalanceListResponseVO> list(String cardNum, Pageable pageable) {

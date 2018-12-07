@@ -20,5 +20,5 @@ public interface MemberBalanceCompanyRepository extends JpaRepository<MMemberBal
      */
     List<MMemberBalanceCompanyEntity> findByCardNumOrderByIdDesc(String cardNum);
 
-    MMemberBalanceCompanyEntity findByCardNumAndCompanyId(String cardNum, Integer companyId);
+    MMemberBalanceCompanyEntity findFirstByCardNumAndCompanyId(String cardNum, Integer companyId);
 }
