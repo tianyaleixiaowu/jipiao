@@ -56,6 +56,11 @@ public class CompanyTravelSettingManager {
                 }
                 //添加hotel相关
                 for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {
+                    if (hotelModel.getCityLevelId() == null || hotelModel.getCurrency() == null || hotelModel
+                            .getHotelFeeValue() == null) {
+                        return ResultGenerator.genFailResult("差旅酒店各属性不能为空");
+                    }
+
                     MCompanyTravelSettingHotelEntity settingHotelEntity = new MCompanyTravelSettingHotelEntity();
                     BeanUtil.copyProperties(hotelModel, settingHotelEntity);
                     settingHotelEntity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());
@@ -71,6 +76,10 @@ public class CompanyTravelSettingManager {
                         .getTravelLevelId());
                 //添加hotel相关
                 for (HotelModel hotelModel : companyTravelSettingRequestModel.getHotels()) {
+                    if (hotelModel.getCityLevelId() == null || hotelModel.getCurrency() == null || hotelModel
+                            .getHotelFeeValue() == null) {
+                        return ResultGenerator.genFailResult("差旅酒店各属性不能为空");
+                    }
                     MCompanyTravelSettingHotelEntity settingHotelEntity = new MCompanyTravelSettingHotelEntity();
                     BeanUtil.copyProperties(hotelModel, settingHotelEntity);
                     settingHotelEntity.setTravelLevelId(companyTravelSettingRequestModel.getTravelLevelId());

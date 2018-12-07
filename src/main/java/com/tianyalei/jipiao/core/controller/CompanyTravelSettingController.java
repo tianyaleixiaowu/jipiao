@@ -4,11 +4,13 @@ import com.tianyalei.jipiao.core.manager.CompanyTravelSettingManager;
 import com.tianyalei.jipiao.core.request.CompanyTravelSettingRequestModel;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * 差旅等级
@@ -22,7 +24,7 @@ public class CompanyTravelSettingController {
 
 
     @RequestMapping("/add")
-    public BaseData add(@RequestBody CompanyTravelSettingRequestModel model) {
+    public BaseData add(@RequestBody @Valid CompanyTravelSettingRequestModel model, BindingResult bindingResult) {
         return companyTravelSettingManager.addOrUpdate(model, true);
     }
 
