@@ -34,6 +34,9 @@ public class CompanyController {
 
     @RequestMapping("add")
     public BaseData add(CompanyAddRequestModel requestModel) {
+        if (requestModel.getServerCost().doubleValue() > 99999) {
+            return ResultGenerator.genFailResult("服务费值太大");
+        }
         MCompanyEntity entity = companyManager.addOrUpdate(requestModel, true);
         if (entity == null) {
             return ResultGenerator.genFailResult("公司名已存在");
@@ -43,6 +46,9 @@ public class CompanyController {
 
     @RequestMapping("update")
     public BaseData update(CompanyAddRequestModel requestModel) {
+        if (requestModel.getServerCost().doubleValue() > 99999) {
+            return ResultGenerator.genFailResult("服务费值太大");
+        }
         companyManager.addOrUpdate(requestModel, false);
         return ResultGenerator.genSuccessResult();
     }
