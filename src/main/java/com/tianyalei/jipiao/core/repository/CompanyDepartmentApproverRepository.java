@@ -14,4 +14,7 @@ public interface CompanyDepartmentApproverRepository extends JpaRepository<MComp
       Page<MCompanyDepartmentApproverEntity> findByDepartmentId(Integer departmentId, Pageable pageable);
 
       Page<MCompanyDepartmentApproverEntity> findByCompanyId(Integer companyId, Pageable pageable);
+
+      MCompanyDepartmentApproverEntity findFirstByDepartmentIdAndCardNum(Integer deptId, String cardNum);
+
 }

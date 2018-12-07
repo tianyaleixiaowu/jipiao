@@ -47,7 +47,7 @@ public class CompanyDepartmentApproverController {
      */
     @RequestMapping("/add")
     public BaseData add(MCompanyDepartmentApproverEntity entity) {
-        return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.add(entity));
+        return companyDepartmentApproverManager.add(entity);
     }
 
     /**

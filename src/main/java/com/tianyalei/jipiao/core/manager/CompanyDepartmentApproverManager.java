@@ -3,6 +3,8 @@ package com.tianyalei.jipiao.core.manager;
 import com.tianyalei.jipiao.core.model.MCompanyDepartmentApproverEntity;
 import com.tianyalei.jipiao.core.repository.CompanyDepartmentApproverRepository;
 import com.tianyalei.jipiao.core.response.CompanyDepartmentApproverVO;
+import com.tianyalei.jipiao.global.bean.BaseData;
+import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.xiaoleilu.hutool.util.BeanUtil;
 import org.springframework.data.domain.Page;
@@ -24,8 +26,15 @@ public class CompanyDepartmentApproverManager {
     private CompanyDepartmentManager companyDepartmentManager;
 
 
-    public MCompanyDepartmentApproverEntity add(MCompanyDepartmentApproverEntity mCompanyEntity) {
-        return save(mCompanyEntity);
+    public BaseData add(MCompanyDepartmentApproverEntity mCompanyEntity) {
+        MCompanyDepartmentApproverEntity entity = companyDepartmentApproverRepository.findFirstByDepartmentIdAndCardNum
+                (mCompanyEntity.getDepartmentId(),
+                mCompanyEntity.getCardNum());
+        if (entity != null) {
+            return ResultGenerator.genFailResult("已存在审批人");
+        }
+
+        return ResultGenerator.genSuccessResult(save(mCompanyEntity));
     }
 
     public MCompanyDepartmentApproverEntity update(MCompanyDepartmentApproverEntity mCompanyEntity) {
