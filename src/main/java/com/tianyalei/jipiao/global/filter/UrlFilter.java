@@ -17,14 +17,15 @@ public class UrlFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        //HttpServletRequest httpRequest = (HttpServletRequest) request;
+        ParameterRequestWrapper httpRequest = new ParameterRequestWrapper(
+                (HttpServletRequest) request);
         String path = httpRequest.getRequestURI();
         if (path.contains("/api")) {
             path = path.replace("/api", "");
-            httpRequest.getRequestDispatcher(path).forward(request, response);
+            httpRequest.getRequestDispatcher(path).forward(httpRequest, response);
         } else {
-            chain.doFilter(request, response);
-
+            chain.doFilter(httpRequest, response);
         }
     }
 }
