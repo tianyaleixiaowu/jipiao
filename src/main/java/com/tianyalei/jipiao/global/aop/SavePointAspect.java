@@ -69,7 +69,6 @@ public class SavePointAspect {
                 baseIdEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
                 operationLogEntity.setOperationType("add");
             } else if (method.contains("update")) {
-                baseIdEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
                 operationLogEntity.setOperationType("update");
             } else if (method.contains("delete")) {
                 operationLogEntity.setOperationType("delete");
