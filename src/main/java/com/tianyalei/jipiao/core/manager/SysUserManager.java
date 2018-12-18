@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -57,12 +59,13 @@ public class SysUserManager {
         String resultStr = s + "&SignMsg=" + sign;
 
         logger.info("最终请求的字符串是：" + resultStr);
+        logger.info("登录请求的地址loginUrl：" + loginUrl);
 
-        Map<String, String> map = new HashMap<>();
-        map.put("SystemCode", systemCode);
-        map.put("UserName", account);
-        map.put("Password", DigestUtil.md5Hex(password).toUpperCase());
-        map.put("SignMsg", sign);
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+        map.add("SystemCode", systemCode);
+        map.add("UserName", account);
+        map.add("Password", DigestUtil.md5Hex(password).toUpperCase());
+        map.add("SignMsg", sign);
 
         try {
             LoginData loginData = restTemplate.postForEntity(loginUrl, map,
@@ -79,6 +82,7 @@ public class SysUserManager {
                 return ResultGenerator.genFailResult("失败：" + loginData.getMessage());
             }
         } catch (Exception e) {
+            e.printStackTrace();
             logger.info("-------登录失败------返回默认用户");
             LoginUserBean loginUserBean = new LoginUserBean();
             loginUserBean.setCode(1000);
