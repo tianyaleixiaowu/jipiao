@@ -23,3 +23,6 @@ logging:
 ###############################---logstash---##############################
 logstash:
   ip: ${LOGSTASH_IP_PORT:127.0.0.1:4560}
+#############################
+login:
+  url: ${LOGIN_URL:http://10.1.15.102:10299/api/User/UserLogin}

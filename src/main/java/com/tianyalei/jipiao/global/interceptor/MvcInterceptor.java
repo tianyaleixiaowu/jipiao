@@ -2,6 +2,7 @@ package com.tianyalei.jipiao.global.interceptor;
 
 import com.tianyalei.jipiao.ApplicationContextProvider;
 import com.tianyalei.jipiao.global.cache.UserCache;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ public class MvcInterceptor extends HandlerInterceptorAdapter {
         }
         String userName = ApplicationContextProvider.getBean(UserCache.class).findNameByUserId(userId);
         //没token，或token在缓存中找不到
-        if (userName == null) {
+        if (StringUtils.isEmpty(userName)) {
             gotoLogin(response);
             return false;
         }

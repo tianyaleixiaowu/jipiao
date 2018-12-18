@@ -1,22 +1,664 @@
-2018-12-17 14:22:26.230  INFO 1462 --- [main] c.t.jipiao.JipiaoApplicationTests        : Starting JipiaoApplicationTests on weifengdeMacBook-Pro.local with PID 1462 (started by wuwf in /Users/wuwf/project/jipiao)
-2018-12-17 14:22:26.250  INFO 1462 --- [main] c.t.jipiao.JipiaoApplicationTests        : The following profiles are active: local
-2018-12-17 14:22:27.525  INFO 1462 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2018-12-17 14:22:27.847  INFO 1462 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 307ms. Found 23 repository interfaces.
-2018-12-17 14:22:29.037  INFO 1462 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$85792988] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-12-17 14:22:30.292  INFO 1462 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2018-12-17 14:22:31.174  INFO 1462 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2018-12-17 14:22:31.417  INFO 1462 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-12-18 10:13:22.305  INFO 13054 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 13054 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-18 10:13:22.312  INFO 13054 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-12-18 10:13:24.457  INFO 13054 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-18 10:13:25.174  INFO 13054 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 700ms. Found 23 repository interfaces.
+2018-12-18 10:13:26.373  INFO 13054 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$85f4aa40] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-18 10:13:28.216  INFO 13054 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-18 10:13:28.415  INFO 13054 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-18 10:13:28.416  INFO 13054 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-18 10:13:28.429  INFO 13054 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-18 10:13:28.646  INFO 13054 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-18 10:13:28.647  INFO 13054 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6019 ms
+2018-12-18 10:13:28.839  INFO 13054 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-18 10:13:28.840  INFO 13054 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-18 10:13:28.840  INFO 13054 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-18 10:13:28.841  INFO 13054 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-18 10:13:28.841  INFO 13054 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-12-18 10:13:28.841  INFO 13054 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-12-18 10:13:28.842  INFO 13054 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-18 10:13:29.374  INFO 13054 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-18 10:13:30.265  INFO 13054 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-18 10:13:30.366  INFO 13054 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-12-17 14:22:31.693  INFO 1462 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
-2018-12-17 14:22:31.696  INFO 1462 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
-2018-12-17 14:22:32.086  INFO 1462 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2018-12-17 14:22:32.526  INFO 1462 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2018-12-17 14:22:34.502  INFO 1462 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-12-17 14:22:43.806  INFO 1462 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2018-12-17 14:22:44.084  WARN 1462 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-12-17 14:22:45.463  INFO 1462 --- [main] c.t.jipiao.JipiaoApplicationTests        : Started JipiaoApplicationTests in 20.382 seconds (JVM running for 21.657)
-2018-12-17 14:22:45.704  INFO 1462 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2018-12-17 14:22:45.716  INFO 1462 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2018-12-17 14:22:45.720  INFO 1462 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2018-12-17 14:22:45.735  INFO 1462 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-18 10:13:30.626  INFO 13054 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-18 10:13:30.631  INFO 13054 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-18 10:13:31.004  INFO 13054 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-18 10:13:31.433  INFO 13054 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-18 10:13:33.741  INFO 13054 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:13:44.622  INFO 13054 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:13:44.717  WARN 13054 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-18 10:13:45.475  INFO 13054 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-18 10:13:45.479  INFO 13054 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 25.791 seconds (JVM running for 27.915)
+2018-12-18 10:16:03.830  INFO 13054 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-18 10:16:03.833  INFO 13054 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-18 10:16:03.890  INFO 13054 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 57 ms
+2018-12-18 10:16:04.196  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:16:04.197  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:16:04.199  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:16:04.199  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:16:04.199  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:16:04.200  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:16:04.203  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:16:04.204  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:16:04.205  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:16:04.312  INFO 13054 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-18 10:16:04.802  WARN 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:16:04.803 ERROR 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:16:04.834  WARN 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:16:04.834 ERROR 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:16:04.836  INFO 13054 --- [http-nio-8080-exec-1] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:16:04.840  WARN 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:16:04.841 ERROR 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:16:04.847  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:16:04.847  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：649毫秒
+2018-12-18 10:16:04.847  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:21:47.339  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:21:47.344  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:21:47.345  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:21:47.346  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:21:47.347  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:21:47.348  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:21:47.348  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:21:47.348  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:21:47.349  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:21:47.396  WARN 13054 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:21:47.397 ERROR 13054 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:21:47.403  WARN 13054 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:21:47.403 ERROR 13054 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:21:47.405  INFO 13054 --- [http-nio-8080-exec-3] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:21:47.408  WARN 13054 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:21:47.408 ERROR 13054 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:21:47.416  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:21:47.417  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：73毫秒
+2018-12-18 10:21:47.417  INFO 13054 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:28:07.246  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:28:07.247  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:28:07.247  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:28:07.247  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:28:07.248  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:28:07.248  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:28:07.248  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:28:07.248  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:28:07.248  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:28:07.280  WARN 13054 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:28:07.280 ERROR 13054 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:28:07.285  WARN 13054 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:28:07.286 ERROR 13054 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:28:07.288  INFO 13054 --- [http-nio-8080-exec-5] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:28:07.292  WARN 13054 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:28:07.292 ERROR 13054 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:28:07.295  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:28:07.295  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：48毫秒
+2018-12-18 10:28:07.295  INFO 13054 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:28:18.604  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:28:18.606  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:28:18.607  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:28:18.607  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:28:18.608  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:28:18.608  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:28:18.608  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:28:18.608  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:28:18.608  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:28:18.615  WARN 13054 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:28:18.616 ERROR 13054 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:28:18.619  WARN 13054 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:28:18.619 ERROR 13054 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:28:18.621  INFO 13054 --- [http-nio-8080-exec-7] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:28:18.626  WARN 13054 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:28:18.627 ERROR 13054 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateUserName' cannot be null
+2018-12-18 10:28:18.629  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:28:18.630  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：23毫秒
+2018-12-18 10:28:18.630  INFO 13054 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:29:14.871  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:29:14.872  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:29:14.872  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:29:14.873  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:29:14.873  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:29:14.873  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:29:14.873  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:29:14.873  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:29:14.874  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:29:15.002  WARN 13054 --- [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:29:15.003 ERROR 13054 --- [http-nio-8080-exec-9] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:29:15.004 ERROR 13054 --- [http-nio-8080-exec-9] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:29:15.027  INFO 13054 --- [http-nio-8080-exec-9] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:29:15.040  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:29:15.043  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：171毫秒
+2018-12-18 10:29:15.044  INFO 13054 --- [http-nio-8080-exec-9] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:29:22.252  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:29:22.253  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:29:22.253  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:29:22.254  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:29:22.254  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:29:22.254  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:29:22.254  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:29:22.254  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:29:22.254  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:29:22.311  WARN 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:29:22.311 ERROR 13054 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:29:22.312 ERROR 13054 --- [http-nio-8080-exec-1] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:29:22.317  INFO 13054 --- [http-nio-8080-exec-1] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:29:22.324  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:29:22.324  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：71毫秒
+2018-12-18 10:29:22.324  INFO 13054 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:30:09.955  INFO 13054 --- [Thread-56] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:30:09.988  INFO 13054 --- [Thread-56] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:30:09.999  INFO 13054 --- [Thread-56] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-18 10:30:10.022  INFO 13054 --- [Thread-56] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-18 10:30:20.383  INFO 13738 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 13738 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-18 10:30:20.391  INFO 13738 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-12-18 10:30:22.778  INFO 13738 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-18 10:30:23.129  INFO 13738 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 324ms. Found 23 repository interfaces.
+2018-12-18 10:30:24.319  INFO 13738 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ac618019] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-18 10:30:25.574  INFO 13738 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-18 10:30:25.601  INFO 13738 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-18 10:30:25.601  INFO 13738 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-18 10:30:25.616  INFO 13738 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-18 10:30:25.751  INFO 13738 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-18 10:30:25.752  INFO 13738 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5167 ms
+2018-12-18 10:30:25.997  INFO 13738 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-18 10:30:25.999  INFO 13738 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-18 10:30:25.999  INFO 13738 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-18 10:30:25.999  INFO 13738 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-18 10:30:26.000  INFO 13738 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-12-18 10:30:26.000  INFO 13738 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-12-18 10:30:26.000  INFO 13738 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-18 10:30:26.420  INFO 13738 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-18 10:30:26.890  INFO 13738 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-18 10:30:27.000  INFO 13738 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-18 10:30:27.338  INFO 13738 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-18 10:30:27.340  INFO 13738 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-18 10:30:27.662  INFO 13738 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-18 10:30:27.947  INFO 13738 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-18 10:30:29.301  INFO 13738 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:30:35.142  INFO 13738 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:30:35.241  WARN 13738 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-18 10:30:36.152  INFO 13738 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-18 10:30:36.155  INFO 13738 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 18.281 seconds (JVM running for 21.899)
+2018-12-18 10:32:21.641  INFO 13738 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-18 10:32:21.643  INFO 13738 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-18 10:32:21.687  INFO 13738 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 43 ms
+2018-12-18 10:32:35.951  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:32:35.955  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:32:35.962  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:32:35.964  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:32:35.965  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:32:35.967  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:32:35.968  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:32:35.969  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:32:35.969  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:32:48.387  INFO 13738 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-18 10:33:39.018  WARN 13738 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:33:39.020 ERROR 13738 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:33:39.028 ERROR 13738 --- [http-nio-8080-exec-1] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:33:58.980  INFO 13738 --- [http-nio-8080-exec-1] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:34:02.502  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:34:02.503  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：86543毫秒
+2018-12-18 10:34:02.503  INFO 13738 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:35:17.467  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:35:17.470  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:35:17.470  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:35:17.470  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:35:17.471  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:35:17.471  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:35:17.471  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:35:17.472  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:35:17.473  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:35:20.041  WARN 13738 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1054, SQLState: 42S22
+2018-12-18 10:35:20.043 ERROR 13738 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unknown column 'mcompanytr0_.createRealName' in 'field list'
+2018-12-18 10:35:22.907  INFO 13738 --- [http-nio-8080-exec-3] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:35:22.912  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:35:22.913  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：5443毫秒
+2018-12-18 10:35:22.913  INFO 13738 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:36:03.771  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:36:03.772  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:36:03.773  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:36:03.773  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:36:03.773  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:36:03.773  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:36:03.774  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:36:03.774  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:36:03.774  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:36:07.766  WARN 13738 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:36:07.766 ERROR 13738 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:36:07.767 ERROR 13738 --- [http-nio-8080-exec-5] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:36:10.965  INFO 13738 --- [http-nio-8080-exec-5] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:36:10.981  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:36:10.981  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：7208毫秒
+2018-12-18 10:36:10.982  INFO 13738 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:37:30.807  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:37:30.810  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:37:30.811  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:37:30.811  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:37:30.812  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:37:30.812  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:37:30.812  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:37:30.813  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:37:30.813  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:37:46.270  WARN 13738 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:37:46.271 ERROR 13738 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:37:46.272 ERROR 13738 --- [http-nio-8080-exec-7] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:37:46.332  INFO 13738 --- [http-nio-8080-exec-7] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:37:46.346  INFO 13738 --- [Thread-41] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:37:46.363  INFO 13738 --- [Thread-41] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:37:46.380  INFO 13738 --- [Thread-41] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-18 10:37:46.390 ERROR 13738 --- [http-nio-8080-exec-7] o.s.t.i.TransactionInterceptor           : Application exception overridden by rollback exception
+
+javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.tianyalei.jipiao.core.model.MOperationLogEntity
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:807)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:785)
+	at sun.reflect.GeneratedMethodAccessor116.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:350)
+	at com.sun.proxy.$Proxy98.persist(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor116.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:308)
+	at com.sun.proxy.$Proxy98.persist(Unknown Source)
+	at com.tianyalei.jipiao.core.model.base.SimpleJpaRepositoryImpl.save(SimpleJpaRepositoryImpl.java:61)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:359)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:200)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:644)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:608)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.lambda$invoke$3(RepositoryFactorySupport.java:595)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor$$Lambda$735/1994216734.get(Unknown Source)
+	at org.springframework.data.repository.util.QueryExecutionConverters$$Lambda$734/1114825725.apply(Unknown Source)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:595)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:59)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$$Lambda$733/174326750.proceedWithInvocation(Unknown Source)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:294)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:135)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.SurroundingTransactionDetectorMethodInterceptor.invoke(SurroundingTransactionDetectorMethodInterceptor.java:61)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy127.save(Unknown Source)
+	at com.tianyalei.jipiao.global.aop.OperationLogManager.operationLog(OperationLogManager.java:20)
+	at com.tianyalei.jipiao.global.aop.SavePointAspect.throwExceptions(SavePointAspect.java:124)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:626)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:66)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.tianyalei.jipiao.core.manager.CompanyTravelSettingManager$$EnhancerBySpringCGLIB$$b01a197c.addOrUpdate(<generated>)
+	at com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add(CompanyTravelSettingController.java:28)
+	at com.tianyalei.jipiao.core.controller.CompanyTravelSettingController$$FastClassBySpringCGLIB$$d812cccb.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:746)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:88)
+	at com.tianyalei.jipiao.global.aop.ValidAspect.arround(ValidAspect.java:94)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:644)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:633)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:62)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.tianyalei.jipiao.core.controller.CompanyTravelSettingController$$EnhancerBySpringCGLIB$$74d65d53.add(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:215)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:142)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:901)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.tianyalei.jipiao.global.filter.UrlFilter.doFilter(UrlFilter.java:28)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hibernate.PersistentObjectException: detached entity passed to persist: com.tianyalei.jipiao.core.model.MOperationLogEntity
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:127)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:62)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:800)
+	... 144 common frames omitted
+
+2018-12-18 10:37:46.419  INFO 13738 --- [Thread-41] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-18 10:37:46.420  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:37:46.420  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：15609毫秒
+2018-12-18 10:37:46.420  INFO 13738 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:37:56.417  INFO 14014 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 14014 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-18 10:37:56.424  INFO 14014 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-12-18 10:37:57.373  INFO 14014 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-18 10:37:57.580  INFO 14014 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 196ms. Found 23 repository interfaces.
+2018-12-18 10:37:58.944  INFO 14014 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$47304ac2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-18 10:38:00.359  INFO 14014 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-18 10:38:00.386  INFO 14014 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-18 10:38:00.387  INFO 14014 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-18 10:38:00.465  INFO 14014 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-18 10:38:00.797  INFO 14014 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-18 10:38:00.797  INFO 14014 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4306 ms
+2018-12-18 10:38:00.987  INFO 14014 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-18 10:38:00.988  INFO 14014 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-18 10:38:00.988  INFO 14014 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-18 10:38:00.988  INFO 14014 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-18 10:38:00.988  INFO 14014 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-12-18 10:38:00.988  INFO 14014 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-12-18 10:38:00.989  INFO 14014 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-18 10:38:01.352  INFO 14014 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-18 10:38:02.032  INFO 14014 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-18 10:38:02.125  INFO 14014 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-18 10:38:02.492  INFO 14014 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-18 10:38:02.494  INFO 14014 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-18 10:38:02.923  INFO 14014 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-18 10:38:03.232  INFO 14014 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-18 10:38:04.743  INFO 14014 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:38:10.997  INFO 14014 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:38:11.108  WARN 14014 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-18 10:38:12.175  INFO 14014 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-18 10:38:12.179  INFO 14014 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 16.978 seconds (JVM running for 18.2)
+2018-12-18 10:39:27.919  INFO 14014 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-18 10:39:27.920  INFO 14014 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-18 10:39:27.951  INFO 14014 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 30 ms
+2018-12-18 10:39:28.322  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:39:28.323  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:39:28.331  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:39:28.331  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:39:28.332  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:39:28.333  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:39:28.337  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:39:28.338  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:39:28.339  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:39:28.687  INFO 14014 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-18 10:39:34.023  WARN 14014 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:39:34.024 ERROR 14014 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:39:34.032 ERROR 14014 --- [http-nio-8080-exec-1] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:39:36.096  INFO 14014 --- [http-nio-8080-exec-1] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:39:36.109  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:39:36.109  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：7780毫秒
+2018-12-18 10:39:36.109  INFO 14014 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:40:07.752  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:40:07.754  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:40:07.754  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:40:07.755  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:40:07.755  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:40:07.755  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:40:07.755  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:40:07.755  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:40:07.756  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:40:30.465  WARN 14014 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:40:30.467 ERROR 14014 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:40:30.467 ERROR 14014 --- [http-nio-8080-exec-3] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:41:23.572  WARN 14014 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s357ms).
+2018-12-18 10:42:06.385  INFO 14014 --- [http-nio-8080-exec-3] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:42:06.403  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:42:06.403  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：118649毫秒
+2018-12-18 10:42:06.403  INFO 14014 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:42:14.392  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:42:14.393  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:42:14.393  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:42:14.393  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:42:14.394  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:42:14.395  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:42:14.396  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:42:14.396  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:42:14.396  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:43:36.117  WARN 14014 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m29s732ms).
+2018-12-18 10:43:38.095  WARN 14014 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:43:38.095 ERROR 14014 --- [http-nio-8080-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:43:38.096 ERROR 14014 --- [http-nio-8080-exec-5] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:43:38.686  INFO 14014 --- [http-nio-8080-exec-5] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:43:38.706  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:43:38.707  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：84314毫秒
+2018-12-18 10:43:38.708  INFO 14014 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:43:55.780  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:43:55.783  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:43:55.784  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:43:55.784  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:43:55.784  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:43:55.784  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:43:55.785  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:43:55.785  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:43:55.785  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:43:55.869  WARN 14014 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1048, SQLState: 23000
+2018-12-18 10:43:55.870 ERROR 14014 --- [http-nio-8080-exec-7] o.h.engine.jdbc.spi.SqlExceptionHelper   : Column 'CreateRealName' cannot be null
+2018-12-18 10:43:55.871 ERROR 14014 --- [http-nio-8080-exec-7] o.h.i.ExceptionMapperStandardImpl        : HHH000346: Error during managed flush [org.hibernate.exception.ConstraintViolationException: could not execute statement]
+2018-12-18 10:43:55.902  INFO 14014 --- [http-nio-8080-exec-7] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:43:55.902  INFO 14014 --- [Thread-38] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:43:55.916  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:43:55.916  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：132毫秒
+2018-12-18 10:43:55.916  INFO 14014 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:43:55.921  INFO 14014 --- [Thread-38] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:43:55.947  INFO 14014 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-18 10:43:55.982  INFO 14014 --- [Thread-38] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-18 10:44:47.660  INFO 14242 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 14242 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-18 10:44:47.693  INFO 14242 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-12-18 10:44:50.320  INFO 14242 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-18 10:44:50.820  INFO 14242 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 480ms. Found 23 repository interfaces.
+2018-12-18 10:44:51.710  INFO 14242 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3399ec5d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-18 10:44:52.771  INFO 14242 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-18 10:44:52.796  INFO 14242 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-18 10:44:52.796  INFO 14242 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-18 10:44:52.819  INFO 14242 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-18 10:44:52.949  INFO 14242 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-18 10:44:52.949  INFO 14242 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4914 ms
+2018-12-18 10:44:53.097  INFO 14242 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-18 10:44:53.098  INFO 14242 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-18 10:44:53.098  INFO 14242 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-18 10:44:53.098  INFO 14242 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-18 10:44:53.098  INFO 14242 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-12-18 10:44:53.099  INFO 14242 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-12-18 10:44:53.099  INFO 14242 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-18 10:44:53.474  INFO 14242 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-18 10:44:54.087  INFO 14242 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-18 10:44:54.166  INFO 14242 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-18 10:44:54.423  INFO 14242 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-18 10:44:54.425  INFO 14242 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-18 10:44:54.927  INFO 14242 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-18 10:44:55.244  INFO 14242 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-18 10:44:56.928  INFO 14242 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:45:04.743  INFO 14242 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:45:04.837  WARN 14242 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-18 10:45:05.726  INFO 14242 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-18 10:45:05.733  INFO 14242 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 20.576 seconds (JVM running for 22.419)
+2018-12-18 10:45:12.537  INFO 14242 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-18 10:45:12.537  INFO 14242 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-18 10:45:12.566  INFO 14242 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 28 ms
+2018-12-18 10:45:12.879  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:45:12.879  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：12
+2018-12-18 10:45:12.883  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:45:12.884  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:45:12.884  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:45:12.884  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:45:12.886  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:45:12.886  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:45:12.887  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:45:16.342  INFO 14242 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-18 10:45:22.195  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=null}
+2018-12-18 10:45:22.195  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：9313毫秒
+2018-12-18 10:45:22.195  INFO 14242 --- [http-nio-8080-exec-1] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:48:22.264  INFO 14242 --- [Thread-45] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:48:22.284  INFO 14242 --- [Thread-45] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:48:22.295  INFO 14242 --- [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-18 10:48:22.325  INFO 14242 --- [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2018-12-18 10:48:30.155  INFO 14383 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Starting JipiaoApplication on weifengdeMacBook-Pro.local with PID 14383 (/Users/wuwf/project/jipiao/target/classes started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-18 10:48:30.160  INFO 14383 --- [main] com.tianyalei.jipiao.JipiaoApplication   : The following profiles are active: local
+2018-12-18 10:48:31.831  INFO 14383 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-18 10:48:32.127  INFO 14383 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 281ms. Found 23 repository interfaces.
+2018-12-18 10:48:33.086  INFO 14383 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c0357f07] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-18 10:48:34.064  INFO 14383 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-18 10:48:34.213  INFO 14383 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-18 10:48:34.214  INFO 14383 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-12-18 10:48:34.222  INFO 14383 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wuwf/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-12-18 10:48:34.353  INFO 14383 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-18 10:48:34.358  INFO 14383 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4002 ms
+2018-12-18 10:48:34.464  INFO 14383 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-12-18 10:48:34.465  INFO 14383 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-12-18 10:48:34.465  INFO 14383 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-12-18 10:48:34.465  INFO 14383 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-12-18 10:48:34.465  INFO 14383 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'UrlFilter' to urls: [/*]
+2018-12-18 10:48:34.465  INFO 14383 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-12-18 10:48:34.466  INFO 14383 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-12-18 10:48:34.860  INFO 14383 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-18 10:48:35.194  INFO 14383 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-18 10:48:35.257  INFO 14383 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-18 10:48:35.350  INFO 14383 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-18 10:48:35.353  INFO 14383 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-18 10:48:35.548  INFO 14383 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-18 10:48:35.745  INFO 14383 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-18 10:48:37.252  INFO 14383 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 10:48:44.340  INFO 14383 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-18 10:48:44.434  WARN 14383 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-18 10:48:45.553  INFO 14383 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-18 10:48:45.558  INFO 14383 --- [main] com.tianyalei.jipiao.JipiaoApplication   : Started JipiaoApplication in 17.174 seconds (JVM running for 18.61)
+2018-12-18 10:48:56.201  INFO 14383 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-18 10:48:56.203  INFO 14383 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-18 10:48:56.381  INFO 14383 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 177 ms
+2018-12-18 10:49:52.107  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:49:52.108  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：1
+2018-12-18 10:49:52.111  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/user/login
+2018-12-18 10:49:52.112  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:49:52.112  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-12-18 10:49:52.112  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:49:52.115  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.SysUserController.login
+2018-12-18 10:49:52.115  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:49:52.115  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : account->测试
+2018-12-18 10:49:52.149  INFO 14383 --- [http-nio-8080-exec-3] c.t.jipiao.global.aop.SavePointAspect    : 方法异常时执行.....
+2018-12-18 10:49:52.153  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : null
+2018-12-18 10:49:52.153  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：42毫秒
+2018-12-18 10:49:52.153  INFO 14383 --- [http-nio-8080-exec-3] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:50:05.333  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:50:05.333  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：1
+2018-12-18 10:50:05.333  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/user/login
+2018-12-18 10:50:05.333  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:50:05.334  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/x-www-form-urlencoded
+2018-12-18 10:50:05.334  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:50:05.334  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.SysUserController.login
+2018-12-18 10:50:05.334  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:50:05.334  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : account->测试
+2018-12-18 10:50:05.334  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : password->12
+2018-12-18 10:50:05.336  INFO 14383 --- [http-nio-8080-exec-5] c.t.jipiao.core.manager.SysUserManager   : 最终请求的字符串是：SystemCode=Member&UserName=测试&Password=C20AD4D76FE97759AA27A0C99BFF6710&SignMsg=F4E49D9D2BB3F081174BCADA557817A6
+2018-12-18 10:50:10.409  INFO 14383 --- [http-nio-8080-exec-5] c.t.jipiao.core.manager.SysUserManager   : -------登录失败------返回默认用户
+2018-12-18 10:50:10.416  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=LoginUserBean{code=1000, user_id='761b5378-e843-4df3-a7aa-53965311814f', real_name_cn='鲍春智'}}
+2018-12-18 10:50:10.416  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：5083毫秒
+2018-12-18 10:50:10.416  INFO 14383 --- [http-nio-8080-exec-5] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 10:50:19.101  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : -------------------用户发起请求-----------------
+2018-12-18 10:50:19.102  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : userId为：761b5378-e843-4df3-a7aa-53965311814f
+2018-12-18 10:50:19.102  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : URL : http://localhost:8080/companyTravelSetting/add
+2018-12-18 10:50:19.102  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_METHOD : POST
+2018-12-18 10:50:19.102  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : HTTP_HEAD Type : application/json
+2018-12-18 10:50:19.102  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : IP : 0:0:0:0:0:0:0:1
+2018-12-18 10:50:19.102  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CLASS_METHOD : com.tianyalei.jipiao.core.controller.CompanyTravelSettingController.add
+2018-12-18 10:50:19.103  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 传参为：
+2018-12-18 10:50:19.103  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : CompanyTravelSettingRequestModel{travelLevelId=32, planeLevel='01', trainLevel='1', hotels=[]}
+2018-12-18 10:50:19.179  INFO 14383 --- [http-nio-8080-exec-7] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-12-18 10:50:19.511  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 方法的返回值 : BaseData{code=200, message='SUCCESS', data=null}
+2018-12-18 10:50:19.515  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : 共耗时：413毫秒
+2018-12-18 10:50:19.515  INFO 14383 --- [http-nio-8080-exec-7] c.tianyalei.jipiao.global.aop.LogAspect  : ------------------请求结束------------------
+2018-12-18 11:22:58.624  INFO 15546 --- [main] c.t.jipiao.JipiaoApplicationTests        : Starting JipiaoApplicationTests on weifengdeMacBook-Pro.local with PID 15546 (started by wuwf in /Users/wuwf/project/jipiao)
+2018-12-18 11:22:58.627  INFO 15546 --- [main] c.t.jipiao.JipiaoApplicationTests        : The following profiles are active: local
+2018-12-18 11:22:59.836  INFO 15546 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-18 11:23:00.105  INFO 15546 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 254ms. Found 23 repository interfaces.
+2018-12-18 11:23:01.286  INFO 15546 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$619ba54b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-18 11:23:02.554  INFO 15546 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-12-18 11:23:03.234  INFO 15546 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-12-18 11:23:03.368  INFO 15546 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-12-18 11:23:03.568  INFO 15546 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-12-18 11:23:03.576  INFO 15546 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-12-18 11:23:03.956  INFO 15546 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-12-18 11:23:04.267  INFO 15546 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2018-12-18 11:23:06.070  INFO 15546 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 11:23:17.759  INFO 15546 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-18 11:23:18.007  WARN 15546 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-12-18 11:23:19.465  INFO 15546 --- [main] c.t.jipiao.JipiaoApplicationTests        : Started JipiaoApplicationTests in 22.24 seconds (JVM running for 23.952)
+2018-12-18 11:23:19.662  INFO 15546 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-18 11:23:19.676  INFO 15546 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-12-18 11:23:19.680  INFO 15546 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-12-18 11:23:19.698  INFO 15546 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

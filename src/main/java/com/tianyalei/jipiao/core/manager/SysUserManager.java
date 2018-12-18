@@ -12,6 +12,7 @@ import com.tianyalei.jipiao.global.cache.UserCache;
 import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -32,6 +33,8 @@ public class SysUserManager {
     private RestTemplate restTemplate;
     @Resource
     private SysUserRepository sysUserRepository;
+    @Value("${login.url}")
+    private String loginUrl;
 
     private String systemCode = "Member";
     private String Key = "f3b18dffb528d2fbdc61be6aca3f838c";
@@ -62,7 +65,7 @@ public class SysUserManager {
         map.put("SignMsg", sign);
 
         try {
-            LoginData loginData = restTemplate.postForEntity("http://10.1.15.102:10299/api/User/UserLogin", map,
+            LoginData loginData = restTemplate.postForEntity(loginUrl, map,
                     LoginData.class)
                     .getBody();
             logger.info("返回值：" + loginData);
