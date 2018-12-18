@@ -9,6 +9,7 @@ import com.tianyalei.jipiao.core.repository.SysUserRepository;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.cache.UserCache;
+import com.tianyalei.jipiao.global.util.FastJsonUtils;
 import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -37,6 +39,11 @@ public class SysUserManager {
     private SysUserRepository sysUserRepository;
     @Value("${login.url}")
     private String loginUrl;
+
+    @PostConstruct
+    public void pr() {
+        System.err.println(loginUrl);
+    }
 
     private String systemCode = "Member";
     private String Key = "f3b18dffb528d2fbdc61be6aca3f838c";
@@ -68,10 +75,11 @@ public class SysUserManager {
         map.add("SignMsg", sign);
 
         try {
-            LoginData loginData = restTemplate.postForEntity(loginUrl, map,
-                    LoginData.class)
+            String s1 = restTemplate.postForEntity(loginUrl, map,
+                    String.class)
                     .getBody();
-            logger.info("返回值：" + loginData);
+            logger.info("返回值：" + s1);
+            LoginData loginData = FastJsonUtils.toBean(s1, LoginData.class);
             if (loginData.getReturnCode() == 0) {
                 //存入缓存
                 userCache.saveUserId(loginData.getData().getUser_id(), loginData.getData().getReal_name_cn());
