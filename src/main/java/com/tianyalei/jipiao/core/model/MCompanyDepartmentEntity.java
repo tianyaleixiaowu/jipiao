@@ -1,5 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.tianyalei.jipiao.core.model.base.BaseEntity;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
@@ -53,10 +54,6 @@ public class MCompanyDepartmentEntity extends BaseIdEntity {
     @Column(name = "DepartmentName")
     public String getDepartmentName() {
         return departmentName;
-    }
-
-    public void setDepartmenName(String departmentName) {
-        this.departmentName = departmentName;
     }
 
     @Basic
