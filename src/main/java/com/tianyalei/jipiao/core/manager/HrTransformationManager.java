@@ -1,22 +1,24 @@
 package com.tianyalei.jipiao.core.manager;
 
 import com.alibaba.fastjson.JSONObject;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+import com.tianyalei.jipiao.core.controller.HrTransformationController;
 import com.tianyalei.jipiao.core.model.*;
-import com.tianyalei.jipiao.core.repository.CompanyDepartmentRepository;
-import com.tianyalei.jipiao.core.repository.CompanyRepository;
-import com.tianyalei.jipiao.core.repository.HrDepartmentRepository;
-import com.tianyalei.jipiao.core.repository.HrOrganizationRepository;
+import com.tianyalei.jipiao.core.repository.*;
+import com.tianyalei.jipiao.core.request.MemberAddRequestModel;
 import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.tianyalei.jipiao.global.cache.DictCache;
+import com.tianyalei.jipiao.global.util.CommonUtil;
+import com.xiaoleilu.hutool.date.DateTime;
+import com.xiaoleilu.hutool.date.DateUtil;
+import com.xiaoleilu.hutool.util.BeanUtil;
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import org.apache.commons.collections4.ListUtils;
 import org.apache.poi.ss.formula.functions.T;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.apache.xmlbeans.impl.jam.mutable.MMember;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -26,13 +28,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,6 +61,24 @@ public class HrTransformationManager {
 
     @Resource
     private DictCache dictCache;
+
+    @Resource
+    private HrEmployeeRepository hrEmployeeRepository;
+
+    @Resource
+    private MemberRepository memberRepository;
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Resource
+    private MemberCardNumManager memberCardNumManager;
+
+    @Resource
+    private MemberExtendManager memberExtendManager;
+
+    @Resource
+    private MemberCallManager memberCallManager;
     /**
      * 分页列表
      * @param entity
@@ -247,6 +273,8 @@ public class HrTransformationManager {
             entity.setCreateTime(tf.getCreateTime());
             entity.setUpdateTime(tf.getUpdateTime());
             entity.setHrOrgId(r.getCode());
+            Optional<MHrOrganizationEntity> byId = hrOrganizationRepository.findById(r.getCode());
+            entity.setAccountBookCode(byId.get().getAccountCode());
             entity = add(entity);
             //新增部门
             if(tf.isTF()){
@@ -256,10 +284,10 @@ public class HrTransformationManager {
 
     }
 
-    public MCompanyEntity add(MCompanyEntity o){
+    private MCompanyEntity add(MCompanyEntity o){
         return companyRepository.save(o);
     }
-    public MCompanyDepartmentEntity add(MCompanyDepartmentEntity o){
+    private MCompanyDepartmentEntity add(MCompanyDepartmentEntity o){
         return companyDepartmentRepository.save(o);
     }
 
@@ -288,8 +316,19 @@ public class HrTransformationManager {
         for(int i=0;i<hanzi.length();i++){
             char unit=hanzi.charAt(i);
             //是汉字，则转拼音
-            if(match(String.valueOf(unit),regExp)){
-                pinyin=convertSingleHanzi2Pinyin(unit);
+            Matcher matcher = Pattern.compile(regExp).matcher(String.valueOf(unit));
+            if(matcher.find()){
+                HanyuPinyinOutputFormat outputFormat = new HanyuPinyinOutputFormat();
+                outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+                String[] res;
+                StringBuffer sb1 = new StringBuffer();
+                try {
+                    res = PinyinHelper.toHanyuPinyinStringArray(unit,outputFormat);
+                    sb1.append(res[0]);//对于多音字，只用第一个拼音
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                pinyin = sb1.toString();
                 if(isFull){
                     sb.append(pinyin);
                 }
@@ -304,42 +343,169 @@ public class HrTransformationManager {
     }
 
     /**
-     * 将单个汉字转成拼音
-     *
-     * @param hanzi 汉字字符
-     *
-     * @return 拼音
+     * 转换人员列表
+     * @param entity
+     * @param page
+     * @param size
      */
-    private static String convertSingleHanzi2Pinyin(char hanzi){
-        HanyuPinyinOutputFormat outputFormat = new HanyuPinyinOutputFormat();
-        outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-        String[] res;
-        StringBuffer sb=new StringBuffer();
-        try {
-            res = PinyinHelper.toHanyuPinyinStringArray(hanzi,outputFormat);
-            sb.append(res[0]);//对于多音字，只用第一个拼音
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
+    public Page<EmployeeListEntity> findList(EmployeeListEntity entity, Integer page, Integer size) {
+        Pageable pageable = new PageRequest(page,size);
+        long total = hrEmployeeRepository.findByCountAll();
+        //高级查询
+        StringBuffer sql = new StringBuffer("SELECT " +
+                "a.EmployeeID," +
+                "a.RealName," +
+                "o.OrgName," +
+                "c.DepName," +
+                "a.PaperNum," +
+                "a.PhoneNum," +
+                "a.Position," +
+                "a.AdministrativeLevel," +
+                "a.TravelLevel" +
+                " FROM " +
+                "M_HREmployee a " +
+                "LEFT JOIN M_HRRelational b ON a.EmployeeID = b.EmployeeID " +
+                "LEFT JOIN M_HRDepartment c ON c.DepID = b.DeptID " +
+                "LEFT JOIN M_HROrganization o ON c.OrgID = o.OrgID");
+        if (entity.getOrgName() != null && !entity.getOrgName().equals("")) {
+            sql.append(where(sql.toString()) + "o.OrgName like '" + entity.getOrgName() + "%'");
         }
-        return sb.toString();
+        if (entity.getRealName() != null && !entity.getRealName().equals("")) {
+            sql.append(where(sql.toString()) + "a.RealName like '" + entity.getRealName() + "%'");
+        }
+        if (entity.getHrCode() != null && !entity.getHrCode().equals("")) {
+            sql.append(where(sql.toString()) + "a.HRCode = " + entity.getHrCode() + "");
+        }
+        sql.append(" ORDER BY a.EmployeeID LIMIT " + pageable.getOffset() + "," + pageable.getPageSize() + "");
+        List<Object[]> list = entityManager.createNativeQuery(sql.toString()).getResultList();
+        //转换实体
+        List<EmployeeListEntity> listEntities = new ArrayList<>();
+        list.stream().forEach(o ->{
+            listEntities.add(new EmployeeListEntity(
+                    (String) o[0],
+                    (String) o[1],
+                    (String) o[2],
+                    (String) o[3],
+                    (String) o[4],
+                    (String) o[5],
+                    (String) o[6],
+                    (String) o[7],
+                    (Byte) o[8])
+            );
+        });
+        Page<EmployeeListEntity> pageList = new PageImpl<>(listEntities,pageable,total);
+        return pageList;
     }
 
-    /***
-     * 匹配
-     * <P>
-     * 根据字符和正则表达式进行匹配
-     *
-     * @param str 源字符串
-     * @param regex 正则表达式
-     *
-     * @return true：匹配成功  false：匹配失败
+    private static String where(String sql){
+        if(sql.indexOf("WHERE") != -1 || sql.indexOf("AND") != -1){
+            return " AND ";
+        }else {
+            return " WHERE ";
+        }
+    }
+
+    /**
+     * 职工转换查询
+     * @param orgId
+     * @return
      */
-    private static boolean match(String str,String regex){
-        Pattern pattern= Pattern.compile(regex);
-        Matcher matcher=pattern.matcher(str);
-        return matcher.find();
+    public List<EmployeeListEntity> findEmp(String orgId) {
+        List<Object[]> list = hrEmployeeRepository.findByOrgId(orgId);
+        List<EmployeeListEntity> listEntities = new ArrayList<>();
+        list.stream().forEach(o ->{
+            listEntities.add(new EmployeeListEntity(
+                    (String) o[0],
+                    (String) o[1],
+                    (String) o[2],
+                    (String) o[3],
+                    (String) o[4],
+                    (Byte) o[5]));
+        });
+        return listEntities;
     }
 
+    /**
+     * 人员转换
+     * @param empList
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED)
+    public String add(EmployeeListEntity entity) {
+        List<String> list = new ArrayList<>();
+        //查询选择的转换人员数据
+        List<MHrEmployeeEntity> listEmp = hrEmployeeRepository.findByEmployeeIdIn(entity.getEmpList());
+        listEmp.stream().forEach(emp -> {
+            try{
+                getMMemberEntity(emp, entity);
+            }catch (RuntimeException e){
+                list.add(emp.getEmployeeId());
+            }
+
+        });
+        if(list != null && list.size() > 0){
+            //返回流
+            return "转换职员错误：验证不通过"+JSONObject.toJSONString(list);
+        }
+        return "转换职员成功";
+    }
+
+    private void getMMemberEntity(MHrEmployeeEntity emp,EmployeeListEntity entity){
+        //验证一些数据CommonUtil.aesDecode(
+        String phoneRegex = "^((13[0-9])|(14[5,7,9])|(15([0-3]|[5-9]))|(166)|(17[0,1,3,5,6,7,8])|(18[0-9])|(19[8|9]))\\d{8}$";
+        boolean phone = Pattern.compile(phoneRegex).matcher(emp.getPhoneNum()).matches();
+        String idCadRegex = "[1-9]{2}[0-9]{4}(19|20)[0-9]{2}((0[1-9]{1})|(1[1-2]{1}))((0[1-9]{1})|([1-2]{1}[0-9]{1}|(3[0-1]{1})))[0-9]{3}[0-9Xx]{1}";
+        boolean idCad = Pattern.compile(idCadRegex).matcher(emp.getPaperNum()).matches();
+        String emailRegex = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+        boolean email = emp.getEmail() == null || emp.getEmail().equals("") ? true : Pattern.compile(emailRegex).matcher(emp.getEmail()).matches();
+        if(!phone || !idCad || !email){
+            throw new RuntimeException();
+        }
+
+        MMemberEntity m = new MMemberEntity();
+        m.setMemberType("2");
+        Map<String, String> map = CommonUtil.getBirAgeSex(emp.getPaperNum());
+        m.setBirthday(DateUtil.parse(map.get("birthday")));
+        m.setGender(Byte.valueOf(map.get("sexCode")));
+        m.setPersonnelType("1");
+        m.setMemberClass("1");
+        m.setCountry("CN");
+        m.setNation("");
+        m.setIsSecretary("0");
+        m.setTicketOfficeId(1);
+        m.setMemberFrom("10");
+        m.setIsEnable(true);
+
+        m.setCardNum(memberCardNumManager.findFirstCardNum().getCardNum());
+        m.setDepartmentId(hrEmployeeRepository.findByDeparmentId(emp.getEmployeeId()));
+        hrEmployeeRepository.findByTraveLevel(entity.getCompanyID(),emp.getTravelLevel());
+
+        m.setUpdateTime(new Timestamp(System.currentTimeMillis()));
+        m.setCompanyId(entity.getCompanyID());
+        m.setPassengerName(emp.getRealName());
+        m.setCellPhone(emp.getPhoneNum());
+        m.setRealName(emp.getRealName());
+        m.setPosition(emp.getPosition());
+        m.setJobTitle(emp.getJobTitle());
+        m.setAdministrativeLevel(emp.getAdministrativeLevel());
+        m.setPaperNum(emp.getPaperNum());
+        m.setEmail(emp.getEmail());
+
+        MemberAddRequestModel model = new MemberAddRequestModel();
+        model.setCardNum(m.getCardNum());
+        model.setRemark(entity.getRemark());
+        model.setCellPhone(m.getCellPhone());
+        //删除cardNum的数据
+        memberCardNumManager.deleteByCardNum(m.getCardNum());
+        //处理memberExtend表
+        memberExtendManager.parse(model);
+        //处理memberCall表
+        memberCallManager.parse(model);
+        System.err.println(JSONObject.toJSONString(m));
+        add(m);
+    }
+    private MMemberEntity add(MMemberEntity member){
+        return memberRepository.save(member);
+    }
 
 }

@@ -1,17 +1,22 @@
 package com.tianyalei.jipiao.core.controller;
 
 import com.tianyalei.jipiao.core.manager.HrTransformationManager;
+import com.tianyalei.jipiao.core.model.EmployeeListEntity;
+import com.tianyalei.jipiao.core.model.MHrEmployeeEntity;
 import com.tianyalei.jipiao.core.model.MHrOrganizationEntity;
 import com.tianyalei.jipiao.core.model.TFEntity;
+import com.tianyalei.jipiao.core.request.HrEmployeeRequest;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.bean.SimplePage;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * hr转换
@@ -42,7 +47,7 @@ public class HrTransformationController {
     }
 
     /**
-     * 树查询
+     * 树查询 TODO 未使用
      * @param orgId 等级树id
      * @return
      */
@@ -88,5 +93,39 @@ public class HrTransformationController {
         }catch (Exception e){
             return ResultGenerator.genFailResult("查询失败");
         }
+    }
+
+    /**
+     * 人员转换列表
+     * @return
+     */
+    @RequestMapping(value = "/findList",method = RequestMethod.GET)
+    public BaseData findList(EmployeeListEntity entity, Integer page, Integer size){
+        if (page == null)
+            page = 0;
+        if (size == null || size == 0)
+            size = 10;
+        Page<EmployeeListEntity> list = hrTransformationManager.findList(entity, page, size);
+        return ResultGenerator.genSuccessResult(list);
+    }
+
+    /**
+     * 职工转换查询
+     * @param orgId 单位id
+     * @return
+     */
+    @RequestMapping(value = "/findEmp",method = RequestMethod.GET)
+    public BaseData findEmp(String orgId){
+        return ResultGenerator.genSuccessResult(hrTransformationManager.findEmp(orgId));
+    }
+
+    /**
+     * 转换人员
+     * @param entity
+     * @return
+     */
+    @RequestMapping(value = "/tfEmpList",method = RequestMethod.POST)
+    public BaseData add(@RequestBody EmployeeListEntity entity){
+        return ResultGenerator.genSuccessResult(hrTransformationManager.add(entity));
     }
 }

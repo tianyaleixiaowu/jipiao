@@ -91,7 +91,19 @@ public class MCompanyEntity extends BaseIdEntity {
      * HR系统-组织结构ID
      */
     private String hrOrgId;
+    /**
+     * 共享中心-账套编号
+     */
+    private String accountBookCode;
+    @Basic
+    @Column(name = "AccountBookCode")
+    public String getAccountBookCode() {
+        return accountBookCode;
+    }
 
+    public void setAccountBookCode(String accountBookCode) {
+        this.accountBookCode = accountBookCode;
+    }
 
     @Basic
     @Column(name = "CompanyName")

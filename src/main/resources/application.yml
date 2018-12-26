@@ -26,3 +26,5 @@ logstash:
 #############################
 login:
   url: ${LOGIN_URL:http://10.1.7.212:96/api/User/UserLogin}
+
+SoltripKey: vX6LicvxUgZoVPUB

@@ -35,6 +35,7 @@ public class MHrEmployeeEntity extends BaseEntity {
     private String jobTitle;
     @ExcelColumn(value = "HR人员编号", col = 11)
     private String hrCode;
+    private String administrativeLevel;
 
     private boolean isEnable = true;
     private String impFlag = UUID.randomUUID().toString();
@@ -179,6 +180,16 @@ public class MHrEmployeeEntity extends BaseEntity {
 
     public void setTravelLevel(Byte travelLevel) {
         this.travelLevel = travelLevel;
+    }
+
+    @Basic
+    @Column(name = "AdministrativeLevel")
+    public String getAdministrativeLevel() {
+        return administrativeLevel;
+    }
+
+    public void setAdministrativeLevel(String administrativeLevel) {
+        this.administrativeLevel = administrativeLevel;
     }
 
     @Override
