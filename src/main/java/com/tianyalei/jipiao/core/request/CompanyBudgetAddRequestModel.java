@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  * @author wuweifeng wrote on 2018/11/7.
  */
 public class CompanyBudgetAddRequestModel {
-    private int id;
+    private Integer id;
     private Integer companyId;
     private String startDate;
     private String endDate;
@@ -34,11 +34,11 @@ public class CompanyBudgetAddRequestModel {
                 '}';
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

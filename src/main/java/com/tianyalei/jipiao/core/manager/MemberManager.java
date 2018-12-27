@@ -83,6 +83,7 @@ public class MemberManager {
         mMemberEntity.setCellPhone(CommonUtil.aesEncode(memberAddRequestModel.getCellPhone()));
         mMemberEntity.setBackupCellPhone(CommonUtil.aesEncode(memberAddRequestModel.getBackupCellPhone()));
         mMemberEntity.setPaperNum(CommonUtil.aesEncode(memberAddRequestModel.getPaperNum()));
+        mMemberEntity.setPhoneNum(CommonUtil.aesEncode(memberAddRequestModel.getPhoneNum()));
 
         Map<String, String> map = CommonUtil.getBirAgeSex(memberAddRequestModel.getPaperNum());
         mMemberEntity.setBirthday(DateUtil.parse(map.get("birthday")));

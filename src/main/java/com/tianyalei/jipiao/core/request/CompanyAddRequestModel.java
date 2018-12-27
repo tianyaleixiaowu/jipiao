@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * @author wuweifeng wrote on 2018/11/7.
  */
 public class CompanyAddRequestModel {
-    private int id;
+    private Integer id;
     private String companyName;
     /**
      * 上级单位ID

@@ -16,6 +16,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
@@ -73,9 +75,12 @@ public class CompanyManager {
             }
         }
 
-        Optional<MCompanyEntity> companyEntity = companyRepository.findById(model.getId());
         MCompanyEntity mCompanyEntity;
-        mCompanyEntity = companyEntity.orElseGet(MCompanyEntity::new);
+        if (model.getId() == null) {
+            mCompanyEntity = new MCompanyEntity();
+        } else {
+            mCompanyEntity = companyRepository.getOne(model.getId());
+        }
 
         BeanUtil.copyProperties(model, mCompanyEntity, BeanUtil.CopyOptions.create().setIgnoreNullValue(true));
         mCompanyEntity.setLevel(level(mCompanyEntity.getParentId()));
