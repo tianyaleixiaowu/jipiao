@@ -13,6 +13,7 @@ import com.tianyalei.jipiao.global.bean.SimplePage;
 import com.tianyalei.jipiao.global.cache.DictCache;
 import com.tianyalei.jipiao.global.specify.Criteria;
 import com.tianyalei.jipiao.global.specify.Restrictions;
+import com.tianyalei.jipiao.global.util.CheckIdCardUtils;
 import com.tianyalei.jipiao.global.util.CommonUtil;
 import com.xiaoleilu.hutool.crypto.symmetric.SymmetricAlgorithm;
 import com.xiaoleilu.hutool.crypto.symmetric.SymmetricCrypto;
@@ -29,6 +30,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -62,6 +65,10 @@ public class MemberManager {
 
 
     public BaseData addOrUpdate(MemberAddRequestModel memberAddRequestModel, boolean add) {
+        //身份证号验证,强验证
+        if(!CheckIdCardUtils.validateCard(memberAddRequestModel.getPaperNum())){
+            return ResultGenerator.genFailResult("请输入正确身份证");
+        }
         //添加时查重
         if (add ) {
             String newPhone = CommonUtil.aesEncode(memberAddRequestModel.getCellPhone());
@@ -77,6 +84,8 @@ public class MemberManager {
         MMemberEntity mMemberEntity = memberRepository.findByCardNum(memberAddRequestModel.getCardNum());
         if (mMemberEntity == null) {
             mMemberEntity = new MMemberEntity();
+        }else{
+            memberCallManager.parseUpdate(memberAddRequestModel);
         }
 
         BeanUtil.copyProperties(memberAddRequestModel, mMemberEntity);
@@ -86,14 +95,19 @@ public class MemberManager {
         mMemberEntity.setPhoneNum(CommonUtil.aesEncode(memberAddRequestModel.getPhoneNum()));
 
         Map<String, String> map = CommonUtil.getBirAgeSex(memberAddRequestModel.getPaperNum());
-        mMemberEntity.setBirthday(DateUtil.parse(map.get("birthday")));
+        //mMemberEntity.setBirthday(DateUtil.parse(map.get("birthday")));
+        try {
+            mMemberEntity.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(map.get("birthday")));
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
         mMemberEntity.setGender(Byte.valueOf(map.get("sexCode")));
         //mMemberEntity.setBirthday(DateUtil.parse(memberAddRequestModel.getBirthday()));
 
         //删除cardNum的数据
         memberCardNumManager.deleteByCardNum(memberAddRequestModel.getCardNum());
         //处理memberCall表
-        memberCallManager.parse(memberAddRequestModel);
+        //memberCallManager.parse(memberAddRequestModel);
         //处理memberExtend表
         memberExtendManager.parse(memberAddRequestModel);
 
@@ -102,6 +116,7 @@ public class MemberManager {
             memberBalanceCompanyManager.addOrUpdate(memberAddRequestModel);
         }
         if (add) {
+            memberCallManager.parse(memberAddRequestModel);
             mMemberEntity = memberSingleManager.add(mMemberEntity);
         } else {
             mMemberEntity = memberSingleManager.update(mMemberEntity);
@@ -153,6 +168,7 @@ public class MemberManager {
         singleResponseVO.setCellPhone(CommonUtil.aesDecode(entity.getCellPhone()));
         singleResponseVO.setBackupCellPhone(CommonUtil.aesDecode(entity.getBackupCellPhone()));
         singleResponseVO.setPaperNum(CommonUtil.aesDecode(entity.getPaperNum()));
+        singleResponseVO.setPhoneNum(CommonUtil.aesDecode(entity.getPhoneNum()));
         singleResponseVO.setBirthday(DateUtil.format(entity.getBirthday(), DatePattern.NORM_DATE_FORMAT));
         //remark
         singleResponseVO.setRemark(memberExtendManager.findRemarkByCardNum(cardNum));

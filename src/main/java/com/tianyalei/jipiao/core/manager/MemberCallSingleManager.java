@@ -15,4 +15,7 @@ public class MemberCallSingleManager {
         memberCallRepository.save(mMemberCallEntity);
     }
 
+    public void update(MMemberCallEntity mMemberCallEntity) {
+        memberCallRepository.save(mMemberCallEntity);
+    }
 }
