@@ -111,9 +111,15 @@ public class MemberManager {
         //处理memberExtend表
         memberExtendManager.parse(memberAddRequestModel);
 
-        //如果会员类型选择为企业会员, 也要把所选单位默认设置为会员的结算单位 M_MemberBalanceCompany
+        //个人用户禁用所有CardNum关联的M_MemberBalanceCompany
+        if ("1".equals(memberAddRequestModel.getMemberType())) {
+            memberBalanceCompanyManager.updateEnable(memberAddRequestModel.getCardNum(),new Byte("0"));
+        }
+        //企业用户启用所有的M_MemberBalanceCompany
         if ("2".equals(memberAddRequestModel.getMemberType())) {
+            //如果会员类型选择为企业会员, 也要把所选单位默认设置为会员的结算单位 M_MemberBalanceCompany
             memberBalanceCompanyManager.addOrUpdate(memberAddRequestModel);
+            memberBalanceCompanyManager.updateEnable(memberAddRequestModel.getCardNum(),new Byte("1"));
         }
         if (add) {
             memberCallManager.parse(memberAddRequestModel);

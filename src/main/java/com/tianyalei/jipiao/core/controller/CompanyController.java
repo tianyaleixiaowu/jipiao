@@ -6,6 +6,7 @@ import com.tianyalei.jipiao.core.request.CompanyAddRequestModel;
 import com.tianyalei.jipiao.core.request.CompanyQueryRequestModel;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,13 @@ public class CompanyController {
     public BaseData add(CompanyAddRequestModel requestModel) {
         if (requestModel.getServerCost().doubleValue() > 999) {
             return ResultGenerator.genFailResult("服务费值太大");
+        }
+        /*if(requestModel.getParentId() == null){
+            return ResultGenerator.genFailResult("请填写上级单位");
+        }*/
+        //null添加顶级
+        if(StringUtils.isEmpty(requestModel.getParentId())){
+            requestModel.setParentId("0");
         }
         MCompanyEntity entity = companyManager.addOrUpdate(requestModel, true);
         if (entity == null) {

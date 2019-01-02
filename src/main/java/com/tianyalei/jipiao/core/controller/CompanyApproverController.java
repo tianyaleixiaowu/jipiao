@@ -41,6 +41,8 @@ public class CompanyApproverController {
      */
     @RequestMapping("/add")
     public BaseData add(MCompanyApproverEntity entity) {
+        if(null == entity)
+            return ResultGenerator.genFailResult("请填写审批人信息");
         MCompanyApproverEntity entity1 = companyApproverManager.add(entity);
         if (entity1 == null) {
             return ResultGenerator.genFailResult("重复的审批人");

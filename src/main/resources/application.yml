@@ -25,6 +25,4 @@ logstash:
   ip: ${LOGSTASH_IP_PORT:127.0.0.1:4560}
 #############################
 login:
-  url: ${LOGIN_URL:http://10.1.7.212:96/api/User/UserLogin}
-
-SoltripKey: vX6LicvxUgZoVPUB
+  url: ${LOGIN_URL:http://10.1.7.212:40096/api/User/UserLogin}

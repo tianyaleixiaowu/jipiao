@@ -21,7 +21,7 @@ public class MCompanyDepartmentEntity extends BaseIdEntity {
      * groupId=61
      */
     private String approveType;
-    private String hrDeptId = "";
+    private String hrDeptId = " ";//防止数据库报null加空格,查询时''即可
     private boolean isEnable = true;
 
     @Override

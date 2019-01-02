@@ -83,4 +83,12 @@ public class CompanyDepartmentApproverManager {
         vo.setDeptName(companyDepartmentManager.findName(companyDepartmentApproverEntity.getDepartmentId()));
         return vo;
     }
+
+    public BaseData validate(MCompanyDepartmentApproverEntity m){
+        MCompanyDepartmentApproverEntity departmentIDAndCardNum = companyDepartmentApproverRepository.findByCompanyIdAndDepartmentIdAndCardNum(m.getCompanyId(),m.getDepartmentId(),m.getCardNum());
+        if(departmentIDAndCardNum != null){
+            return ResultGenerator.genFailResult("已存在审批人");
+        }
+        return null;
+    }
 }

@@ -1,5 +1,7 @@
 package com.tianyalei.jipiao.core.request;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,12 +9,15 @@ import java.util.List;
  * @author wuweifeng wrote on 2018/11/19.
  */
 public class CompanyTravelSettingRequestModel {
+    @NotNull
     private Integer travelLevelId;
 
     /**
      * 和plane和train是一对一的
      */
+    @NotBlank
     private String planeLevel;
+    @NotBlank
     private String trainLevel;
     /**
      * 和下面的一对多的

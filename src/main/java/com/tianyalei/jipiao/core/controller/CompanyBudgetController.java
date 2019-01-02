@@ -34,6 +34,9 @@ public class CompanyBudgetController {
      */
     @RequestMapping("/add")
     public BaseData add(CompanyBudgetAddRequestModel model) {
+        if(model.getTotalCost().compareTo(model.getSurplusCost()) == -1){
+            return ResultGenerator.genFailResult("剩余预算不能大于总预算");
+        }
         return ResultGenerator.genSuccessResult(companyBudgetManager.add(model.toEntity()));
     }
 

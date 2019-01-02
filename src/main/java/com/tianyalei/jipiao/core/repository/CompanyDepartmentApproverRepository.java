@@ -17,4 +17,5 @@ public interface CompanyDepartmentApproverRepository extends JpaRepository<MComp
 
       MCompanyDepartmentApproverEntity findFirstByDepartmentIdAndCardNum(Integer deptId, String cardNum);
 
+    MCompanyDepartmentApproverEntity findByCompanyIdAndDepartmentIdAndCardNum(Integer companyId, Integer departmentId, String cardNum);
 }

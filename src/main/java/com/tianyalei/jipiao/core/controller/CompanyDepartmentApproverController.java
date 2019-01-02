@@ -55,6 +55,9 @@ public class CompanyDepartmentApproverController {
      */
     @RequestMapping("/update")
     public BaseData update(MCompanyDepartmentApproverEntity entity) {
+        BaseData validate = companyDepartmentApproverManager.validate(entity);
+        if(validate != null)
+            return validate;
         return ResultGenerator.genSuccessResult(companyDepartmentApproverManager.update(entity));
     }
 

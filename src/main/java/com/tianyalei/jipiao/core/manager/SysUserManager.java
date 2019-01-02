@@ -7,6 +7,7 @@ import com.tianyalei.jipiao.core.bean.MenuData;
 import com.tianyalei.jipiao.core.model.SysUser;
 import com.tianyalei.jipiao.core.repository.SysUserRepository;
 import com.tianyalei.jipiao.global.bean.BaseData;
+import com.tianyalei.jipiao.global.bean.ResultCode;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.cache.UserCache;
 import com.tianyalei.jipiao.global.util.FastJsonUtils;
@@ -98,7 +99,8 @@ public class SysUserManager {
             loginUserBean.setReal_name_cn("鲍春智");
             userCache.saveUserId("761b5378-e843-4df3-a7aa-53965311814f", "鲍春智");
             //成功
-            return ResultGenerator.genSuccessResult(loginUserBean);
+            return ResultGenerator.genFailResult(ResultCode.LOGIN_FAIL_ERROR,"登录失败");
+            //return ResultGenerator.genSuccessResult(loginUserBean);
         }
 
     }

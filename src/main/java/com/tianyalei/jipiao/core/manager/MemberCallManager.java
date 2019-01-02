@@ -57,39 +57,39 @@ public class MemberCallManager {
         List<MMemberCallEntity> list = memberCallRepository.findByCardNum(mMemberEntity.getCardNum());
         //循环对比哪个需要更新或新增
         list.stream().forEach(m -> {
-            if(StringUtils.isEmpty(member.getCellPhone())){
+            if(StringUtils.isEmpty(member.getCellPhone()) && !StringUtils.isEmpty(mMemberEntity.getCellPhone())){
                 MMemberCallEntity entity = new MMemberCallEntity();
                 entity.setCardNum(mMemberEntity.getCardNum());
                 entity.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getCellPhone()));
                 memberCallSingleManager.add(entity);
             }else{
-                if(m.getCallPhone().equals(member.getCellPhone())){
+                if(m.getCallPhone().equals(member.getCellPhone()) && !m.getCallPhone().equals(CommonUtil.aesEncode(mMemberEntity.getCellPhone()))){
                     if(!StringUtils.isEmpty(mMemberEntity.getCellPhone())){
                         m.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getCellPhone()));
                         memberCallSingleManager.update(m);
                     }
                 }
             }
-            if(StringUtils.isEmpty(member.getBackupCellPhone())){
+            if(StringUtils.isEmpty(member.getBackupCellPhone()) && !StringUtils.isEmpty(mMemberEntity.getBackupCellPhone())){
                 MMemberCallEntity entity = new MMemberCallEntity();
                 entity.setCardNum(mMemberEntity.getCardNum());
                 entity.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getBackupCellPhone()));
                 memberCallSingleManager.add(entity);
             }else{
-                if(m.getCallPhone().equals(member.getBackupCellPhone())){
+                if(m.getCallPhone().equals(member.getBackupCellPhone()) && !m.getCallPhone().equals(CommonUtil.aesEncode(mMemberEntity.getBackupCellPhone()))){
                     if(!StringUtils.isEmpty(mMemberEntity.getBackupCellPhone())){
                         m.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getBackupCellPhone()));
                         memberCallSingleManager.update(m);
                     }
                 }
             }
-            if(StringUtils.isEmpty(member.getPhoneNum())){
+            if(StringUtils.isEmpty(member.getPhoneNum()) && !StringUtils.isEmpty(mMemberEntity.getPhoneNum())){
                 MMemberCallEntity entity = new MMemberCallEntity();
                 entity.setCardNum(mMemberEntity.getCardNum());
                 entity.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getPhoneNum()));
                 memberCallSingleManager.add(entity);
             }else{
-                if(m.getCallPhone().equals(member.getPhoneNum())){
+                if(m.getCallPhone().equals(member.getPhoneNum()) && !m.getCallPhone().equals(CommonUtil.aesEncode(mMemberEntity.getPhoneNum()))){
                     if(!StringUtils.isEmpty(mMemberEntity.getPhoneNum())){
                         m.setCallPhone(CommonUtil.aesEncode(mMemberEntity.getPhoneNum()));
                         memberCallSingleManager.update(m);

@@ -89,12 +89,15 @@ public class CompanyManager {
         if (add) {
             companySingleManager.add(mCompanyEntity);
         } else {
-            companySingleManager.update(mCompanyEntity);
+            //companySingleManager.update(mCompanyEntity);
+            update(mCompanyEntity);
         }
 
         return mCompanyEntity;
     }
-
+    private MCompanyEntity update(MCompanyEntity mCompanyEntity){
+        return companyRepository.save(mCompanyEntity);
+    }
     private byte level(String parentId) {
         Integer tempParentId = Integer.valueOf(parentId);
         if (tempParentId == 0) {

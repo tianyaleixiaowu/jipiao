@@ -25,6 +25,9 @@ public class CompanyTravelSettingController {
 
     @RequestMapping("/add")
     public BaseData add(@RequestBody @Valid CompanyTravelSettingRequestModel model, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return ResultGenerator.genFailResult("请正确填写参数");
+        }
         return companyTravelSettingManager.addOrUpdate(model, true);
     }
 

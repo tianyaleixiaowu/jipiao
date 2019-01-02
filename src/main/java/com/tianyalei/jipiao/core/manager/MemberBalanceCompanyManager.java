@@ -88,4 +88,12 @@ public class MemberBalanceCompanyManager {
         vo.setTravelLevelName(companyTravelLevelManager.find(entity.getTravelLevelId()).getLevelName());
         return vo;
     }
+
+    public void updateEnable(String cardNum,Byte is){
+        List<MMemberBalanceCompanyEntity> list = findByCardNum(cardNum);
+        if(list == null || list.size() == 0){
+            return;
+        }
+        memberBalanceCompanyRepository.updateIsEnable(cardNum,is);
+    }
 }
