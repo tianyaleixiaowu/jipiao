@@ -1,104 +1,160 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 
 /**
- * @author wuweifeng wrote on 2018/11/1.
- */
-//@Entity
-//@Table(name = "M_TicketOfficeUser", catalog = "")
-public class MTicketOfficeUserEntity extends BaseIdEntity {
-    private String userId;
-    private int ticketOfficeId;
-    private String realName;
-    private String linkPhone;
-    private String workNum;
-    private byte isOperator;
-    private boolean isEnable;
-    private String relationTicketOffice;
+* 票台用户表
+* @author Bai
+* @date 2019/01/08 11:55
+*/
+@Entity
+@Table(name = "M_TicketOfficeUser", catalog = "")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
+public class MTicketOfficeUserEntity extends BaseIdEntity{
+
+        /**
+        *用户名
+        */
+        @Basic
+        @Column(name = "UserID")
+        private String userID;
+        /**
+        *所属票台
+        */
+        @Basic
+        @Column(name = "TicketOfficeID")
+        private Integer ticketOfficeID;
+        /**
+        *真实姓名
+        */
+        @Basic
+        @Column(name = "RealName")
+        private String realName;
+        /**
+        *手机号码
+        */
+        @Basic
+        @Column(name = "LinkPhone")
+        private String linkPhone;
+        /**
+        *工号
+        */
+        @Basic
+        @Column(name = "WorkNum")
+        private String workNum;
+        /**
+        *是否坐席
+        */
+        @Basic
+        @Column(name = "IsOperator")
+        private Byte isOperator;
+        /**
+        *是否可用
+        */
+        @Basic
+        @Column(name = "IsEnable")
+        private Boolean isEnable;
+        /**
+        *关联票台
+        */
+        @Basic
+        @Column(name = "RelationTicketOffice")
+        private String relationTicketOffice;
+
+        public String getUserID() {
+        return this.userID;
+        }
+        public void setUserID(String userID) {
+        this.userID = userID;
+        }
 
 
-    @Basic
-    @Column(name = "UserID")
-    public String getUserId() {
-        return userId;
-    }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
-    @Basic
-    @Column(name = "TicketOfficeID")
-    public int getTicketOfficeId() {
-        return ticketOfficeId;
-    }
 
-    public void setTicketOfficeId(int ticketOfficeId) {
-        this.ticketOfficeId = ticketOfficeId;
-    }
 
-    @Basic
-    @Column(name = "RealName")
-    public String getRealName() {
-        return realName;
-    }
 
-    public void setRealName(String realName) {
+
+        public Integer getTicketOfficeID() {
+        return this.ticketOfficeID;
+        }
+        public void setTicketOfficeID(Integer ticketOfficeID) {
+        this.ticketOfficeID = ticketOfficeID;
+        }
+
+
+        public String getRealName() {
+        return this.realName;
+        }
+        public void setRealName(String realName) {
         this.realName = realName;
-    }
+        }
 
-    @Basic
-    @Column(name = "LinkPhone")
-    public String getLinkPhone() {
-        return linkPhone;
-    }
 
-    public void setLinkPhone(String linkPhone) {
+
+
+
+        public String getLinkPhone() {
+        return this.linkPhone;
+        }
+        public void setLinkPhone(String linkPhone) {
         this.linkPhone = linkPhone;
-    }
+        }
 
-    @Basic
-    @Column(name = "WorkNum")
-    public String getWorkNum() {
-        return workNum;
-    }
 
-    public void setWorkNum(String workNum) {
+
+
+
+        public String getWorkNum() {
+        return this.workNum;
+        }
+        public void setWorkNum(String workNum) {
         this.workNum = workNum;
-    }
+        }
 
-    @Basic
-    @Column(name = "IsOperator")
-    public byte getIsOperator() {
-        return isOperator;
-    }
 
-    public void setIsOperator(byte isOperator) {
+
+
+
+
+
+
+
+
+        public Byte getIsOperator() {
+        return this.isOperator;
+        }
+        public void setIsOperator(Byte isOperator) {
         this.isOperator = isOperator;
-    }
+        }
 
-    @Basic
-    @Column(name = "IsEnable")
-    public boolean getIsEnable() {
-        return isEnable;
-    }
 
-    public void setIsEnable(boolean enable) {
-        isEnable = enable;
-    }
 
-    @Basic
-    @Column(name = "RelationTicketOffice")
-    public String getRelationTicketOffice() {
-        return relationTicketOffice;
-    }
 
-    public void setRelationTicketOffice(String relationTicketOffice) {
+        public Boolean getIsEnable() {
+        return this.isEnable;
+        }
+        public void setIsEnable(Boolean isEnable) {
+        this.isEnable = isEnable;
+        }
+
+        public String getRelationTicketOffice() {
+        return this.relationTicketOffice;
+        }
+        public void setRelationTicketOffice(String relationTicketOffice) {
         this.relationTicketOffice = relationTicketOffice;
-    }
+        }
+
+
+
+
+
 
 }

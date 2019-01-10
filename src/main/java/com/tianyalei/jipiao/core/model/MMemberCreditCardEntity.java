@@ -1,135 +1,161 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.Date;
+
 
 /**
- * 会员信用卡表
- * @author wuweifeng wrote on 2018/11/1.
- */
-//@Entity
-//@Table(name = "M_MemberCreditCard", catalog = "")
-public class MMemberCreditCardEntity extends BaseIdEntity {
-    /**
-     * 会员卡号
-     */
-    private String cardNum;
-    /**
-     * 信用卡号
-     */
-    private String creditCardNo;
-    /**
-     * 开户银行
-     */
-    private byte bank;
-    /**
-     * 有效期
-     */
-    private String valid;
-    /**
-     * 验证码，CVV码
-     */
-    private String verification;
-    /**
-     * 持卡人姓名
-     */
-    private String personName;
-    /**
-     * 持卡人证件号码
-     */
-    private String paperCode;
+* 会员信用卡表
+* @author Bai
+* @date 2019/01/07 11:08
+*/
+@Entity
+@Table(name = "M_MemberCreditCard", catalog = "")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
+public class MMemberCreditCardEntity extends BaseIdEntity{
 
-    @Basic
-    @Column(name = "CardNum")
-    public String getCardNum() {
-        return cardNum;
-    }
+        /**
+        *会员卡号
+        */
+        @Basic
+        @Column(name = "CardNum")
+        private String cardNum;
+        /**
+        *信用卡号
+        */
+        @Basic
+        @Column(name = "CreditCardNo")
+        private String creditCardNo;
+        /**
+        *银行(groupid=19)
+        */
+        @Basic
+        @Column(name = "Bank")
+        private Byte bank;
+        /**
+        *有效期
+        */
+        @Basic
+        @Column(name = "Valid")
+        private Date valid;
+        /**
+        *验证码
+        */
+        @Basic
+        @Column(name = "Verification")
+        private String verification;
+        /**
+        *持卡人姓名
+        */
+        @Basic
+        @Column(name = "PersonName")
+        private String personName;
+        /**
+        *持卡人证件号码
+        */
+        @Basic
+        @Column(name = "PaperCode")
+        private String paperCode;
+        /**
+        *是否可用
+        */
+        @Basic
+        @Column(name = "IsEnable")
+        private Boolean isEnable;
 
-    public void setCardNum(String cardNum) {
+        public String getCardNum() {
+        return this.cardNum;
+        }
+        public void setCardNum(String cardNum) {
         this.cardNum = cardNum;
-    }
+        }
 
-    @Basic
-    @Column(name = "CreditCardNo")
-    public String getCreditCardNo() {
-        return creditCardNo;
-    }
 
-    public void setCreditCardNo(String creditCardNo) {
+
+
+
+        public String getCreditCardNo() {
+        return this.creditCardNo;
+        }
+        public void setCreditCardNo(String creditCardNo) {
         this.creditCardNo = creditCardNo;
-    }
+        }
 
-    @Basic
-    @Column(name = "Bank")
-    public byte getBank() {
-        return bank;
-    }
 
-    public void setBank(byte bank) {
+
+
+
+
+
+
+
+
+        public Byte getBank() {
+        return this.bank;
+        }
+        public void setBank(Byte bank) {
         this.bank = bank;
-    }
+        }
 
-    @Basic
-    @Column(name = "Valid")
-    public String getValid() {
-        return valid;
-    }
-
-    public void setValid(String valid) {
+        public Date getValid() {
+        return this.valid;
+        }
+        public void setValid(Date valid) {
         this.valid = valid;
-    }
+        }
 
-    @Basic
-    @Column(name = "Verification")
-    public String getVerification() {
-        return verification;
-    }
 
-    public void setVerification(String verification) {
+
+
+        public String getVerification() {
+        return this.verification;
+        }
+        public void setVerification(String verification) {
         this.verification = verification;
-    }
+        }
 
-    @Basic
-    @Column(name = "PersonName")
-    public String getPersonName() {
-        return personName;
-    }
 
-    public void setPersonName(String personName) {
+
+
+
+        public String getPersonName() {
+        return this.personName;
+        }
+        public void setPersonName(String personName) {
         this.personName = personName;
-    }
+        }
 
-    @Basic
-    @Column(name = "PaperCode")
-    public String getPaperCode() {
-        return paperCode;
-    }
 
-    public void setPaperCode(String paperCode) {
+
+
+
+        public String getPaperCode() {
+        return this.paperCode;
+        }
+        public void setPaperCode(String paperCode) {
         this.paperCode = paperCode;
-    }
+        }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MMemberCreditCardEntity that = (MMemberCreditCardEntity) o;
-        return
-                bank == that.bank &&
-                Objects.equals(cardNum, that.cardNum) &&
-                Objects.equals(creditCardNo, that.creditCardNo) &&
-                Objects.equals(valid, that.valid) &&
-                Objects.equals(verification, that.verification) &&
-                Objects.equals(personName, that.personName) &&
-                Objects.equals(paperCode, that.paperCode) ;
-    }
 
-    @Override
-    public int hashCode() {
 
-        return Objects.hash( cardNum, creditCardNo, bank, valid, verification, personName, paperCode);
-    }
+
+
+
+
+
+
+        public Boolean getIsEnable() {
+        return this.isEnable;
+        }
+        public void setIsEnable(Boolean isEnable) {
+        this.isEnable = isEnable;
+        }
+
+
 }

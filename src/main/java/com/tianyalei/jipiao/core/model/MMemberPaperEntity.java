@@ -7,18 +7,18 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 
 /**
-* 会员（因私出行）常用乘机人表
+* 会员证件表
 * @author Bai
-* @date 2019/01/07 11:38
+* @date 2019/01/04 11:40
 */
 @Entity
-@Table(name = "M_MemberPrivatePassenger", catalog = "")
+@Table(name = "M_MemberPaper", catalog = "")
 @JsonIgnoreProperties(value={"hibernateLazyInitializer"})
-public class MMemberPrivatePassengerEntity extends BaseIdEntity{
-
+public class MMemberPaperEntity extends BaseIdEntity {
         /**
         *会员卡号
         */
@@ -26,41 +26,35 @@ public class MMemberPrivatePassengerEntity extends BaseIdEntity{
         @Column(name = "CardNum")
         private String cardNum;
         /**
-        *姓名
+        *证件类型
         */
         @Basic
-        @Column(name = "PassengerName")
-        private String passengerName;
+        @Column(name = "PaperType")
+        private String paperType;
         /**
-        *性别 1男 0 女
-        */
-        @Basic
-        @Column(name = "Gender")
-        private Byte gender;
-        /**
-        *身份证号
+        *证件号码
         */
         @Basic
         @Column(name = "PaperNum")
         private String paperNum;
         /**
-        *护照号码
+        *有效期
         */
         @Basic
-        @Column(name = "PassportNo")
-        private String passportNo;
+        @Column(name = "ValidityDate")
+        private Date validityDate;
         /**
-        *是否有效
+        *是否可用
         */
         @Basic
         @Column(name = "IsEnable")
         private Boolean isEnable;
         /**
-        *手机号码
+        *是否删除
         */
         @Basic
-        @Column(name = "CellPhone")
-        private String cellPhone;
+        @Column(name = "IsDelete")
+        private Boolean isDelete;
 
         public String getCardNum() {
         return this.cardNum;
@@ -73,28 +67,17 @@ public class MMemberPrivatePassengerEntity extends BaseIdEntity{
 
 
 
-        public String getPassengerName() {
-        return this.passengerName;
+        public String getPaperType() {
+        return this.paperType;
         }
-        public void setPassengerName(String passengerName) {
-        this.passengerName = passengerName;
+        public void setPaperType(String paperType) {
+        this.paperType = paperType;
         }
 
 
 
 
 
-
-
-
-
-
-        public Byte getGender() {
-        return this.gender;
-        }
-        public void setGender(Byte gender) {
-        this.gender = gender;
-        }
         public String getPaperNum() {
         return this.paperNum;
         }
@@ -106,14 +89,13 @@ public class MMemberPrivatePassengerEntity extends BaseIdEntity{
 
 
 
-        public String getPassportNo() {
-        return this.passportNo;
-        }
-        public void setPassportNo(String passportNo) {
-        this.passportNo = passportNo;
-        }
 
-
+        public Date getValidityDate() {
+        return this.validityDate;
+        }
+        public void setValidityDate(Date validityDate) {
+        this.validityDate = validityDate;
+        }
 
 
 
@@ -128,20 +110,17 @@ public class MMemberPrivatePassengerEntity extends BaseIdEntity{
         public void setIsEnable(Boolean isEnable) {
         this.isEnable = isEnable;
         }
-        public String getCellPhone() {
-        return this.cellPhone;
+
+
+
+
+
+        public Boolean getIsDelete() {
+        return this.isDelete;
         }
-        public void setCellPhone(String cellPhone) {
-        this.cellPhone = cellPhone;
+        public void setIsDelete(Boolean isDelete) {
+        this.isDelete = isDelete;
         }
-
-
-
-
-
-
-
-
 
 
 }

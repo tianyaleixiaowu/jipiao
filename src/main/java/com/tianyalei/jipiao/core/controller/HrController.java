@@ -12,10 +12,8 @@ import com.tianyalei.jipiao.core.request.HrRelationRequest;
 import com.tianyalei.jipiao.global.bean.BaseData;
 import com.tianyalei.jipiao.global.bean.ResultGenerator;
 import com.tianyalei.jipiao.global.excel.ExcelUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -27,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("hr")
+@CrossOrigin
 public class HrController {
     @Resource
     private HrManager hrManager;
@@ -48,8 +47,11 @@ public class HrController {
     public BaseData hrDepartmentBatch(@RequestBody HrDepartmentRequest hrDepartment, HttpServletResponse response)
             throws Exception {
         List<MHrDepartmentEntity> list = hrManager.saveAndReturnFailure(hrDepartment.getList());
-        ExcelUtils.writeExcel(response, list, MHrDepartmentEntity.class);
-        return ResultGenerator.genSuccessResult(list);
+        if(!CollectionUtils.isEmpty(list)){
+            ExcelUtils.writeExcel(response, list, MHrDepartmentEntity.class);
+            return null;
+        }
+        return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/employee")
@@ -67,8 +69,11 @@ public class HrController {
     @RequestMapping("/employee/batch")
     public BaseData hremployeeBatch(@RequestBody HrEmployeeRequest hrEmployeeRequest, HttpServletResponse response) {
         List<MHrEmployeeEntity> list = hrManager.saveAndReturnFailure(hrEmployeeRequest.getList());
-        ExcelUtils.writeExcel(response, list, MHrEmployeeEntity.class);
-        return ResultGenerator.genSuccessResult(list);
+        if(!CollectionUtils.isEmpty(list)){
+            ExcelUtils.writeExcel(response, list, MHrEmployeeEntity.class);
+            return null;
+        }
+        return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/organization")
@@ -86,8 +91,11 @@ public class HrController {
     @RequestMapping("/organization/batch")
     public BaseData hrorganizationBatch(@RequestBody HrOrganizationRequest hrOrganizationRequest, HttpServletResponse response) {
         List<MHrOrganizationEntity> list = hrManager.saveAndReturnFailure(hrOrganizationRequest.getList());
-        ExcelUtils.writeExcel(response, list, MHrOrganizationEntity.class);
-        return ResultGenerator.genSuccessResult(list);
+        if(!CollectionUtils.isEmpty(list)){
+            ExcelUtils.writeExcel(response, list, MHrOrganizationEntity.class);
+            return null;
+        }
+        return ResultGenerator.genSuccessResult();
     }
 
     @RequestMapping("/relational")
@@ -106,7 +114,10 @@ public class HrController {
     public BaseData hroionBatch(@RequestBody HrRelationRequest hrRelationRequest, HttpServletResponse
             response) {
         List<MHrRelationalEntity> list = hrManager.saveAndReturnFailure(hrRelationRequest.getList());
-        ExcelUtils.writeExcel(response, list, MHrRelationalEntity.class);
-        return ResultGenerator.genSuccessResult(list);
+        if(!CollectionUtils.isEmpty(list)){
+            ExcelUtils.writeExcel(response, list, MHrRelationalEntity.class);
+            return null;
+        }
+        return ResultGenerator.genSuccessResult();
     }
 }

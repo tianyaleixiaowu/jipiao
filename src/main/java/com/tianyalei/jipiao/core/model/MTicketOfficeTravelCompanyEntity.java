@@ -1,149 +1,229 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import java.sql.Timestamp;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.Date;
+
 
 /**
- * @author wuweifeng wrote on 2018/11/1.
- */
-//@Entity
-//@Table(name = "M_TicketOfficeTravelCompany", catalog = "")
-public class MTicketOfficeTravelCompanyEntity extends BaseIdEntity {
-    private int ticketOfficeId;
-    private String companyId;
-    private String companyName;
-    private Timestamp resValidSTime;
-    private Timestamp resValidETime;
-    private String checkType;
-    private String paymentType;
-    private Byte isUploadNet;
-    private String companyAddress;
-    private String linkman;
-    private String linkPhone;
-    private Byte isFreeReturnCost;
+* 差旅单位表
+* @author Bai
+* @date 2019/01/08 11:55
+*/
+@Entity
+@Table(name = "M_TicketOfficeTravelCompany", catalog = "")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
+public class MTicketOfficeTravelCompanyEntity extends BaseIdEntity{
+
+        /**
+        *票台ID
+        */
+        @Basic
+        @Column(name = "TicketOfficeID")
+        private Integer ticketOfficeID;
+        /**
+        *单位代码
+        */
+        @Basic
+        @Column(name = "CompanyID")
+        private String companyID;
+        /**
+        *单位名称
+        */
+        @Basic
+        @Column(name = "CompanyName")
+        private String companyName;
+        /**
+        *预订有效开始时间
+        */
+        @Basic
+        @Column(name = "ResValidSTime")
+        private Date resValidSTime;
+        /**
+        *预订有效结束时间
+        */
+        @Basic
+        @Column(name = "ResValidETime")
+        private Date resValidETime;
+        /**
+        *审核方式
+        */
+        @Basic
+        @Column(name = "CheckType")
+        private String checkType;
+        /**
+        *支付方式
+        */
+        @Basic
+        @Column(name = "PaymentType")
+        private String paymentType;
+        /**
+        *是否上传网报
+        */
+        @Basic
+        @Column(name = "IsUploadNet")
+        private Byte isUploadNet;
+        /**
+        *地址
+        */
+        @Basic
+        @Column(name = "CompanyAddress")
+        private String companyAddress;
+        /**
+        *联系人
+        */
+        @Basic
+        @Column(name = "Linkman")
+        private String linkman;
+        /**
+        *联系电话
+        */
+        @Basic
+        @Column(name = "LinkPhone")
+        private String linkPhone;
+        /**
+        *
+        */
+        @Basic
+        @Column(name = "IsFreeReturnCost")
+        private Byte isFreeReturnCost;
 
 
-    @Basic
-    @Column(name = "TicketOfficeID")
-    public int getTicketOfficeId() {
-        return ticketOfficeId;
-    }
 
-    public void setTicketOfficeId(int ticketOfficeId) {
-        this.ticketOfficeId = ticketOfficeId;
-    }
 
-    @Basic
-    @Column(name = "CompanyID")
-    public String getCompanyId() {
-        return companyId;
-    }
+        public Integer getTicketOfficeID() {
+        return this.ticketOfficeID;
+        }
+        public void setTicketOfficeID(Integer ticketOfficeID) {
+        this.ticketOfficeID = ticketOfficeID;
+        }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
 
-    @Basic
-    @Column(name = "CompanyName")
-    public String getCompanyName() {
-        return companyName;
-    }
+        public String getCompanyID() {
+        return this.companyID;
+        }
+        public void setCompanyID(String companyID) {
+        this.companyID = companyID;
+        }
 
-    public void setCompanyName(String companyName) {
+
+
+
+
+        public String getCompanyName() {
+        return this.companyName;
+        }
+        public void setCompanyName(String companyName) {
         this.companyName = companyName;
-    }
+        }
 
-    @Basic
-    @Column(name = "ResValidSTime")
-    public Timestamp getResValidSTime() {
-        return resValidSTime;
-    }
 
-    public void setResValidSTime(Timestamp resValidSTime) {
+
+
+
+
+        public Date getResValidSTime() {
+        return this.resValidSTime;
+        }
+        public void setResValidSTime(Date resValidSTime) {
         this.resValidSTime = resValidSTime;
-    }
+        }
 
-    @Basic
-    @Column(name = "ResValidETime")
-    public Timestamp getResValidETime() {
-        return resValidETime;
-    }
 
-    public void setResValidETime(Timestamp resValidETime) {
+
+
+
+        public Date getResValidETime() {
+        return this.resValidETime;
+        }
+        public void setResValidETime(Date resValidETime) {
         this.resValidETime = resValidETime;
-    }
+        }
 
-    @Basic
-    @Column(name = "CheckType")
-    public String getCheckType() {
-        return checkType;
-    }
 
-    public void setCheckType(String checkType) {
+
+
+        public String getCheckType() {
+        return this.checkType;
+        }
+        public void setCheckType(String checkType) {
         this.checkType = checkType;
-    }
+        }
 
-    @Basic
-    @Column(name = "PaymentType")
-    public String getPaymentType() {
-        return paymentType;
-    }
 
-    public void setPaymentType(String paymentType) {
+
+
+
+        public String getPaymentType() {
+        return this.paymentType;
+        }
+        public void setPaymentType(String paymentType) {
         this.paymentType = paymentType;
-    }
+        }
 
-    @Basic
-    @Column(name = "IsUploadNet")
-    public Byte getIsUploadNet() {
-        return isUploadNet;
-    }
 
-    public void setIsUploadNet(Byte isUploadNet) {
+
+
+
+
+
+
+
+
+        public Byte getIsUploadNet() {
+        return this.isUploadNet;
+        }
+        public void setIsUploadNet(Byte isUploadNet) {
         this.isUploadNet = isUploadNet;
-    }
-
-    @Basic
-    @Column(name = "CompanyAddress")
-    public String getCompanyAddress() {
-        return companyAddress;
-    }
-
-    public void setCompanyAddress(String companyAddress) {
+        }
+        public String getCompanyAddress() {
+        return this.companyAddress;
+        }
+        public void setCompanyAddress(String companyAddress) {
         this.companyAddress = companyAddress;
-    }
+        }
 
-    @Basic
-    @Column(name = "Linkman")
-    public String getLinkman() {
-        return linkman;
-    }
 
-    public void setLinkman(String linkman) {
+
+
+
+        public String getLinkman() {
+        return this.linkman;
+        }
+        public void setLinkman(String linkman) {
         this.linkman = linkman;
-    }
+        }
 
-    @Basic
-    @Column(name = "LinkPhone")
-    public String getLinkPhone() {
-        return linkPhone;
-    }
 
-    public void setLinkPhone(String linkPhone) {
+
+
+
+        public String getLinkPhone() {
+        return this.linkPhone;
+        }
+        public void setLinkPhone(String linkPhone) {
         this.linkPhone = linkPhone;
-    }
+        }
 
-    @Basic
-    @Column(name = "IsFreeReturnCost")
-    public Byte getIsFreeReturnCost() {
-        return isFreeReturnCost;
-    }
 
-    public void setIsFreeReturnCost(Byte isFreeReturnCost) {
+
+
+
+
+
+
+
+
+        public Byte getIsFreeReturnCost() {
+        return this.isFreeReturnCost;
+        }
+        public void setIsFreeReturnCost(Byte isFreeReturnCost) {
         this.isFreeReturnCost = isFreeReturnCost;
-    }
+        }
 
 }

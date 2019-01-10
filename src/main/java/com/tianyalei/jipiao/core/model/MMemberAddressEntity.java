@@ -1,127 +1,176 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 
 /**
- * @author wuweifeng wrote on 2018/11/1.
- */
-//@Entity
-//@Table(name = "M_MemberAddress", catalog = "")
-public class MMemberAddressEntity extends BaseIdEntity {
-    private String cardNum;
-    private String linkman;
-    private String province;
-    private String city;
-    private String area;
-    private String postCode;
-    private String detailsAddress;
-    private String cellPhone;
-    private String telePhone;
-    private Byte isDefault;
+* 会员地址表
+* @author Bai
+* @date 2019/01/07 10:44
+*/
+@Entity
+@Table(name = "M_MemberAddress", catalog = "")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
+public class MMemberAddressEntity extends BaseIdEntity{
 
+        /**
+        *
+        */
+        @Basic
+        @Column(name = "CardNum")
+        private String cardNum;
+        /**
+        *联系人
+        */
+        @Basic
+        @Column(name = "Linkman")
+        private String linkman;
+        /**
+        *省
+        */
+        @Basic
+        @Column(name = "Province")
+        private String province;
+        /**
+        *市
+        */
+        @Basic
+        @Column(name = "City")
+        private String city;
+        /**
+        *
+        */
+        @Basic
+        @Column(name = "Area")
+        private String area;
+        /**
+        *邮编
+        */
+        @Basic
+        @Column(name = "PostCode")
+        private String postCode;
+        /**
+        *详细地址
+        */
+        @Basic
+        @Column(name = "DetailsAddress")
+        private String detailsAddress;
+        /**
+        *联系手机号
+        */
+        @Basic
+        @Column(name = "CellPhone")
+        private String cellPhone;
+        /**
+        *座机号码
+        */
+        @Basic
+        @Column(name = "TelePhone")
+        private String telePhone;
+        /**
+        *是否为默认地址
+        */
+        @Basic
+        @Column(name = "IsDefault")
+        private Byte isDefault;
+        /**
+         *是否可用
+         */
+        @Basic
+        @Column(name = "IsEnable")
+        private Boolean isEnable;
 
-    @Basic
-    @Column(name = "CardNum")
-    public String getCardNum() {
-        return cardNum;
-    }
+        public Boolean getIsEnable() {
+                return this.isEnable;
+        }
+        public void setIsEnable(Boolean isEnable) {
+                this.isEnable = isEnable;
+        }
 
-    public void setCardNum(String cardNum) {
+        public String getCardNum() {
+        return this.cardNum;
+        }
+        public void setCardNum(String cardNum) {
         this.cardNum = cardNum;
-    }
+        }
 
-    @Basic
-    @Column(name = "Linkman")
-    public String getLinkman() {
-        return linkman;
-    }
 
-    public void setLinkman(String linkman) {
+        public String getLinkman() {
+        return this.linkman;
+        }
+        public void setLinkman(String linkman) {
         this.linkman = linkman;
-    }
+        }
 
-    @Basic
-    @Column(name = "Province")
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
+        public String getProvince() {
+        return this.province;
+        }
+        public void setProvince(String province) {
         this.province = province;
-    }
+        }
 
-    @Basic
-    @Column(name = "City")
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
+        public String getCity() {
+        return this.city;
+        }
+        public void setCity(String city) {
         this.city = city;
-    }
+        }
 
-    @Basic
-    @Column(name = "Area")
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
+        public String getArea() {
+        return this.area;
+        }
+        public void setArea(String area) {
         this.area = area;
-    }
+        }
 
-    @Basic
-    @Column(name = "PostCode")
-    public String getPostCode() {
-        return postCode;
-    }
 
-    public void setPostCode(String postCode) {
+
+        public String getPostCode() {
+        return this.postCode;
+        }
+        public void setPostCode(String postCode) {
         this.postCode = postCode;
-    }
+        }
 
-    @Basic
-    @Column(name = "DetailsAddress")
-    public String getDetailsAddress() {
-        return detailsAddress;
-    }
 
-    public void setDetailsAddress(String detailsAddress) {
+        public String getDetailsAddress() {
+        return this.detailsAddress;
+        }
+        public void setDetailsAddress(String detailsAddress) {
         this.detailsAddress = detailsAddress;
-    }
+        }
 
-    @Basic
-    @Column(name = "CellPhone")
-    public String getCellPhone() {
-        return cellPhone;
-    }
 
-    public void setCellPhone(String cellPhone) {
+
+        public String getCellPhone() {
+        return this.cellPhone;
+        }
+        public void setCellPhone(String cellPhone) {
         this.cellPhone = cellPhone;
-    }
+        }
 
-    @Basic
-    @Column(name = "TelePhone")
-    public String getTelePhone() {
-        return telePhone;
-    }
 
-    public void setTelePhone(String telePhone) {
+        public String getTelePhone() {
+        return this.telePhone;
+        }
+        public void setTelePhone(String telePhone) {
         this.telePhone = telePhone;
-    }
+        }
 
-    @Basic
-    @Column(name = "IsDefault")
-    public Byte getIsDefault() {
-        return isDefault;
-    }
 
-    public void setIsDefault(Byte isDefault) {
+
+
+        public Byte getIsDefault() {
+        return this.isDefault;
+        }
+        public void setIsDefault(Byte isDefault) {
         this.isDefault = isDefault;
-    }
-
+        }
 
 }

@@ -1,5 +1,6 @@
 package com.tianyalei.jipiao.core.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tianyalei.jipiao.core.model.base.BaseIdEntity;
 
 import javax.persistence.Basic;
@@ -7,56 +8,102 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 /**
- * @author wuweifeng wrote on 2018/11/1.
- */
+* 会员亲属关系表
+* @author Bai
+* @date 2019/01/07 11:00
+*/
 @Entity
 @Table(name = "M_MemberRelationShip", catalog = "")
-public class MMemberRelationShipEntity extends BaseIdEntity {
-    private String cardNum;
-    private String kinsfolkCardNum;
-    private String kinsfolkRealName;
-    private String relationshipType;
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
+public class MMemberRelationShipEntity extends BaseIdEntity{
 
+        /**
+        *
+        */
+        @Basic
+        @Column(name = "CardNum")
+        private String cardNum;
+        /**
+        *亲属卡号
+        */
+        @Basic
+        @Column(name = "KinsfolkCardNum")
+        private String kinsfolkCardNum;
+        /**
+        *亲属姓名
+        */
+        @Basic
+        @Column(name = "KinsfolkRealName")
+        private String kinsfolkRealName;
+        /**
+        *关系类型
+        */
+        @Basic
+        @Column(name = "RelationshipType")
+        private String relationshipType;
+        /**
+        *是否可用
+        */
+        @Basic
+        @Column(name = "IsEnable")
+        private Boolean isEnable;
 
-    @Basic
-    @Column(name = "CardNum")
-    public String getCardNum() {
-        return cardNum;
-    }
-
-    public void setCardNum(String cardNum) {
+        public String getCardNum() {
+        return this.cardNum;
+        }
+        public void setCardNum(String cardNum) {
         this.cardNum = cardNum;
-    }
+        }
 
-    @Basic
-    @Column(name = "KinsfolkCardNum")
-    public String getKinsfolkCardNum() {
-        return kinsfolkCardNum;
-    }
 
-    public void setKinsfolkCardNum(String kinsfolkCardNum) {
+
+
+
+        public String getKinsfolkCardNum() {
+        return this.kinsfolkCardNum;
+        }
+        public void setKinsfolkCardNum(String kinsfolkCardNum) {
         this.kinsfolkCardNum = kinsfolkCardNum;
-    }
+        }
 
-    @Basic
-    @Column(name = "KinsfolkRealName")
-    public String getKinsfolkRealName() {
-        return kinsfolkRealName;
-    }
 
-    public void setKinsfolkRealName(String kinsfolkRealName) {
+
+
+
+        public String getKinsfolkRealName() {
+        return this.kinsfolkRealName;
+        }
+        public void setKinsfolkRealName(String kinsfolkRealName) {
         this.kinsfolkRealName = kinsfolkRealName;
-    }
+        }
 
-    @Basic
-    @Column(name = "RelationshipType")
-    public String getRelationshipType() {
-        return relationshipType;
-    }
 
-    public void setRelationshipType(String relationshipType) {
+
+
+
+        public String getRelationshipType() {
+        return this.relationshipType;
+        }
+        public void setRelationshipType(String relationshipType) {
         this.relationshipType = relationshipType;
-    }
+        }
+
+
+
+
+
+
+
+
+
+        public Boolean getIsEnable() {
+        return this.isEnable;
+        }
+        public void setIsEnable(Boolean isEnable) {
+        this.isEnable = isEnable;
+        }
+
 
 }

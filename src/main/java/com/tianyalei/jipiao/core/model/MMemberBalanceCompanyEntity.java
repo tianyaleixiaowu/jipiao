@@ -6,6 +6,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * @author wuweifeng wrote on 2018/11/1.
@@ -18,7 +19,6 @@ public class MMemberBalanceCompanyEntity extends BaseIdEntity {
     private String companyName;
     private Integer travelLevelId;
     private boolean isEnable = true;
-
 
     @Basic
     @Column(name = "CardNum")
